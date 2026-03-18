@@ -71,7 +71,3 @@ npm run lint
 - [Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Heroicons](https://heroicons.com/)
-
-## License
-
-MIT
