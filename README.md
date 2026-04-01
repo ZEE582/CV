@@ -12,7 +12,6 @@ A modern interactive platform designed to help users explore career opportunitie
 * 🧊 Glass UI design with blur and glow effects
 * 🖱️ Interactive 3D cards (Tilt + Mouse tracking)
 * 📱 Fully responsive design
-* 📂 Sidebar and dropdown navigation system
 * ✍️ Dynamic text animations with highlighting effects
 
 ---
