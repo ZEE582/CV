@@ -39,33 +39,6 @@ src/
 
 ---
 
-## ⚙️ Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/ttwar-platform.git
-```
-
-### 2. Navigate into the project directory
-
-```bash
-cd ttwar-platform
-```
-
-### 3. Install dependencies
-
-```bash
-npm install
-```
-
-### 4. Start the development server
-
-```bash
-npm run dev
-```
-
----
 
 ## 🌐 Usage
 
@@ -98,29 +71,3 @@ This project focuses on delivering a high-end user interface inspired by modern 
 * Motion-driven interactions
 
 ---
-
-## 📈 Future Improvements
-
-* API integration for real data
-* Authentication system (Login / Signup)
-* Multi-page routing with transitions
-* Dashboard with analytics
-* Advanced 3D visuals using Three.js
-
----
-
-## 🧑‍💻 Author
-
-Developed with passion and attention to detail.
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-## ⭐ Support
-
-If you like this project, consider giving it a star ⭐ on GitHub to support the work.
