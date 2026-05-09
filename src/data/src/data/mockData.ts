@@ -47,27 +47,113 @@ export const mockTransactions = [
     cost: 90,
   },
 ];
-
+ 
 export const mockDataTeam = [
   {
     id: 1,
-    name: "Admin User",
-    age: 30,
-    phone: "0591234567",
-    email: "admin@test.com",
-    access: "admin",
+    name: "Yousef",
+    age: 20,
+    phone: "0594444444",
+    email: "yousef@gmail.com",
+    access: "Leader",
+    role: "Back-End Developer",
+  },
+
+  {
+    id: 2,
+    name: "Nada Nour",
+    age: 20,
+    phone: "0591111111",
+    email: "nada@gmail.com",
+    access: "Team Member",
+    role: "Front-End Developer",
+  },
+
+  {
+    id: 3,
+    name: "Sura",
+    age: 20,
+    phone: "0592222222",
+    email: "sura@gmail.com",
+    access: "Team Member",
+    role: "UI/UX Designer",
+  },
+
+  {
+    id: 4,
+    name: "Waseem",
+    age: 20,
+    phone: "0593333333",
+    email: "waseem@gmail.com",
+    access: "Team Member",
+    role: "Front-End Developer",
+  },
+
+  {
+    id: 5,
+    name: "Abeer",
+    age: 20,
+    phone: "0595555555",
+    email: "abeer@gmail.com",
+    access: "Team Member",
+    role: "Database Manager",
   },
 ];
 
 export const mockDataContacts = [
   {
     id: 1,
-    name: "User One",
-    age: 25,
+    name: "Yousef",
+    role: "Leader",
+    age: 20,
+    phone: "0594444444",
+    email: "yousef@gmail.com",
+    address: "Nablus",
+    city: "Nablus",
+    zipCode: "0000",
+  },
+  {
+    id: 2,
+    name: "Nada Nour",
+    role: "Team Member",
+    age: 20,
     phone: "0591111111",
-    email: "u1@test.com",
-    address: "Ramallah",
-    city: "Ramallah",
+    email: "nada@gmail.com",
+    address: "Nablus",
+    city: "Nablus",
+    zipCode: "0000",
+  },
+  {
+    id: 3,
+    name: "Sura",
+    role: "Team Member",
+    age: 20,
+    phone: "0592222222",
+    email: "sura@gmail.com",
+    address: "Nablus",
+    city: "Nablus",
+    zipCode: "0000",
+  },
+  {
+    id: 4,
+    name: "Waseem",
+    role: "Team Member",
+    age: 20,
+    phone: "0593333333",
+    email: "waseem@gmail.com",
+    address: "Nablus",
+    city: "Nablus",
+    zipCode: "0000",
+  },
+  {
+    id: 5,
+    name: "Abeer",
+    role: "Team Member",
+    age: 20,
+    phone: "0595555555",
+    email: "abeer@gmail.com",
+    address: "Nablus",
+    city: "Nablus",
     zipCode: "0000",
   },
 ];
@@ -81,4 +167,4 @@ export const mockDataInvoices = [
     cost: 200,
     date: "2026-05-01",
   },
-];
+]

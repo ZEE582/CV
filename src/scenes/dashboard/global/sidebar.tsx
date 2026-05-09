@@ -8,6 +8,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 
 interface ItemProps {
@@ -72,21 +73,14 @@ const Sidebar = () => {
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-
-          {/* TOP / TOGGLE */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={<MenuOutlinedIcon />}
             style={{ color: colors.grey[100] }}
           >
-            {!isCollapsed && (
-              <Typography variant="h3">
-                ADMINIS
-              </Typography>
-            )}
+            {!isCollapsed && <Typography variant="h3">ADMINIS</Typography>}
           </MenuItem>
 
-          {/* ITEMS */}
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
@@ -113,6 +107,14 @@ const Sidebar = () => {
             />
 
             <Item
+              title="Calendar"
+              to="/calendar"
+              icon={<CalendarTodayOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
               title="Invoices"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
@@ -120,7 +122,6 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
           </Box>
-
         </Menu>
       </ProSidebar>
     </Box>
