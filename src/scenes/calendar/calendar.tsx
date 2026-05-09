@@ -10,21 +10,32 @@ type CalendarEvent = {
   id: string;
   title: string;
   date: string;
+  color?: string;
 };
 
 const Calendar: React.FC = () => {
-  const [events, setEvents] = useState<CalendarEvent[]>([
-    {
-      id: "1",
-      title: "Team Meeting",
-      date: "2026-05-10",
-    },
-    {
-      id: "2",
-      title: "CV Review",
-      date: "2026-05-12",
-    },
-  ]);
+ const [events, setEvents] = useState<CalendarEvent[]>([
+  {
+    id: "1",
+    title: "Team Meeting",
+    date: "2026-05-10",
+    color: "#4caf50",
+  },
+
+  {
+    id: "2",
+    title: "CV Review",
+    date: "2026-05-12",
+    color: "#2196f3",
+  },
+
+  {
+    id: "3",
+    title: "Project Deadline",
+    date: "2026-05-15",
+    color: "#f44336",
+  },
+]); 
 
   const [selectedDate, setSelectedDate] = useState("");
 
@@ -35,11 +46,26 @@ const Calendar: React.FC = () => {
     const title = prompt("Enter activity title");
 
     if (title) {
-      const newEvent = {
-        id: `${Date.now()}`,
-        title,
-        date,
-      };
+      let eventColor = "#2196f3";
+
+if (title.toLowerCase().includes("meeting")) {
+  eventColor = "#4caf50";
+}
+
+else if (title.toLowerCase().includes("deadline")) {
+  eventColor = "#f44336";
+}
+
+else if (title.toLowerCase().includes("review")) {
+  eventColor = "#2196f3";
+}
+
+const newEvent = {
+  id: `${Date.now()}`,
+  title,
+  date,
+  color: eventColor,
+};
 
       setEvents([...events, newEvent]);
     }
