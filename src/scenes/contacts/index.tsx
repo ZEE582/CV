@@ -1,16 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, TextField, useTheme } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import Header from "../../components/header";
-import { mockDataContacts } from "../../data/src/data/mockData";
+
+type Contact = {
+  id: number;
+  name: string;
+  role: string;
+  age: number;
+  phone: string;
+  email: string;
+  address: string;
+};
 
 const Contacts: React.FC = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [searchText, setSearchText] = useState("");
 
-  const filteredContacts = mockDataContacts.filter((contact) =>
+  const [searchText, setSearchText] = useState("");
+  const [contacts, setContacts] = useState<Contact[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5001/contacts")
+      .then((res) => res.json())
+      .then((data) => setContacts(data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(searchText.toLowerCase()) ||
     contact.email.toLowerCase().includes(searchText.toLowerCase()) ||
     contact.phone.includes(searchText)
@@ -42,28 +60,7 @@ const Contacts: React.FC = () => {
         }}
       />
 
-      <Box
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
-          },
-          "& .MuiDataGrid-footerContainer": {
-            backgroundColor: colors.blueAccent[700],
-            borderTop: "none",
-          },
-        }}
-      >
+      <Box height="75vh">
         <DataGrid rows={filteredContacts} columns={columns} />
       </Box>
     </Box>

@@ -47,7 +47,7 @@ export const mockTransactions = [
     cost: 90,
   },
 ];
- 
+
 export const mockDataTeam = [
   {
     id: 1,
@@ -57,6 +57,8 @@ export const mockDataTeam = [
     email: "yousef@gmail.com",
     access: "Leader",
     role: "Back-End Developer",
+    image:
+      "https://api.dicebear.com/7.x/personas/svg?seed=Jack&backgroundColor=3b82f6",
   },
 
   {
@@ -67,6 +69,8 @@ export const mockDataTeam = [
     email: "nada@gmail.com",
     access: "Team Member",
     role: "Front-End Developer",
+    image:
+      "https://api.dicebear.com/7.x/personas/svg?seed=Amelia1&backgroundColor=a855f7",
   },
 
   {
@@ -77,6 +81,8 @@ export const mockDataTeam = [
     email: "sura@gmail.com",
     access: "Team Member",
     role: "UI/UX Designer",
+   image:
+"https://api.dicebear.com/7.x/personas/svg?seed=OliviaGirl&backgroundColor=ec4899",
   },
 
   {
@@ -87,17 +93,22 @@ export const mockDataTeam = [
     email: "waseem@gmail.com",
     access: "Team Member",
     role: "Front-End Developer",
+    image:
+      "https://api.dicebear.com/7.x/personas/svg?seed=Michael&backgroundColor=06b6d4",
   },
 
   {
-    id: 5,
-    name: "Abeer",
-    age: 20,
-    phone: "0595555555",
-    email: "abeer@gmail.com",
-    access: "Team Member",
-    role: "Database Manager",
-  },
+  id: 5,
+  name: "Abeer",
+  age: 20,
+  phone: "0595555555",
+  email: "abeer@gmail.com",
+  access: "Team Member",
+  role: "Database Manager",
+  image:
+    "https://api.dicebear.com/7.x/personas/svg?seed=Amelia&backgroundColor=f43f5e",
+},
+ 
 ];
 
 export const mockDataContacts = [
@@ -112,6 +123,7 @@ export const mockDataContacts = [
     city: "Nablus",
     zipCode: "0000",
   },
+
   {
     id: 2,
     name: "Nada Nour",
@@ -123,6 +135,7 @@ export const mockDataContacts = [
     city: "Nablus",
     zipCode: "0000",
   },
+
   {
     id: 3,
     name: "Sura",
@@ -134,6 +147,7 @@ export const mockDataContacts = [
     city: "Nablus",
     zipCode: "0000",
   },
+
   {
     id: 4,
     name: "Waseem",
@@ -145,6 +159,7 @@ export const mockDataContacts = [
     city: "Nablus",
     zipCode: "0000",
   },
+
   {
     id: 5,
     name: "Abeer",
@@ -167,4 +182,4 @@ export const mockDataInvoices = [
     cost: 200,
     date: "2026-05-01",
   },
-]
+];

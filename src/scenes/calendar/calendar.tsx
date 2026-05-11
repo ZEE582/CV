@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import type { EventClickArg, DateSelectArg } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -14,30 +14,15 @@ type CalendarEvent = {
 };
 
 const Calendar: React.FC = () => {
- const [events, setEvents] = useState<CalendarEvent[]>([
-  {
-    id: "1",
-    title: "Team Meeting",
-    date: "2026-05-10",
-    color: "#4caf50",
-  },
-
-  {
-    id: "2",
-    title: "CV Review",
-    date: "2026-05-12",
-    color: "#2196f3",
-  },
-
-  {
-    id: "3",
-    title: "Project Deadline",
-    date: "2026-05-15",
-    color: "#f44336",
-  },
-]); 
-
+  const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [selectedDate, setSelectedDate] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:5001/events")
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   const handleDateSelect = (selected: DateSelectArg) => {
     const date = selected.startStr;
@@ -48,26 +33,32 @@ const Calendar: React.FC = () => {
     if (title) {
       let eventColor = "#2196f3";
 
-if (title.toLowerCase().includes("meeting")) {
-  eventColor = "#4caf50";
-}
+      if (title.toLowerCase().includes("meeting")) {
+        eventColor = "#4caf50";
+      } else if (title.toLowerCase().includes("deadline")) {
+        eventColor = "#f44336";
+      } else if (title.toLowerCase().includes("review")) {
+        eventColor = "#2196f3";
+      }
 
-else if (title.toLowerCase().includes("deadline")) {
-  eventColor = "#f44336";
-}
+      const newEvent = {
+        id: `${Date.now()}`,
+        title,
+        date,
+        color: eventColor,
+      };
 
-else if (title.toLowerCase().includes("review")) {
-  eventColor = "#2196f3";
-}
-
-const newEvent = {
-  id: `${Date.now()}`,
-  title,
-  date,
-  color: eventColor,
-};
-
-      setEvents([...events, newEvent]);
+      fetch("http://localhost:5001/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newEvent),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setEvents([...events, data]);
+        });
     }
   };
 
@@ -75,7 +66,11 @@ const newEvent = {
     const eventId = clickInfo.event.id;
 
     if (window.confirm("Delete this activity?")) {
-      setEvents(events.filter((event) => event.id !== eventId));
+      fetch(`http://localhost:5001/events/${eventId}`, {
+        method: "DELETE",
+      }).then(() => {
+        setEvents(events.filter((event) => event.id !== eventId));
+      });
     }
   };
 
@@ -86,6 +81,23 @@ const newEvent = {
   return (
     <Box m="20px">
       <Header title="CALENDAR" subtitle="Daily Activities" />
+
+      <Box display="flex" gap="20px" mb="20px" flexWrap="wrap">
+        <Box display="flex" alignItems="center" gap="8px">
+          <Box width="15px" height="15px" borderRadius="50%" bgcolor="#4caf50" />
+          <Typography color="white">Meeting</Typography>
+        </Box>
+
+        <Box display="flex" alignItems="center" gap="8px">
+          <Box width="15px" height="15px" borderRadius="50%" bgcolor="#2196f3" />
+          <Typography color="white">Review</Typography>
+        </Box>
+
+        <Box display="flex" alignItems="center" gap="8px">
+          <Box width="15px" height="15px" borderRadius="50%" bgcolor="#f44336" />
+          <Typography color="white">Deadline</Typography>
+        </Box>
+      </Box>
 
       <Box display="flex" gap="20px">
         <Box flex="1">
@@ -125,7 +137,7 @@ const newEvent = {
                 <ListItem
                   key={activity.id}
                   sx={{
-                    backgroundColor: "#3e4396",
+                    backgroundColor: activity.color || "#3e4396",
                     mb: "10px",
                     borderRadius: "6px",
                   }}

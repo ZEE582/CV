@@ -1,97 +1,93 @@
-import { Box, useTheme, Chip } from "@mui/material";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
+import { Box, Typography } from "@mui/material";
 import Header from "../../components/header";
-import { mockDataTeam } from "../../data/src/data/mockData";
+import { useEffect, useState } from "react";
 
-const Team: React.FC = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+type TeamMember = {
+  id: number;
+  name: string;
+  age: number;
+  phone: string;
+  email: string;
+  access: string;
+  role: string;
+  image: string;
+};
 
-  const columns: GridColDef[] = [
-    {
-      field: "name",
-      headerName: "Name",
-      flex: 1,
-    },
+const Team = () => {
+  const [team, setTeam] = useState<TeamMember[]>([]);
 
-    {
-      field: "role",
-      headerName: "Job Role",
-      flex: 1,
-    },
-
-    {
-      field: "phone",
-      headerName: "Phone",
-      flex: 1,
-    },
-
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
-
-    {
-      field: "access",
-      headerName: "Position",
-      flex: 1,
-
-      renderCell: (params) => {
-        const color =
-          params.value === "Leader"
-            ? colors.greenAccent[500]
-            : params.value === "Team Member"
-            ? colors.blueAccent[500]
-            : colors.redAccent[500];
-
-        return (
-          <Chip
-            label={params.value}
-            sx={{
-              backgroundColor: color,
-              color: "#fff",
-              fontWeight: "bold",
-            }}
-          />
-        );
-      },
-    },
-  ];
+  useEffect(() => {
+    fetch("http://localhost:5001/team")
+      .then((res) => res.json())
+      .then((data) => setTeam(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <Box m="20px">
       <Header title="TEAM" subtitle="Team Members Information" />
 
-      <Box
-        m="40px 0 0 0"
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
+      <Box display="flex" gap="25px" flexWrap="wrap" mt="30px">
+        {team.map((member) => (
+          <Box
+            key={member.id}
+            sx={{
+              width: "260px",
+              backgroundColor: "#374151",
+              borderRadius: "15px",
+              padding: "20px",
+              transition: "0.3s",
+              boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
 
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
+              "&:hover": {
+                transform: "translateY(-10px)",
+              },
+            }}
+          >
+            <Box
+              component="img"
+              src={member.image}
+              alt={member.name}
+              sx={{
+                width: "80px",
+                height: "80px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                mb: 2,
+              }}
+            />
 
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
-          },
+            <Typography
+              variant="h5"
+              color="#fff"
+              fontWeight="bold"
+              mb={1}
+            >
+              {member.name}
+            </Typography>
 
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
-          },
+            <Typography variant="body1" color="#d1d5db" mb={1}>
+              {member.role}
+            </Typography>
 
-          "& .MuiDataGrid-footerContainer": {
-            backgroundColor: colors.blueAccent[700],
-            borderTop: "none",
-          },
-        }}
-      >
-        <DataGrid rows={mockDataTeam} columns={columns} />
+            <Typography variant="body2" color="#9ca3af">
+              {member.email}
+            </Typography>
+
+            <Typography
+              variant="body2"
+              color={
+                member.access === "Leader"
+                  ? "#4ade80"
+                  : "#60a5fa"
+              }
+              mt={2}
+              fontWeight="bold"
+            >
+              {member.access}
+            </Typography>
+          </Box>
+        ))}
       </Box>
     </Box>
   );
