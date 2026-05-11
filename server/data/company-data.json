@@ -1,0 +1,3459 @@
+﻿{
+  "companies": [
+    {
+      "id": "1",
+      "city": "Ramallah",
+      "company_logo": "ivas.png",
+      "company_name": "iVAS Communications Ltd",
+      "tech_stack": {
+        "tech_stack": [
+          "devops",
+          "database",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "mobile"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "name": "Vue"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "📱 React Native",
+            "emoji": "📱"
+          }
+        ]
+      },
+      "website": "https://www.ivas.ps/"
+    },
+    {
+      "id": "2",
+      "city": "Nablus",
+      "company_logo": "Xngage.png",
+      "company_name": "Xngage",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.simpleicons.org/googleanalytics",
+            "name": "Google Analytics"
+          }
+        ],
+        "tech_stack": [
+          "analytics",
+          "database",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "mobile",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+            "name": "MSSQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "PostgreSQL"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "name": "Vue"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "📱 React Native",
+            "emoji": "📱"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "🔷 Azure",
+            "emoji": "🔷"
+          }
+        ]
+      },
+      "website": "https://www.xngage.com"
+    },
+    {
+      "id": "3",
+      "city": "Ramallah",
+      "company_logo": "Userpilot.png",
+      "company_name": "Userpilot",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/clickhouse/clickhouse-original.svg",
+            "name": "ClickHouse"
+          }
+        ],
+        "tech_stack": [
+          "analytics",
+          "database",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phoenix/phoenix-original.svg",
+            "name": "Phoenix"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "🟢 Node.js",
+            "emoji": "🟢"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elixir/elixir-original.svg",
+            "name": "💧 Elixir",
+            "emoji": "💧"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "🐘 PostgreSQL",
+            "emoji": "🐘"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elixir/elixir-original.svg",
+            "name": "Elixir"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ]
+      },
+      "website": "https://www.jobs.ps/employers/userpilot"
+    },
+    {
+      "id": "4",
+      "city": "Ramallah",
+      "company_logo": "ULTIMIT.png",
+      "company_name": "ULTIMIT",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.simpleicons.org/qlik",
+            "name": "Qlik"
+          }
+        ],
+        "tech_stack": [
+          "analytics",
+          "database",
+          "devops",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "mobile"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": "ABP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "Azure"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "⚛️ React",
+            "emoji": "⚛️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "📱 React Native",
+            "emoji": "📱"
+          }
+        ]
+      },
+      "website": "https://www.ultimitats.com/"
+    },
+    {
+      "id": "5",
+      "city": "Ramallah",
+      "company_logo": "Telysoft.png",
+      "company_name": "Telysoft",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.simpleicons.org/looker",
+            "name": "Looker"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/tableau",
+            "name": "Tableau"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/databricks",
+            "name": "Databricks"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/apachezeppelin",
+            "name": "Zeppelin"
+          }
+        ],
+        "tech_stack": [
+          "analytics",
+          "database",
+          "devops",
+          "mobile",
+          "backend",
+          "programming_languages",
+          "frontend"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+            "name": "🔵 C",
+            "emoji": "🔵"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+            "name": "⚡ C++",
+            "emoji": "⚡"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg",
+            "name": "🔴 Scala",
+            "emoji": "🔴"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg",
+            "name": "SparkSQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg",
+            "name": "GitLab"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+            "name": "GCP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg",
+            "name": "Jenkins"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            "name": "Next.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+            "name": "Kotlin"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React Native"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+            "name": "C"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+            "name": "C++"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg",
+            "name": "Scala"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          }
+        ]
+      },
+      "website": "https://www.telysoft.com"
+    },
+    {
+      "id": "6",
+      "city": "Hebron",
+      "company_logo": "Sanobar Soft.jpg",
+      "company_name": "Sanobar Soft",
+      "tech_stack": {
+        "tech_stack": ["database", "mobile", "backend"],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.simpleicons.org/graphql",
+            "name": "GraphQL"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ]
+      },
+      "website": "https://sanobar.net/"
+    },
+    {
+      "id": "7",
+      "city": "Ramallah",
+      "company_logo": "Safarway.png",
+      "company_name": "Safarway",
+      "tech_stack": {
+        "tech_stack": [
+          "backend",
+          "frontend",
+          "programming_languages",
+          "devops",
+          "mobile"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React Native"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "https://safarway.com/"
+    },
+    {
+      "id": "8",
+      "city": "Nablus",
+      "company_logo": "Reconess.png",
+      "company_name": "Reconess",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg",
+            "name": "Grafana"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/datadog/datadog-original.svg",
+            "name": "Datadog"
+          }
+        ],
+        "tech_stack": [
+          "backend",
+          "frontend",
+          "programming_languages",
+          "analytics",
+          "database",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+            "name": "Flask"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.simpleicons.org/graphql",
+            "name": "GraphQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg",
+            "name": "Hibernate"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "PostgreSQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg",
+            "name": "Jenkins"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg",
+            "name": "GitLab"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "Azure"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+            "name": "Vercel"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            "name": "Next.js"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          }
+        ]
+      },
+      "website": "https://reconess.com/"
+    },
+    {
+      "id": "9",
+      "city": "Nablus",
+      "company_logo": "Radix Technologies.png",
+      "company_name": "Radix Technologies",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "devops",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "🐘 PostgreSQL",
+            "emoji": "🐘"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "Azure"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+            "name": "Kubernetes"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg",
+            "name": "Ansible"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg",
+            "name": "Jenkins"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg",
+            "name": "Terraform"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg",
+            "name": "GitLab"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "name": "Vue"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+            "name": "Kotlin"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+            "name": "Swift"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xamarin/xamarin-original.svg",
+            "name": "Xamarin"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "https://radixtechs.com/"
+    },
+    {
+      "id": "10",
+      "city": "Ramallah",
+      "company_logo": "Quizplus.png",
+      "company_name": "Quizplus",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "devops",
+          "mobile",
+          "backend",
+          "programming_languages",
+          "frontend"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg",
+            "name": "Hibernate"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+            "name": "Kubernetes"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg",
+            "name": "Terraform"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg",
+            "name": "Prometheus"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg",
+            "name": "Grafana"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "name": "Vue"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          }
+        ]
+      },
+      "website": "https://www.quizplus.com/"
+    },
+    {
+      "id": "11",
+      "city": "Ramallah",
+      "company_logo": "ProGineer Technologies.png",
+      "company_name": "ProGineer Technologies",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg",
+            "name": "Apache Spark"
+          }
+        ],
+        "tech_stack": [
+          "analytics",
+          "database",
+          "devops",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+            "name": "Spring Boot"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": "SignalR"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+            "name": "⚡ C++",
+            "emoji": "⚡"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg",
+            "name": "🔧 R",
+            "emoji": "🔧"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg",
+            "name": "🔴 Scala",
+            "emoji": "🔴"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cassandra/cassandra-original.svg",
+            "name": "Cassandra"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+            "name": "C++"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg",
+            "name": "R"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+            "name": "C"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg",
+            "name": "Scala"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/perl/perl-original.svg",
+            "name": "Perl"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "https://www.progineer.net/"
+    },
+    {
+      "id": "12",
+      "city": "Hebron",
+      "company_logo": "Hebronsoft.png",
+      "company_name": "Hebronsoft",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "Azure Data Factory"
+          }
+        ],
+        "tech_stack": [
+          "analytics",
+          "devops",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "database"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "Azure"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+            "name": "Dart"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "name": "🍃 MongoDB",
+            "emoji": "🍃"
+          }
+        ]
+      },
+      "website": "https://www.hebronsoft.com"
+    },
+    {
+      "id": "13",
+      "city": "Ramallah",
+      "company_logo": "Harri.png",
+      "company_name": "Harri",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg",
+            "name": "Elasticsearch"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg",
+            "name": "Apache Hadoop"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg",
+            "name": "Apache Spark"
+          }
+        ],
+        "tech_stack": [
+          "backend",
+          "programming_languages",
+          "frontend",
+          "analytics",
+          "database",
+          "devops",
+          "mobile"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+            "name": "Spring Boot"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "PostgreSQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/amazonredshift",
+            "name": "Amazon Redshift"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+            "name": "Swift"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+            "name": "Kotlin"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          }
+        ]
+      },
+      "website": "https://www.harri.com"
+    },
+    {
+      "id": "14",
+      "city": "Nablus",
+      "company_logo": "Quartz Technologies (QTZ).jpg",
+      "company_name": "Quartz Technologies (QTZ)",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
+            "name": "Kafka"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/apacheflink",
+            "name": "Flink"
+          }
+        ],
+        "tech_stack": [
+          "programming_languages",
+          "analytics",
+          "database",
+          "devops",
+          "backend",
+          "frontend"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "PostgreSQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+            "name": "MSSQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "name": "MongoDB"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cassandra/cassandra-original.svg",
+            "name": "Cassandra"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+            "name": "Kubernetes"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "https://quartz-solutions.net/"
+    },
+    {
+      "id": "15",
+      "city": "Ramallah",
+      "company_logo": "IQVIA.jpg",
+      "company_name": "IQVIA",
+      "tech_stack": {
+        "tech_stack": ["database", "backend", "programming_languages"],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+            "name": "Spring Boot"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          }
+        ]
+      },
+      "website": "https://www.iqvia.com"
+    },
+    {
+      "id": "16",
+      "city": "Ramallah",
+      "company_logo": "Freightos.jpg",
+      "company_name": "Freightos",
+      "tech_stack": {
+        "tech_stack": [
+          "backend",
+          "frontend",
+          "programming_languages",
+          "database",
+          "devops",
+          "mobile"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+            "name": "Spring Boot"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg",
+            "name": "Hibernate"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "name": "MongoDB"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/graphql",
+            "name": "GraphQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/camunda",
+            "name": "Camunda BPM"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg",
+            "name": "Jenkins"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+            "name": "Kubernetes"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "📱 React Native",
+            "emoji": "📱"
+          }
+        ]
+      },
+      "website": "https://www.freightos.com"
+    },
+    {
+      "id": "17",
+      "city": "Ramallah",
+      "company_logo": "EXALT Technologies Ltd.png",
+      "company_name": "EXALT Technologies Ltd",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "devops",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+            "name": "Flask"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+            "name": "Spring Boot"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "name": "MongoDB"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg",
+            "name": "MariaDB"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+            "name": "Kubernetes"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg",
+            "name": "Ansible"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openstack/openstack-original.svg",
+            "name": "OpenStack"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/backbonejs/backbonejs-original.svg",
+            "name": "BackboneJS"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+            "name": "Swift"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          }
+        ]
+      },
+      "website": "https://www.exalt-tech.com/"
+    },
+    {
+      "id": "18",
+      "city": "Ramallah",
+      "company_logo": "Bisan Systems.png",
+      "company_name": "Bisan Systems",
+      "tech_stack": {
+        "tech_stack": [
+          "frontend",
+          "programming_languages",
+          "database",
+          "backend",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+            "name": "Spring Boot"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "PostgreSQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "name": "MongoDB"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+            "name": "MSSQL"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ]
+      },
+      "website": "https://www.bisan.com"
+    },
+    {
+      "id": "19",
+      "city": "Rawabi",
+      "company_logo": "ASAL Technologies.jpg",
+      "company_name": "ASAL Technologies",
+      "tech_stack": {
+        "tech_stack": [
+          "devops",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "Azure"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "name": "Vue"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React Native"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+            "name": "Swift"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+            "name": "Kotlin"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+            "name": "C++"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+            "name": "C"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "https://www.asaltech.com"
+    },
+    {
+      "id": "20",
+      "city": "Nablus",
+      "company_logo": "endeavor.jpg",
+      "company_name": "Endeavor Pal",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cakephp/cakephp-original.svg",
+            "name": "CakePHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/magento/magento-original.svg",
+            "name": "Magento"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/ibm",
+            "name": "IBM WebSphere"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "name": "MongoDB"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
+            "name": "jQuery"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/sencha",
+            "name": "Ext JS"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "https://www.endeavorpal.com"
+    },
+    {
+      "id": "21",
+      "city": "Nablus",
+      "company_logo": "isra.jpg",
+      "company_name": "Isra Software & Computer Co.",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "devops",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+            "name": "MSSQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/asterisk",
+            "name": "Asterisk"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React Native"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          }
+        ]
+      },
+      "website": "https://www.iscosoft.com/"
+    },
+    {
+      "id": "22",
+      "city": "Nablus",
+      "company_logo": "iris.png",
+      "company_name": "Iris Solutions",
+      "tech_stack": {
+        "tech_stack": ["mobile", "programming_languages"],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+            "name": "Kotlin"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          }
+        ]
+      },
+      "website": "https://www.iris.ps/"
+    },
+    {
+      "id": "23",
+      "city": "Nablus",
+      "company_logo": "ITG Software, Inc.jpg",
+      "company_name": "ITG Software, Inc.",
+      "tech_stack": {
+        "tech_stack": [
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "database",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/capacitor/capacitor-original.svg",
+            "name": "Capacitor.js"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg",
+            "name": "Hibernate"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "name": "MongoDB"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/graphql",
+            "name": "GraphQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+            "name": "GCP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+            "name": "Kubernetes"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            "name": "Next.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/capacitor/capacitor-original.svg",
+            "name": "Capacitor.js"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+            "name": "Kotlin"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React Native"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+            "name": "Swift"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          }
+        ]
+      },
+      "website": "https://www.itgsoftware.com/"
+    },
+    {
+      "id": "24",
+      "city": "Hebron",
+      "company_logo": "actps.jpg",
+      "company_name": "Artistic Code Technologies",
+      "tech_stack": {
+        "tech_stack": ["frontend", "programming_languages", "devops"],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg",
+            "name": "Firebase"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg",
+            "name": "Ionic"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "https://www.act.ps/"
+    },
+    {
+      "id": "25",
+      "city": "Hebron",
+      "company_logo": "Alzahidi Tech.png",
+      "company_name": "Alzahidi Tech",
+      "tech_stack": {
+        "tech_stack": ["database", "backend", "programming_languages"],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg",
+            "name": "Ruby on Rails"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "https://alzahidi-tech.com/"
+    },
+    {
+      "id": "26",
+      "city": "Hebron",
+      "company_logo": "aeliasoft.png",
+      "company_name": "Aeliasoft",
+      "tech_stack": {
+        "tech_stack": [
+          "programming_languages",
+          "backend",
+          "frontend",
+          "mobile",
+          "database",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            "name": "Next.js"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "📱 React Native",
+            "emoji": "📱"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "🐘 PostgreSQL",
+            "emoji": "🐘"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "🐬 MySQL",
+            "emoji": "🐬"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          }
+        ]
+      },
+      "website": "https://www.aeliasoft.com"
+    },
+    {
+      "id": "27",
+      "city": "Hebron",
+      "company_logo": "ahl.png",
+      "company_name": "AHL Logics",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
+            "name": "Kafka"
+          }
+        ],
+        "tech_stack": ["programming_languages", "analytics", "devops"],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg",
+            "name": "Terraform"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg",
+            "name": "Ansible"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/chef",
+            "name": "Chef"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+            "name": "Kubernetes"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+            "name": "Go"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg",
+            "name": "Ruby"
+          }
+        ]
+      },
+      "website": "https://www.ahllogics.com"
+    },
+    {
+      "id": "28",
+      "city": "Ramallah",
+      "company_logo": "m.png",
+      "company_name": "Mazadak",
+      "tech_stack": {
+        "tech_stack": [
+          "devops",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "database"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "Node.js"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.simpleicons.org/graphql",
+            "name": "GraphQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "Docker"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            "name": "Next.js"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+            "name": "Kotlin"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+            "name": "Swift"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+            "name": "TypeScript"
+          }
+        ]
+      },
+      "website": "https://www.mazadak.com"
+    },
+    {
+      "id": "29",
+      "city": "Ramallah",
+      "company_logo": "appia.png",
+      "company_name": "AppiaTech",
+      "tech_stack": {
+        "tech_stack": [
+          "devops",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "mobile",
+          "database"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "🟢 Node.js",
+            "emoji": "🟢"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "Azure"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "⚛️ React",
+            "emoji": "⚛️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+            "name": "🔷 TypeScript",
+            "emoji": "🔷"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+            "name": "TypeScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+            "name": "🐦 Swift",
+            "emoji": "🐦"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "💙 Flutter",
+            "emoji": "💙"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "name": "🍃 MongoDB",
+            "emoji": "🍃"
+          }
+        ]
+      },
+      "website": "https://www.appiatech.com"
+    },
+    {
+      "id": "30",
+      "city": "Ramallah",
+      "company_logo": "iconnect.png",
+      "company_name": "IConnect Technologies",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+            "name": "MSSQL"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          }
+        ]
+      },
+      "website": "https://www.iconnect-tech.com/"
+    },
+    {
+      "id": "31",
+      "city": "Ramallah",
+      "company_logo": "al.jpg",
+      "company_name": "Al-Ghassan Systems",
+      "tech_stack": {
+        "tech_stack": [
+          "programming_languages",
+          "database",
+          "devops",
+          "mobile",
+          "backend",
+          "frontend"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+            "name": "MSSQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "Azure"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+            "name": "Kotlin"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          }
+        ]
+      },
+      "website": "https://www.alghassan.ps/"
+    },
+    {
+      "id": "32",
+      "city": "Ramallah",
+      "company_logo": "ads.png",
+      "company_name": "Al Andalus Software Development",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.simpleicons.org/tableau",
+            "name": "Tableau"
+          }
+        ],
+        "tech_stack": [
+          "analytics",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vaadin/vaadin-original.svg",
+            "name": "Vaadin"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vaadin/vaadin-original.svg",
+            "name": "Vaadin"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+            "name": "Dart"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/tableau",
+            "name": "📊 Tableau",
+            "emoji": "📊"
+          }
+        ]
+      },
+      "website": "https://www.asd.ps/"
+    },
+    {
+      "id": "33",
+      "city": "Ramallah",
+      "company_logo": "advice.jpg",
+      "company_name": "Advice Technologies",
+      "tech_stack": {
+        "tech_stack": ["database", "backend", "programming_languages"],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
+            "name": "MSSQL"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          }
+        ]
+      },
+      "website": "https://advice.ps/"
+    },
+    {
+      "id": "34",
+      "city": "Ramallah",
+      "company_logo": "OliveryApp.jpg",
+      "company_name": "OliveryApp",
+      "tech_stack": {
+        "tech_stack": ["programming_languages", "frontend", "backend"],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          }
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          }
+        ]
+      },
+      "website": "https://website.olivery.app/"
+    },
+    {
+      "id": "35",
+      "city": "Ramallah",
+      "company_logo": "erpmax.png",
+      "company_name": "ERPMax Solutions",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "devops",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/frappe",
+            "name": "Frappe"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.simpleicons.org/frappe",
+            "name": "Frappe"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/jinja",
+            "name": "Jinja"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          }
+        ]
+      },
+      "website": "https://www.erpmaxsolutions.com"
+    },
+    {
+      "id": "36",
+      "city": "Bethlehem",
+      "company_logo": "element.jpg",
+      "company_name": "Element Media",
+      "tech_stack": {
+        "tech_stack": ["mobile", "backend", "programming_languages"],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          }
+        ]
+      },
+      "website": "https://element.ps/"
+    },
+    {
+      "id": "37",
+      "city": "Ramallah",
+      "company_logo": "cystack.jpg",
+      "company_name": "CYSTACK",
+      "tech_stack": {
+        "tech_stack": [
+          "frontend",
+          "programming_languages",
+          "backend",
+          "mobile",
+          "database",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+            "name": "🐹 Go",
+            "emoji": "🐹"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+            "name": "Go"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "💙 Flutter",
+            "emoji": "💙"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "🐬 MySQL",
+            "emoji": "🐬"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "🐘 PostgreSQL",
+            "emoji": "🐘"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          }
+        ]
+      },
+      "website": "https://cystack.ps/"
+    },
+    {
+      "id": "38",
+      "city": "Ramallah",
+      "company_logo": "jaffa.jpg",
+      "company_name": "Jaffa.Net Software",
+      "tech_stack": {
+        "tech_stack": [
+          "backend",
+          "frontend",
+          "programming_languages",
+          "database",
+          "mobile",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "PostgreSQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
+            "name": "🔧 Oracle",
+            "emoji": "🔧"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+            "name": "Angular"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "⚛️ React",
+            "emoji": "⚛️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ]
+      },
+      "website": "https://i-jaffa.net/"
+    },
+    {
+      "id": "39",
+      "city": "Ramallah",
+      "company_logo": "blue.png",
+      "company_name": "Blue Ltd",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "☕ Java",
+            "emoji": "☕"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+            "name": "Dart"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            "name": "Java"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ]
+      },
+      "website": "https://blue.me/"
+    },
+    {
+      "id": "40",
+      "city": "Ramallah",
+      "company_logo": "progmix.png",
+      "company_name": "ProgmiX",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "mobile",
+          "backend",
+          "programming_languages",
+          "frontend",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "⚛️ React",
+            "emoji": "⚛️"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "name": "🔧 Vue.js",
+            "emoji": "🔧"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ]
+      },
+      "website": "https://progmix.dev/"
+    },
+    {
+      "id": "41",
+      "city": "Nablus",
+      "company_logo": "pist.png",
+      "company_name": "PITS",
+      "tech_stack": {
+        "tech_stack": [
+          "backend",
+          "frontend",
+          "programming_languages",
+          "database",
+          "mobile",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "🐘 PostgreSQL",
+            "emoji": "🐘"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "name": "Vue"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+            "name": "🔧 Vue.js",
+            "emoji": "🔧"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+            "name": "Flutter"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "☁️ AWS",
+            "emoji": "☁️"
+          }
+        ]
+      },
+      "website": "https://pits-track.com/ar"
+    },
+    {
+      "id": "42",
+      "city": "Nablus",
+      "company_logo": "foundertherap.png",
+      "company_name": "FounderTherapy",
+      "tech_stack": {
+        "tech_stack": [
+          "database",
+          "devops",
+          "mobile",
+          "backend",
+          "frontend",
+          "programming_languages"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+            "name": "Laravel"
+          },
+          {
+            "icon": "https://cdn.simpleicons.org/django",
+            "name": "Django"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            "name": "🟢 Node.js",
+            "emoji": "🟢"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "🐍 Python",
+            "emoji": "🐍"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+            "name": "🐹 Go",
+            "emoji": "🐹"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "name": "PostgreSQL"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.simpleicons.org/amazonwebservices",
+            "name": "AWS"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+            "name": "GCP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React Native"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+            "name": "Python"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+            "name": "Go"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ]
+      },
+      "website": "http://foundertherapy.co/"
+    },
+    {
+      "id": "43",
+      "city": "Nablus",
+      "company_logo": "foothill.png",
+      "company_name": "Foothill Technology Solutions",
+      "tech_stack": {
+        "analytics": [
+          {
+            "icon": "https://cdn.simpleicons.org/microsoftexcel",
+            "name": "Excel"
+          }
+        ],
+        "tech_stack": [
+          "programming_languages",
+          "analytics",
+          "database",
+          "mobile",
+          "backend",
+          "frontend",
+          "devops"
+        ],
+        "backend": [
+          {
+            "icon": "https://cdn.simpleicons.org/dotnet",
+            "name": ".NET"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "🐘 PHP",
+            "emoji": "🐘"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "💠 C#",
+            "emoji": "💠"
+          }
+        ],
+        "database": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "name": "MySQL"
+          }
+        ],
+        "frontend": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "🟨 JavaScript",
+            "emoji": "🟨"
+          }
+        ],
+        "mobile": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            "name": "React Native"
+          }
+        ],
+        "programming_languages": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            "name": "C#"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+            "name": "PHP"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+            "name": "JavaScript"
+          }
+        ],
+        "devops": [
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+            "name": "🐳 Docker",
+            "emoji": "🐳"
+          },
+          {
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg",
+            "name": "🔷 Azure",
+            "emoji": "🔷"
+          }
+        ]
+      },
+      "website": "https://www.foothillsolutions.com/"
+    }
+  ],
+  "total": 43,
+  "source": "tech_stack.ps",
+  "collected_at": "2026-03-21"
+}
