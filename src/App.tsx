@@ -12,6 +12,10 @@ import Contacts from "./scenes/contacts";
 import Invoices from "./scenes/invoices";
 import Form from "./scenes/Form";
 import Calendar from "./scenes/calendar/calendar";
+import Companies from "./scenes/companies";
+import CompanyDetails from "./scenes/companyDetails";
+import CompanyDashboard from "./scenes/companyDashboard";
+import Applicants from "./scenes/applicants";
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -35,6 +39,10 @@ const App = () => {
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/form" element={<Form />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/companies" element={<Companies />} />
+              <Route path="/company-details" element={<CompanyDetails />} />
+              <Route path="/company-dashboard" element={<CompanyDashboard />} />
+              <Route path="/applicants" element={<Applicants />} />
             </Routes>
           </main>
         </div>

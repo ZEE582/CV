@@ -18,7 +18,6 @@ const team = [
     image:
       "https://api.dicebear.com/7.x/personas/svg?seed=Jack&backgroundColor=3b82f6",
   },
-
   {
     id: 2,
     name: "Nada Nour",
@@ -30,7 +29,6 @@ const team = [
     image:
       "https://api.dicebear.com/7.x/personas/svg?seed=Amelia1&backgroundColor=a855f7",
   },
-
   {
     id: 3,
     name: "Sura",
@@ -42,7 +40,6 @@ const team = [
     image:
       "https://api.dicebear.com/7.x/personas/svg?seed=OliviaGirl&backgroundColor=ec4899",
   },
-
   {
     id: 4,
     name: "Waseem",
@@ -54,7 +51,6 @@ const team = [
     image:
       "https://api.dicebear.com/7.x/personas/svg?seed=Michael&backgroundColor=06b6d4",
   },
-
   {
     id: 5,
     name: "Abeer",
@@ -64,7 +60,7 @@ const team = [
     access: "Team Member",
     role: "Database Manager",
     image:
-      "https://api.dicebear.com/7.x/personas/svg?seed=Amelia3&backgroundColor=f43f5e",
+      "https://api.dicebear.com/7.x/personas/svg?seed=Amelia&backgroundColor=f43f5e",
   },
 ];
 
@@ -78,7 +74,6 @@ const contacts = [
     email: "yousef@gmail.com",
     address: "Nablus",
   },
-
   {
     id: 2,
     name: "Nada Nour",
@@ -88,7 +83,6 @@ const contacts = [
     email: "nada@gmail.com",
     address: "Nablus",
   },
-
   {
     id: 3,
     name: "Sura",
@@ -98,7 +92,6 @@ const contacts = [
     email: "sura@gmail.com",
     address: "Nablus",
   },
-
   {
     id: 4,
     name: "Waseem",
@@ -108,7 +101,6 @@ const contacts = [
     email: "waseem@gmail.com",
     address: "Nablus",
   },
-
   {
     id: 5,
     name: "Abeer",
@@ -127,19 +119,44 @@ let events = [
     date: "2026-05-10",
     color: "#4caf50",
   },
-
   {
     id: "2",
     title: "CV Review",
     date: "2026-05-12",
     color: "#2196f3",
   },
-
   {
     id: "3",
     title: "Project Deadline",
     date: "2026-05-15",
     color: "#f44336",
+  },
+];
+
+let companies = [
+  {
+    id: 1,
+    company_name: "iVAS Communications Ltd",
+    city: "Ramallah",
+    company_logo: "ivas.png",
+    industry: "Technology",
+    status: "Active",
+  },
+  {
+    id: 2,
+    company_name: "Xngage",
+    city: "Nablus",
+    company_logo: "xngage.png",
+    industry: "Software",
+    status: "Active",
+  },
+  {
+    id: 3,
+    company_name: "Hebronsoft",
+    city: "Hebron",
+    company_logo: "hebronsoft.png",
+    industry: "IT Services",
+    status: "Active",
   },
 ];
 
@@ -168,6 +185,44 @@ app.post("/events", (req, res) => {
 app.delete("/events/:id", (req, res) => {
   events = events.filter((event) => event.id !== req.params.id);
   res.json({ message: "Event deleted" });
+});
+
+app.get("/companies", (req, res) => {
+  res.json(companies);
+});
+
+app.post("/companies", (req, res) => {
+  const newCompany = {
+    id: Date.now(),
+    ...req.body,
+  };
+
+  companies.push(newCompany);
+  res.json(newCompany);
+});
+
+app.delete("/companies/:id", (req, res) => {
+  companies = companies.filter(
+    (company) => company.id !== Number(req.params.id)
+  );
+
+  res.json({ message: "Company deleted" });
+});
+
+app.put("/companies/:id", (req, res) => {
+  const companyId = Number(req.params.id);
+
+  companies = companies.map((company) =>
+    company.id === companyId
+      ? { ...company, ...req.body }
+      : company
+  );
+
+  const updatedCompany = companies.find(
+    (company) => company.id === companyId
+  );
+
+  res.json(updatedCompany);
 });
 
 app.listen(5001, () => {
