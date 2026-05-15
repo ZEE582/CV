@@ -30,7 +30,6 @@ export default function Navbar() {
             : 'border-b border-transparent'}`}
       >
 
-        {/* ── أزرار Auth — يسار ── */}
         <div className="flex items-center gap-3">
           {isLoggedIn ? (
             <>
@@ -76,8 +75,7 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* ── اسم المنصة — يمين ── */}
-        <div className="font-extrabold text-3xl sm:text-4xl text-gray-900 leading-none">
+        <div className="font-extrabold text-xl sm:text-3xl text-gray-900 leading-none">
           تتطور
           <span className="text-gray-400 pr-4 sm:pr-6">ttwar</span>
         </div>
