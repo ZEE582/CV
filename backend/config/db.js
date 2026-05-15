@@ -13,11 +13,11 @@ const mysql = require('mysql2/promise');
  * charset: دعم اللغة العربية الكاملة
  */
 const pool = mysql.createPool({
-  host:               process.env.DB_HOST || 'localhost',
-  port:               parseInt(process.env.DB_PORT, 10) || 3306,
-  user:               process.env.DB_USER || 'root',
+  host:               process.env.DB_HOST     || 'localhost',
+  port:               parseInt(process.env.DB_PORT) || 3306,
+  user:               process.env.DB_USER     || 'root',
   password:           process.env.DB_PASSWORD || '',
-  database:           process.env.DB_NAME || 'waseem_foras',
+  database:           process.env.DB_NAME     || 'waseem_foras',
   waitForConnections: true,
   connectionLimit:    10,
   queueLimit:         0,
@@ -27,15 +27,12 @@ const pool = mysql.createPool({
 
 /**
  * دالة استعلام قاعدة البيانات
- * ترجع الصفوف مباشرة فقط (rows)
- *
  * @param {string} sql - نص الاستعلام SQL مع placeholders (?)
- * @param {Array} params - مصفوفة القيم المراد تمريرها
- * @returns {Promise<Array>} - الصفوف الناتجة من قاعدة البيانات
- *
+ * @param {Array} params - مصفوفة القيم المراد تمرير للاستعلام
+ * @returns {Promise<Array>} - النتائج من قاعدة البيانات
+ * @throws {Error} - إذا فشل الاستعلام
  * @example
- * const users = await query('SELECT * FROM users WHERE id = ?', [userId]);
- * // users => [{ id: 1, name: 'Waseem' }]
+ *   const users = await query('SELECT * FROM users WHERE id = ?', [userId]);
  */
 async function query(sql, params = []) {
   const [rows] = await pool.execute(sql, params);
@@ -44,89 +41,33 @@ async function query(sql, params = []) {
 
 /**
  * الحصول على اتصال مباشر من الـ Pool
- * مفيد للمعاملات (Transactions)
- *
- * @returns {Promise<mysql.PoolConnection>}
- *
+ * مفيد للمعاملات (Transactions) التي تحتاج اتصالاً واحداً
+ * @returns {Promise<mysql.PoolConnection>} - اتصال قاعدة البيانات
  * @example
- * const conn = await getConnection();
- * try {
- *   await conn.beginTransaction();
- *   // ... queries
- *   await conn.commit();
- * } catch (err) {
- *   await conn.rollback();
- *   throw err;
- * } finally {
- *   conn.release();
- * }
+ *   const conn = await getConnection();
+ *   try {
+ *     await conn.beginTransaction();
+ *     // ... queries
+ *     await conn.commit();
+ *   } finally {
+ *     conn.release();
+ *   }
  */
 async function getConnection() {
   return await pool.getConnection();
 }
 
-/**
- * تنفيذ استعلام وإرجاع أول صف فقط
- *
- * @param {string} sql
- * @param {Array} params
- * @returns {Promise<Object|null>}
- *
- * @example
- * const user = await queryOne('SELECT * FROM users WHERE id = ?', [1]);
- */
-async function queryOne(sql, params = []) {
-  const rows = await query(sql, params);
-  return rows[0] || null;
-}
-
-/**
- * تنفيذ استعلام COUNT وإرجاع القيمة العددية مباشرة
- *
- * @param {string} sql
- * @param {Array} params
- * @returns {Promise<number>}
- *
- * @example
- * const total = await queryScalar(
- *   'SELECT COUNT(*) AS total FROM jobs'
- * );
- */
-async function queryScalar(sql, params = []) {
-  const row = await queryOne(sql, params);
-  if (!row) return 0;
-
-  // يعيد أول قيمة موجودة في الكائن (مثل total)
-  const firstKey = Object.keys(row)[0];
-  return Number(row[firstKey] || 0);
-}
-
-/**
- * اختبار الاتصال عند تشغيل الخادم
- */
+// التحقق من الاتصال عند تشغيل الخادم
 (async () => {
   try {
     const conn = await pool.getConnection();
     await conn.ping();
     conn.release();
-
-    console.log(
-      '✅ MySQL connected → ' +
-      (process.env.DB_NAME || 'waseem_foras')
-    );
+    console.log('✅ MySQL connected → ' + (process.env.DB_NAME || 'waseem_foras'));
   } catch (e) {
     console.error('❌ MySQL connection failed:', e.message);
-    // لا نوقف الخادم، فقط نطبع الخطأ
+    // لا نوقف العملية هنا - نترك الخادم يعمل ويعيد المحاولة عند الطلب
   }
 })();
 
-/**
- * التصدير
- */
-module.exports = {
-  query,
-  queryOne,
-  queryScalar,
-  pool,
-  getConnection
-};
+module.exports = { query, pool, getConnection };
