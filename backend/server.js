@@ -6,6 +6,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const users = [
+  {
+    id: 1,
+    email: "admin@gmail.com",
+    password: "123456",
+    role: "admin",
+  },
+  {
+    id: 2,
+    email: "company@gmail.com",
+    password: "123456",
+    role: "company",
+  },
+];
+
 const team = [
   {
     id: 1,
@@ -164,6 +179,25 @@ app.get("/", (req, res) => {
   res.send("Backend is running");
 });
 
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  const user = users.find(
+    (u) => u.email === email && u.password === password
+  );
+
+  if (!user) {
+    return res.status(401).json({
+      message: "Invalid email or password",
+    });
+  }
+
+  res.json({
+    message: "Login successful",
+    user,
+  });
+});
+
 app.get("/team", (req, res) => {
   res.json(team);
 });
@@ -213,9 +247,7 @@ app.put("/companies/:id", (req, res) => {
   const companyId = Number(req.params.id);
 
   companies = companies.map((company) =>
-    company.id === companyId
-      ? { ...company, ...req.body }
-      : company
+    company.id === companyId ? { ...company, ...req.body } : company
   );
 
   const updatedCompany = companies.find(
