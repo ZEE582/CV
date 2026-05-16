@@ -188,6 +188,7 @@ router.post("/questions", requireAuth, async (req: Request, res: Response) => {
         role: user.role,
         provider: user.provider,
         hasCompletedQuestions: user.hasCompletedQuestions,
+        score: user.score,
         onboardingData: user.onboardingData,
       },
     });
@@ -262,6 +263,7 @@ router.get("/profile", requireAuth, async (req: Request, res: Response) => {
         role: user.role,
         provider: user.provider,
         hasCompletedQuestions: user.hasCompletedQuestions,
+        score: user.score,
         onboardingData: user.onboardingData,
       },
     });
@@ -361,11 +363,116 @@ router.put("/profile", requireAuth, async (req: Request, res: Response) => {
         role: user.role,
         provider: user.provider,
         hasCompletedQuestions: user.hasCompletedQuestions,
+        score: user.score,
         onboardingData: user.onboardingData,
       },
     });
   } catch (error: any) {
     console.error("Update profile error:", error.message);
+    return res.status(500).json({ message: "حدث خطأ في السيرفر" });
+  }
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PATCH /api/user/score
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * @swagger
+ * /api/user/score:
+ *   patch:
+ *     summary: Add points to the user's score
+ *     description: |
+ *       Increments the user's total score by the given `points` value.
+ *       Called by the games module after a game ends.
+ *
+ *       Uses MongoDB `$inc` operator for atomic increment — safe against
+ *       race conditions if two games finish at the same time.
+ *
+ *       **Authorization:** Bearer JWT required.
+ *     tags: [User]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [points]
+ *             properties:
+ *               points:
+ *                 type: number
+ *                 description: Points to add (must be a positive number)
+ *                 example: 150
+ *     responses:
+ *       200:
+ *         description: Score updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message: { type: string }
+ *                 score:
+ *                   type: number
+ *                   description: The user's new total score
+ *                   example: 350
+ *       400:
+ *         description: Missing or invalid points value
+ *         content:
+ *           application/json:
+ *             schema: { $ref: '#/components/schemas/Error' }
+ *       401:
+ *         description: Missing or invalid JWT
+ *         content:
+ *           application/json:
+ *             schema: { $ref: '#/components/schemas/Error' }
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             schema: { $ref: '#/components/schemas/Error' }
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema: { $ref: '#/components/schemas/Error' }
+ */
+router.patch("/score", requireAuth, async (req: Request, res: Response) => {
+  try {
+    const { id } = (req as any).user;
+    const { points } = req.body;
+
+    // ── Validation ────────────────────────────────────────────────────────────
+    if (points === undefined || points === null)
+      return res.status(400).json({ message: "يرجى إرسال قيمة النقاط" });
+
+    const numPoints = Number(points);
+
+    if (isNaN(numPoints) || numPoints <= 0)
+      return res
+        .status(400)
+        .json({ message: "النقاط يجب أن تكون رقم موجب" });
+
+    // ── Atomic increment using $inc ───────────────────────────────────────────
+    // $inc is atomic — avoids race conditions if multiple game requests arrive
+    // at the same time for the same user
+    const user = await User.findByIdAndUpdate(
+      id,
+      { $inc: { score: numPoints } },
+      { new: true } // return the updated document
+    );
+
+    if (!user)
+      return res.status(404).json({ message: "المستخدم غير موجود" });
+
+    return res.status(200).json({
+      message: "تم تحديث النقاط بنجاح",
+      score: user.score,
+    });
+  } catch (error: any) {
+    console.error("Score update error:", error.message);
     return res.status(500).json({ message: "حدث خطأ في السيرفر" });
   }
 });

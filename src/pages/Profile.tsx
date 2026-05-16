@@ -6,6 +6,7 @@ interface UserProfile {
   name: string;
   avatar: string;
   provider: string;
+  score: number; // النقاط المتراكمة من الألعاب
   onboardingData: {
     fullName: string;
     age: number;
@@ -94,6 +95,27 @@ function Profile() {
           </div>
         </div>
 
+        {/* ── بطاقة النقاط ── */}
+        {/*
+          هاي الخانة بتعرض مجموع النقاط اللي كسبها المستخدم من الألعاب.
+          القيمة بتيجي من الـ API عبر حقل score في user object.
+          زميلتك رح تربطها بصفحة الألعاب عبر:
+            PATCH /api/user/score  { points: <عدد النقاط> }
+        */}
+        <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-6 mb-4">
+          <h2 className="text-base font-bold text-gray-800 mb-4">🏆 نقاطي</h2>
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs text-gray-400 mb-1">مجموع النقاط المكتسبة من الألعاب</p>
+              <p className="text-4xl font-extrabold text-indigo-600">
+                {(user.score ?? 0).toLocaleString()}
+              </p>
+            </div>
+            {/* Badge يتغير حسب مستوى النقاط */}
+            <ScoreBadge score={user.score ?? 0} />
+          </div>
+        </div>
+
         {/* المعلومات الشخصية */}
         <div className="bg-white rounded-3xl border border-gray-200 shadow-sm p-6 mb-4">
           <h2 className="text-base font-bold text-gray-800 mb-4">المعلومات الشخصية</h2>
@@ -118,7 +140,10 @@ function Profile() {
             <h2 className="text-base font-bold text-gray-800 mb-4">لغات البرمجة</h2>
             <div className="flex flex-wrap gap-2">
               {d.programmingLanguages.map((lang) => (
-                <span key={lang} className="bg-indigo-50 text-indigo-700 text-sm px-3 py-1 rounded-lg border border-indigo-200">
+                <span
+                  key={lang}
+                  className="bg-indigo-50 text-indigo-700 text-sm px-3 py-1 rounded-lg border border-indigo-200"
+                >
                   {lang}
                 </span>
               ))}
@@ -142,6 +167,35 @@ function Profile() {
   );
 }
 
+// ── ScoreBadge ────────────────────────────────────────────────────────────────
+/**
+ * يعرض badge يتغير لونه ونصه حسب مستوى النقاط.
+ * المستويات:
+ *   0        → مبتدئ
+ *   1–499    → متدرب
+ *   500–1999 → محترف
+ *   2000+    → خبير
+ *
+ * @param {{ score: number }} props
+ */
+function ScoreBadge({ score }: { score: number }) {
+  const level =
+    score === 0
+      ? { label: "مبتدئ", color: "bg-gray-100 text-gray-500" }
+      : score < 500
+      ? { label: "متدرب 🌱", color: "bg-green-100 text-green-700" }
+      : score < 2000
+      ? { label: "محترف ⚡", color: "bg-indigo-100 text-indigo-700" }
+      : { label: "خبير 🔥", color: "bg-amber-100 text-amber-700" };
+
+  return (
+    <span className={`text-sm font-bold px-4 py-2 rounded-xl ${level.color}`}>
+      {level.label}
+    </span>
+  );
+}
+
+// ── InfoItem ──────────────────────────────────────────────────────────────────
 function InfoItem({ label, value }: { label: string; value: string }) {
   return (
     <div>

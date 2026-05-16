@@ -105,6 +105,17 @@ const userSchema = new mongoose.Schema(
       default: "",
     },
 
+    /**
+     * Total score accumulated from games.
+     * Updated via PATCH /api/user/score by the games module.
+     * Default is 0 — increases as the user plays and wins.
+     */
+    score: {
+      type: Number,
+      default: 0,
+      min: [0, "النقاط لا يمكن أن تكون سالبة"],
+    },
+
     // ── Onboarding data (collected via /questions) ────────────────────────────
     onboardingData: {
       fullName: { type: String, default: "" },

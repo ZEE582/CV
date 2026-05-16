@@ -114,7 +114,6 @@ app.use("/api/user", userRoutes);   // POST /questions, GET+PUT /profile
 // ─── API Documentation ────────────────────────────────────────────────────────
 // Available at: http://localhost:3000/api-docs
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
 // ─── Health Check ─────────────────────────────────────────────────────────────
 // Simple liveness probe — useful for container orchestration (Docker, K8s)
 app.get("/api/health", (_req, res) => {
