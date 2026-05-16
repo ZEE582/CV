@@ -14,25 +14,21 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
       MONGO_INITDB_DATABASE: ${MONGO_DB}
     ports:
-      - "27017:27017"          # اختياري — للوصول من Compass
-    volumes:
-      - mongo_data:/data/db    # البيانات تفضل حتى لو أوقفت الـ container
+      - "27017:27017"          
+      - mongo_data:/data/db   
     healthcheck:
       test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-  # ───────────────────────────────────────────
-  # Backend (Node + Express)
-  # ───────────────────────────────────────────
+  
   backend:
     build: .
     container_name: neetcode_backend
     restart: unless-stopped
     env_file: .env
     environment:
-      # يبني MONGO_URI تلقائياً من المتغيرات
       MONGO_URI: mongodb://${MONGO_USER}:${MONGO_PASS}@mongo:27017/${MONGO_DB}?authSource=admin
     ports:
       - "${PORT:-5000}:5000"
@@ -40,11 +36,9 @@ services:
       - ./data:/app/data:ro   # JSON files — read only
     depends_on:
       mongo:
-        condition: service_healthy   # ينتظر المونجو يصحى أول
+        condition: service_healthy   
 
-  # ───────────────────────────────────────────
-  # Seeder — بيشتغل مرة وبيوقف
-  # ───────────────────────────────────────────
+ 
   seeder:
     build: .
     container_name: neetcode_seeder
@@ -58,7 +52,7 @@ services:
       mongo:
         condition: service_healthy
     profiles:
-      - seed                  # مش بيشتغل تلقائياً — شغّله يدوياً
+      - seed                  
 
 volumes:
   mongo_data:

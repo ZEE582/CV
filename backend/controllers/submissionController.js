@@ -1,37 +1,4 @@
-// const Submission = require("../models/Submission");
-// const runCode = require("../services/compilerService");
 
-// const executeCode = async (req, res) => {
-//   try {
-//     const { problemId, language, code } = req.body;
-
-//     const result = await runCode(language, code);
-
-//     const submission = await Submission.create({
-//       problemId,
-//       language,
-//       code,
-//       output: result.output,
-//       status: result.success
-//         ? "Executed"
-//         : "Error",
-//     });
-
-//     res.json({
-//       success: true,
-//       data: submission,
-//     });
-//   } catch (error) {
-//     res.status(500).json({
-//       success: false,
-//       error: error.message,
-//     });
-//   }
-// };
-
-// module.exports = {
-//   executeCode,
-// };
 const { VM } = require("vm2");
  
 // ── Controller: POST /api/submissions/run
