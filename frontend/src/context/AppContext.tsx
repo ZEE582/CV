@@ -1,36 +1,34 @@
-import React, { createContext, useContext, useState, useCallback, useRef } from 'react';
+import React, { createContext, useContext, useState, useCallback, useRef, useEffect } from 'react';
 import type { Job, Company, Toast } from '../types';
 import { jobsApi, companiesApi } from '../api/client';
 import { isITJob } from '../utils/helpers';
 
-interface AppContextValue {
-  allJobs:   Job[];   // جميع الوظائف IT فقط
-  allCos:    Company[];
-  loadJobs:  () => Promise<void>;
-  loadCos:   () => Promise<void>;
-  toast:     (msg: string, type?: 'ok' | 'err') => void;
-  toasts:    Toast[];
-  activePage:    string;
-  setActivePage: (p: string) => void;
-  // صفحة الشركة المفتوحة حالياً
+interface Ctx {
+  allJobs: Job[]; allCos: Company[];
+  loadJobs: () => Promise<void>; loadCos: () => Promise<void>;
+  toast: (msg: string, type?: 'ok' | 'err') => void; toasts: Toast[];
+  activePage: string; setActivePage: (p: string) => void;
   activeCompanyId: string | null;
   openCompanyPage: (id: string) => void;
   closeCompanyPage: () => void;
 }
 
-const AppContext = createContext<AppContextValue | null>(null);
+const AppContext = createContext<Ctx | null>(null);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [allJobs, setAllJobs] = useState<Job[]>([]);
   const [allCos,  setAllCos]  = useState<Company[]>([]);
+  const [activePage, setActivePage]         = useState('jobs');
   const [activeCompanyId, setActiveCompanyId] = useState<string | null>(null);
+  const [toasts, setToasts] = useState<Toast[]>([]);
+  const idRef = useRef(0);
 
   const loadJobs = useCallback(async () => {
     try {
       const d = await jobsApi.list({ limit: 200, field: 'تكنولوجيا' });
-      // فلترة إضافية بالكلمات المفتاحية
-      const filtered = (d.jobs || []).filter(isITJob);
-      setAllJobs(filtered.length > 0 ? filtered : (d.jobs || []));
+      const jobs = d.jobs || [];
+      const filtered = jobs.filter(isITJob);
+      setAllJobs(filtered.length > 0 ? filtered : jobs);
     } catch (e) { console.error('loadJobs:', e); }
   }, []);
 
@@ -41,25 +39,22 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     } catch (e) { console.error('loadCos:', e); }
   }, []);
 
-  const [toasts, setToasts] = useState<Toast[]>([]);
-  const idRef = useRef(0);
+  // تحميل الوظائف فوراً عند بدء التطبيق بدون انتظار
+  useEffect(() => { loadJobs(); }, []);
+
   const toast = useCallback((message: string, type: 'ok' | 'err' = 'ok') => {
     const id = String(++idRef.current);
     setToasts(p => [...p, { id, message, type }]);
     setTimeout(() => setToasts(p => p.filter(t => t.id !== id)), 3200);
   }, []);
 
-  const [activePage, setActivePage] = useState('jobs');
-
-  const openCompanyPage  = useCallback((id: string) => setActiveCompanyId(id), []);
-  const closeCompanyPage = useCallback(() => setActiveCompanyId(null), []);
-
   return (
     <AppContext.Provider value={{
-      allJobs, allCos, loadJobs, loadCos,
-      toast, toasts,
+      allJobs, allCos, loadJobs, loadCos, toast, toasts,
       activePage, setActivePage,
-      activeCompanyId, openCompanyPage, closeCompanyPage,
+      activeCompanyId,
+      openCompanyPage:  useCallback((id: string) => setActiveCompanyId(id), []),
+      closeCompanyPage: useCallback(() => setActiveCompanyId(null), []),
     }}>
       {children}
     </AppContext.Provider>

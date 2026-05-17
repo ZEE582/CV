@@ -1,517 +1,125 @@
 /**
  * @file routes/jobs.js
- * @description مسارات الوظائف - CRUD كامل مع فلترة وترتيب وصلاحيات
- *
- * الصلاحيات:
- *   GET    /         - عام (optionalAuth)
- *   GET    /:id      - عام (optionalAuth)
- *   POST   /         - company أو admin
- *   PUT    /:id      - company (وظائف شركته فقط) أو admin (كل الوظائف)
- *   DELETE /:id      - company (وظائف شركته فقط) أو admin (كل الوظائف)
+ * @description مسارات الوظائف
  */
-
 const express = require('express');
-const { query } = require('../config/db');
+const Job     = require('../models/Job');
+const Company = require('../models/Company');
 const { authenticate, requireRole, optionalAuth } = require('../middleware/auth');
 const { validate, schemas } = require('../middleware/validate');
 
 const router = express.Router();
 
-// ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * @swagger
- * tags:
- *   name: Jobs
- *   description: إدارة الوظائف
- */
-
-/**
- * @swagger
- * /api/jobs:
- *   get:
- *     summary: جلب قائمة الوظائف مع فلترة وترتيب وصفحات
- *     tags: [Jobs]
- *     security: []
- *     parameters:
- *       - in: query
- *         name: field
- *         schema: { type: string }
- *         description: فلترة بالمجال (تكنولوجيا، صحة، ...)
- *       - in: query
- *         name: region
- *         schema: { type: string, enum: [ضفة, قدس, غزة, '48', remote] }
- *       - in: query
- *         name: type
- *         schema: { type: string }
- *         description: نوع العمل
- *       - in: query
- *         name: exp
- *         schema: { type: string }
- *         description: مستوى الخبرة
- *       - in: query
- *         name: search
- *         schema: { type: string }
- *         description: بحث نصي في العنوان واسم الشركة والمجال
- *       - in: query
- *         name: sort
- *         schema: { type: string, enum: [newest, featured, salary], default: newest }
- *       - in: query
- *         name: page
- *         schema: { type: integer, default: 1 }
- *       - in: query
- *         name: limit
- *         schema: { type: integer, default: 50, maximum: 200 }
- *     responses:
- *       200:
- *         description: قائمة الوظائف
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success: { type: boolean }
- *                 total:   { type: integer, description: العدد الكلي قبل الصفحات }
- *                 jobs:    { type: array, items: { $ref: '#/components/schemas/Job' } }
- */
+// GET /api/jobs
 router.get('/', optionalAuth, async (req, res, next) => {
   try {
-    const {
-      field,
-      region,
-      type,
-      exp,
-      search,
-      sort = 'newest',
-      page = 1,
-      limit = 50
-    } = req.query;
+    const { field, region, type, exp, search, sort = 'newest', page = 1, limit = 50 } = req.query;
 
-    // بناء شرط WHERE ديناميكياً للحماية من SQL Injection
-    const where = ['j.is_active = 1'];
-    const params = [];
+    const filter = { is_active: true };
+    if (field)  filter.field = field;
+    if (region) filter.region = region;
+    if (type)   filter.job_type = type;
+    if (exp)    filter.experience_level = exp;
+    if (search) filter.$or = [
+      { title: { $regex: search, $options: 'i' } },
+      { field: { $regex: search, $options: 'i' } }
+    ];
 
-    if (field) {
-      where.push('j.field = ?');
-      params.push(field);
-    }
+    const sortMap = { newest: { createdAt: -1 }, featured: { is_featured: -1, createdAt: -1 }, salary: { salary_max: -1 } };
+    const sortOpt = sortMap[sort] || { createdAt: -1 };
 
-    if (region) {
-      where.push('j.region = ?');
-      params.push(region);
-    }
+    const pageNum  = Math.max(1, parseInt(page) || 1);
+    const limitNum = Math.min(200, Math.max(1, parseInt(limit) || 50));
+    const skip     = (pageNum - 1) * limitNum;
 
-    if (type) {
-      where.push('j.job_type = ?');
-      params.push(type);
-    }
+    const [total, jobs] = await Promise.all([
+      Job.countDocuments(filter),
+      Job.find(filter)
+        .sort(sortOpt)
+        .skip(skip)
+        .limit(limitNum)
+        .populate('company_id', 'name_ar name_en color is_verified logo_url')
+        .lean()
+    ]);
 
-    if (exp) {
-      where.push('j.experience_level = ?');
-      params.push(exp);
-    }
+    // إعادة تسمية company_id → company لسهولة الاستخدام في الفرونتإند
+    const formatted = jobs.map(j => ({
+      ...j,
+      company_name: j.company_id?.name_ar,
+      company_name_en: j.company_id?.name_en,
+      color: j.company_id?.color,
+      company_verified: j.company_id?.is_verified,
+      logo_url: j.company_id?.logo_url,
+      company_id: j.company_id?._id
+    }));
 
-    // البحث النصي في عدة حقول
-    if (search) {
-      where.push(
-        '(j.title LIKE ? OR c.name_ar LIKE ? OR c.name_en LIKE ? OR j.field LIKE ?)'
-      );
-      const s = `%${search}%`;
-      params.push(s, s, s, s);
-    }
-
-    // ترتيب الوظائف - whitelist للحماية من injection
-    const orderMap = {
-      newest: 'j.created_at DESC',
-      featured: 'j.is_featured DESC, j.created_at DESC',
-      salary: 'j.salary_max DESC'
-    };
-
-    const order = orderMap[sort] || 'j.created_at DESC';
-
-    const wsClause = 'WHERE ' + where.join(' AND ');
-    const pageNum = Math.max(1, parseInt(page, 10) || 1);
-    const limitNum = Math.min(200, Math.max(1, parseInt(limit, 10) || 50));
-    const offset = (pageNum - 1) * limitNum;
-
-    // استعلام العدد الكلي للصفحات
-    // query() في مشروعك تعيد rows مباشرة، وليس [rows, fields]
-    const countRows = await query(
-      `SELECT COUNT(*) AS total
-       FROM jobs j
-       JOIN companies c ON j.company_id = c.id
-       ${wsClause}`,
-      params
-    );
-
-    const total = countRows[0]?.total || 0;
-
-    // الاستعلام الرئيسي مع بيانات الشركة
-    // هذا هو الإصلاح الأساسي للمشكلة:
-    // يجب عدم استخدام destructuring بالمصفوفات إذا كانت query() تعيد rows مباشرة.
-    const jobs = await query(
-      `SELECT j.*,
-              c.name_ar AS company_name,
-              c.name_en AS company_name_en,
-              c.color,
-              c.is_verified AS company_verified,
-              c.logo_url
-       FROM jobs j
-       JOIN companies c ON j.company_id = c.id
-       ${wsClause}
-       ORDER BY ${order}
-       LIMIT ${limitNum} OFFSET ${offset}`,
-      params
-    );
-
-    res.json({
-      success: true,
-      total,
-      jobs
-    });
-  } catch (err) {
-    next(err);
-  }
+    res.json({ success: true, total, jobs: formatted });
+  } catch (err) { next(err); }
 });
 
-// ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * @swagger
- * /api/jobs/{id}:
- *   get:
- *     summary: جلب تفاصيل وظيفة محددة
- *     tags: [Jobs]
- *     security: []
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema: { type: string, format: uuid }
- *     responses:
- *       200:
- *         description: تفاصيل الوظيفة مع بيانات الشركة
- *       404:
- *         description: الوظيفة غير موجودة
- */
+// GET /api/jobs/:id
 router.get('/:id', optionalAuth, async (req, res, next) => {
   try {
-    const rows = await query(
-      `SELECT j.*,
-              c.name_ar AS company_name,
-              c.name_en AS company_name_en,
-              c.color,
-              c.is_verified AS company_verified,
-              c.website,
-              c.email AS company_email,
-              c.about_ar AS company_about,
-              c.sector,
-              c.size,
-              c.location AS company_location
-       FROM jobs j
-       JOIN companies c ON j.company_id = c.id
-       WHERE j.id = ? AND j.is_active = 1`,
-      [req.params.id]
-    );
+    const job = await Job.findOne({ _id: req.params.id, is_active: true })
+      .populate('company_id', 'name_ar name_en color is_verified website email about_ar sector size location')
+      .lean();
 
-    if (!rows[0]) {
-      return res.status(404).json({
-        success: false,
-        message: 'الوظيفة غير موجودة أو غير متاحة',
-        code: 'JOB_NOT_FOUND'
-      });
-    }
+    if (!job) return res.status(404).json({ success: false, message: 'الوظيفة غير موجودة أو غير متاحة', code: 'JOB_NOT_FOUND' });
 
-    // زيادة عداد المشاهدات بشكل غير متزامن
-    query(
-      'UPDATE jobs SET views_count = views_count + 1 WHERE id = ?',
-      [req.params.id]
-    ).catch(err =>
-      console.warn('Views count update failed:', err.message)
-    );
+    Job.findByIdAndUpdate(req.params.id, { $inc: { views_count: 1 } }).catch(() => {});
 
-    res.json({
-      success: true,
-      job: rows[0]
-    });
-  } catch (err) {
-    next(err);
-  }
+    res.json({ success: true, job });
+  } catch (err) { next(err); }
 });
 
-// ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * @swagger
- * /api/jobs:
- *   post:
- *     summary: نشر وظيفة جديدة
- *     tags: [Jobs]
- *     security:
- *       - bearerAuth: []
- */
-router.post(
-  '/',
-  authenticate,
-  requireRole('company', 'admin'),
-  validate(schemas.job),
-  async (req, res, next) => {
-    try {
-      const {
-        title,
-        description,
-        requirements,
-        benefits,
-        location,
-        region,
-        field,
-        job_type,
-        experience_level,
-        salary_min,
-        salary_max,
-        salary_currency,
-        salary_visible,
-        deadline,
-        is_featured,
-        company_id
-      } = req.body;
-
-      // الشركة تنشر تحت حسابها فقط - الأدمن يحدد الشركة يدوياً
-      let coId = company_id;
-
-      if (req.user.role === 'company') {
-        const cos = await query(
-          'SELECT id FROM companies WHERE user_id = ?',
-          [req.user.id]
-        );
-
-        if (!cos[0]) {
-          return res.status(403).json({
-            success: false,
-            message: 'لا توجد شركة مرتبطة بحسابك. تواصل مع الإدارة',
-            code: 'NO_COMPANY_LINKED'
-          });
-        }
-
-        coId = cos[0].id;
-      }
-
-      if (!coId) {
-        return res.status(400).json({
-          success: false,
-          message: 'معرف الشركة مطلوب',
-          code: 'COMPANY_ID_REQUIRED'
-        });
-      }
-
-      await query(
-        `INSERT INTO jobs (
-           id, company_id, title, description, requirements, benefits,
-           location, region, field, job_type, experience_level,
-           salary_min, salary_max, salary_currency, salary_visible,
-           deadline, is_featured
-         ) VALUES (UUID(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [
-          coId,
-          title,
-          description,
-          JSON.stringify(requirements || []),
-          JSON.stringify(benefits || []),
-          location || null,
-          region || null,
-          field || null,
-          job_type || null,
-          experience_level || null,
-          salary_min || null,
-          salary_max || null,
-          salary_currency || '₪',
-          salary_visible !== false ? 1 : 0,
-          deadline || null,
-          is_featured ? 1 : 0
-        ]
-      );
-
-      res.status(201).json({
-        success: true,
-        message: 'تم نشر الوظيفة بنجاح وستظهر للباحثين فوراً'
-      });
-    } catch (err) {
-      next(err);
+// POST /api/jobs
+router.post('/', authenticate, requireRole('company', 'admin'), validate(schemas.job), async (req, res, next) => {
+  try {
+    let coId = req.body.company_id;
+    if (req.user.role === 'company') {
+      const co = await Company.findOne({ user_id: req.user.id });
+      if (!co) return res.status(403).json({ success: false, message: 'لا توجد شركة مرتبطة بحسابك', code: 'NO_COMPANY_LINKED' });
+      coId = co._id;
     }
-  }
-);
+    if (!coId) return res.status(400).json({ success: false, message: 'معرف الشركة مطلوب', code: 'COMPANY_ID_REQUIRED' });
 
-// ─────────────────────────────────────────────────────────────────────────────
+    await Job.create({ ...req.body, company_id: coId });
+    res.status(201).json({ success: true, message: 'تم نشر الوظيفة بنجاح وستظهر للباحثين فوراً' });
+  } catch (err) { next(err); }
+});
 
-/**
- * @swagger
- * /api/jobs/{id}:
- *   put:
- *     summary: تعديل وظيفة
- *     tags: [Jobs]
- *     security:
- *       - bearerAuth: []
- */
-router.put(
-  '/:id',
-  authenticate,
-  requireRole('company', 'admin'),
-  validate(schemas.job),
-  async (req, res, next) => {
-    try {
-      const jobs = await query(
-        'SELECT company_id FROM jobs WHERE id = ?',
-        [req.params.id]
-      );
+// PUT /api/jobs/:id
+router.put('/:id', authenticate, requireRole('company', 'admin'), validate(schemas.job), async (req, res, next) => {
+  try {
+    const job = await Job.findById(req.params.id);
+    if (!job) return res.status(404).json({ success: false, message: 'الوظيفة غير موجودة', code: 'JOB_NOT_FOUND' });
 
-      const job = jobs[0];
-
-      if (!job) {
-        return res.status(404).json({
-          success: false,
-          message: 'الوظيفة غير موجودة',
-          code: 'JOB_NOT_FOUND'
-        });
-      }
-
-      // التحقق من ملكية الشركة للوظيفة (الأدمن يتجاوز هذا الفحص)
-      if (req.user.role === 'company') {
-        const companies = await query(
-          'SELECT id FROM companies WHERE user_id = ?',
-          [req.user.id]
-        );
-
-        const co = companies[0];
-
-        if (!co || co.id !== job.company_id) {
-          return res.status(403).json({
-            success: false,
-            message: 'ليس لديك صلاحية تعديل هذه الوظيفة',
-            code: 'NOT_JOB_OWNER'
-          });
-        }
-      }
-
-      const {
-        title,
-        description,
-        requirements,
-        benefits,
-        location,
-        region,
-        field,
-        job_type,
-        experience_level,
-        salary_min,
-        salary_max,
-        salary_currency,
-        salary_visible,
-        deadline,
-        is_featured,
-        is_active
-      } = req.body;
-
-      await query(
-        `UPDATE jobs SET
-           title = ?, description = ?, requirements = ?, benefits = ?,
-           location = ?, region = ?, field = ?, job_type = ?,
-           experience_level = ?, salary_min = ?, salary_max = ?,
-           salary_currency = ?, salary_visible = ?, deadline = ?,
-           is_featured = ?, is_active = ?
-         WHERE id = ?`,
-        [
-          title,
-          description,
-          JSON.stringify(requirements || []),
-          JSON.stringify(benefits || []),
-          location || null,
-          region || null,
-          field || null,
-          job_type || null,
-          experience_level || null,
-          salary_min || null,
-          salary_max || null,
-          salary_currency || '₪',
-          salary_visible !== false ? 1 : 0,
-          deadline || null,
-          is_featured ? 1 : 0,
-          is_active !== false ? 1 : 0,
-          req.params.id
-        ]
-      );
-
-      res.json({
-        success: true,
-        message: 'تم تعديل الوظيفة بنجاح'
-      });
-    } catch (err) {
-      next(err);
+    if (req.user.role === 'company') {
+      const co = await Company.findOne({ user_id: req.user.id });
+      if (!co || !co._id.equals(job.company_id))
+        return res.status(403).json({ success: false, message: 'ليس لديك صلاحية تعديل هذه الوظيفة', code: 'NOT_JOB_OWNER' });
     }
-  }
-);
 
-// ─────────────────────────────────────────────────────────────────────────────
+    await Job.findByIdAndUpdate(req.params.id, req.body);
+    res.json({ success: true, message: 'تم تعديل الوظيفة بنجاح' });
+  } catch (err) { next(err); }
+});
 
-/**
- * @swagger
- * /api/jobs/{id}:
- *   delete:
- *     summary: حذف وظيفة
- *     tags: [Jobs]
- *     security:
- *       - bearerAuth: []
- */
-router.delete(
-  '/:id',
-  authenticate,
-  requireRole('company', 'admin'),
-  async (req, res, next) => {
-    try {
-      const jobs = await query(
-        'SELECT company_id FROM jobs WHERE id = ?',
-        [req.params.id]
-      );
+// DELETE /api/jobs/:id
+router.delete('/:id', authenticate, requireRole('company', 'admin'), async (req, res, next) => {
+  try {
+    const job = await Job.findById(req.params.id);
+    if (!job) return res.status(404).json({ success: false, message: 'الوظيفة غير موجودة', code: 'JOB_NOT_FOUND' });
 
-      const job = jobs[0];
-
-      if (!job) {
-        return res.status(404).json({
-          success: false,
-          message: 'الوظيفة غير موجودة',
-          code: 'JOB_NOT_FOUND'
-        });
-      }
-
-      if (req.user.role === 'company') {
-        const companies = await query(
-          'SELECT id FROM companies WHERE user_id = ?',
-          [req.user.id]
-        );
-
-        const co = companies[0];
-
-        if (!co || co.id !== job.company_id) {
-          return res.status(403).json({
-            success: false,
-            message: 'ليس لديك صلاحية حذف هذه الوظيفة',
-            code: 'NOT_JOB_OWNER'
-          });
-        }
-      }
-
-      await query(
-        'DELETE FROM jobs WHERE id = ?',
-        [req.params.id]
-      );
-
-      res.json({
-        success: true,
-        message: 'تم حذف الوظيفة بنجاح'
-      });
-    } catch (err) {
-      next(err);
+    if (req.user.role === 'company') {
+      const co = await Company.findOne({ user_id: req.user.id });
+      if (!co || !co._id.equals(job.company_id))
+        return res.status(403).json({ success: false, message: 'ليس لديك صلاحية حذف هذه الوظيفة', code: 'NOT_JOB_OWNER' });
     }
-  }
-);
+
+    await Job.findByIdAndDelete(req.params.id);
+    res.json({ success: true, message: 'تم حذف الوظيفة بنجاح' });
+  } catch (err) { next(err); }
+});
 
 module.exports = router;
