@@ -18,8 +18,7 @@ npm run dev           # http://localhost:5173
 cd backend
 npm test
 ```
-
-**Admin:** `admin@ttwar.ps` / `admin123`  
+ 
 **Swagger:** `http://localhost:5000/api/docs`
 
 ---
