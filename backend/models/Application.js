@@ -9,9 +9,15 @@ const applicationSchema = new mongoose.Schema({
   company_id:   { type: mongoose.Schema.Types.ObjectId, ref: 'Company', required: true },
   cover_letter: { type: String },
   cv_url:       { type: String },
-  status:       { type: String, enum: ['pending', 'viewed', 'shortlisted', 'rejected', 'hired'], default: 'pending' }
+  status:       {
+    type: String,
+    enum: ['pending', 'viewed', 'shortlisted', 'rejected', 'hired'],
+    default: 'pending'
+  }
 }, { timestamps: true });
 
 applicationSchema.index({ job_id: 1, user_id: 1 }, { unique: true });
+applicationSchema.index({ user_id: 1 });
+applicationSchema.index({ company_id: 1 });
 
 module.exports = mongoose.model('Application', applicationSchema);

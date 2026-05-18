@@ -9,5 +9,6 @@ const savedJobSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 savedJobSchema.index({ user_id: 1, job_id: 1 }, { unique: true });
+savedJobSchema.index({ user_id: 1 });
 
 module.exports = mongoose.model('SavedJob', savedJobSchema);

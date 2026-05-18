@@ -14,5 +14,6 @@ const contactMessageSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 contactMessageSchema.index({ company_id: 1 });
+contactMessageSchema.index({ is_read: 1 });
 
 module.exports = mongoose.model('ContactMessage', contactMessageSchema);

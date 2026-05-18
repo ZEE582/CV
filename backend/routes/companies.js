@@ -1,96 +1,146 @@
 /**
  * @file routes/companies.js
- * @description مسارات الشركات
+ * @description مسارات الشركات الموحدة
+ *
+ * @swagger
+ * tags:
+ *   name: Companies
+ *   description: الشركات — قراءة عامة | إدارة للشركة والأدمن
  */
+
 const express = require('express');
-const Company = require('../models/Company');
-const Job     = require('../models/Job');
+const ctrl    = require('../controllers/companiesController');
 const { authenticate, requireRole } = require('../middleware/auth');
-const { validate, schemas } = require('../middleware/validate');
+const { validate, schemas }         = require('../middleware/validate');
 
 const router = express.Router();
 
-// GET /api/companies
-router.get('/', async (req, res, next) => {
-  try {
-    const { sector, region, search } = req.query;
-    const filter = { is_active: true };
-    if (sector) filter.sector = sector;
-    if (region) filter.region = region;
-    if (search) filter.$or = [
-      { name_ar: { $regex: search, $options: 'i' } },
-      { name_en: { $regex: search, $options: 'i' } },
-      { sector:  { $regex: search, $options: 'i' } }
-    ];
+/**
+ * @swagger
+ * /api/companies:
+ *   get:
+ *     summary: قائمة الشركات مع فلترة
+ *     tags: [Companies]
+ *     security: []
+ *     parameters:
+ *       - { in: query, name: sector, schema: { type: string } }
+ *       - { in: query, name: region, schema: { type: string } }
+ *       - { in: query, name: search, schema: { type: string } }
+ *     responses:
+ *       200:
+ *         description: قائمة الشركات
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success: { type: boolean }
+ *                 total:   { type: integer }
+ *                 companies: { type: array, items: { $ref: '#/components/schemas/Company' } }
+ */
+router.get('/', ctrl.getAll);
 
-    const companies = await Company.find(filter).sort({ is_verified: -1, name_ar: 1 }).lean();
+/**
+ * @swagger
+ * /api/companies/my:
+ *   get:
+ *     summary: بيانات شركتي (company فقط)
+ *     tags: [Companies]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200: { description: بيانات الشركة }
+ *       404: { description: لا توجد شركة مرتبطة }
+ */
+router.get('/my', authenticate, requireRole('company'), ctrl.getMyCompany);
 
-    // أضف عدد الوظائف لكل شركة
-    const withJobCount = await Promise.all(companies.map(async c => ({
-      ...c,
-      jobs_count: await Job.countDocuments({ company_id: c._id, is_active: true })
-    })));
+/**
+ * @swagger
+ * /api/companies/{id}:
+ *   get:
+ *     summary: تفاصيل شركة + وظائفها
+ *     tags: [Companies]
+ *     security: []
+ *     parameters:
+ *       - { in: path, name: id, required: true, schema: { type: string } }
+ *     responses:
+ *       200: { description: تفاصيل الشركة ووظائفها }
+ *       404: { description: الشركة غير موجودة }
+ */
+router.get('/:id', ctrl.getOne);
 
-    res.json({ success: true, companies: withJobCount });
-  } catch (err) { next(err); }
-});
+/**
+ * @swagger
+ * /api/companies:
+ *   post:
+ *     summary: إضافة شركة جديدة (admin فقط)
+ *     tags: [Companies]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/CompanyInput'
+ *     responses:
+ *       201: { description: تمت إضافة الشركة }
+ *       403: { description: admin فقط }
+ */
+router.post('/', authenticate, requireRole('admin'), validate(schemas.company), ctrl.create);
 
-// GET /api/companies/:id
-router.get('/:id', async (req, res, next) => {
-  try {
-    const company = await Company.findOne({ _id: req.params.id, is_active: true }).lean();
-    if (!company) return res.status(404).json({ success: false, message: 'الشركة غير موجودة أو غير متاحة', code: 'COMPANY_NOT_FOUND' });
+/**
+ * @swagger
+ * /api/companies/{id}:
+ *   put:
+ *     summary: تعديل شركة (company مالكة | admin)
+ *     tags: [Companies]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - { in: path, name: id, required: true, schema: { type: string } }
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/CompanyInput'
+ *     responses:
+ *       200: { description: تم التعديل }
+ *       403: { description: ليس مالك الشركة }
+ */
+router.put('/:id', authenticate, requireRole('company', 'admin'), validate(schemas.company), ctrl.update);
 
-    const [jobs, jobs_count] = await Promise.all([
-      Job.find({ company_id: req.params.id, is_active: true }).sort({ createdAt: -1 }).lean(),
-      Job.countDocuments({ company_id: req.params.id, is_active: true })
-    ]);
+/**
+ * @swagger
+ * /api/companies/{id}/verify:
+ *   patch:
+ *     summary: توثيق شركة (admin فقط)
+ *     tags: [Companies]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - { in: path, name: id, required: true, schema: { type: string } }
+ *     responses:
+ *       200: { description: تم التوثيق }
+ *       403: { description: admin فقط }
+ */
+router.patch('/:id/verify', authenticate, requireRole('admin'), ctrl.verify);
 
-    Company.findByIdAndUpdate(req.params.id, { $inc: { views_count: 1 } }).catch(() => {});
-
-    res.json({ success: true, company: { ...company, jobs_count }, jobs });
-  } catch (err) { next(err); }
-});
-
-// POST /api/companies — admin فقط
-router.post('/', authenticate, requireRole('admin'), validate(schemas.company), async (req, res, next) => {
-  try {
-    await Company.create(req.body);
-    res.status(201).json({ success: true, message: 'تمت إضافة الشركة بنجاح' });
-  } catch (err) { next(err); }
-});
-
-// PUT /api/companies/:id
-router.put('/:id', authenticate, requireRole('company', 'admin'), validate(schemas.company), async (req, res, next) => {
-  try {
-    const company = await Company.findById(req.params.id);
-    if (!company) return res.status(404).json({ success: false, message: 'الشركة غير موجودة', code: 'COMPANY_NOT_FOUND' });
-
-    if (req.user.role === 'company' && String(company.user_id) !== String(req.user.id))
-      return res.status(403).json({ success: false, message: 'ليس لديك صلاحية تعديل هذه الشركة', code: 'NOT_COMPANY_OWNER' });
-
-    // الأدمن فقط يغير حالة التوثيق
-    const updateData = { ...req.body };
-    if (req.user.role !== 'admin') delete updateData.is_verified;
-
-    await Company.findByIdAndUpdate(req.params.id, updateData);
-    res.json({ success: true, message: 'تم تعديل بيانات الشركة بنجاح' });
-  } catch (err) { next(err); }
-});
-
-// DELETE /api/companies/:id — admin فقط
-router.delete('/:id', authenticate, requireRole('admin'), async (req, res, next) => {
-  try {
-    const company = await Company.findById(req.params.id);
-    if (!company) return res.status(404).json({ success: false, message: 'الشركة غير موجودة', code: 'COMPANY_NOT_FOUND' });
-
-    await Promise.all([
-      Company.findByIdAndDelete(req.params.id),
-      Job.deleteMany({ company_id: req.params.id })
-    ]);
-
-    res.json({ success: true, message: 'تم حذف الشركة وجميع بياناتها بنجاح' });
-  } catch (err) { next(err); }
-});
+/**
+ * @swagger
+ * /api/companies/{id}:
+ *   delete:
+ *     summary: حذف شركة وجميع بياناتها (admin فقط)
+ *     tags: [Companies]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - { in: path, name: id, required: true, schema: { type: string } }
+ *     responses:
+ *       200: { description: تم الحذف }
+ *       403: { description: admin فقط }
+ */
+router.delete('/:id', authenticate, requireRole('admin'), ctrl.remove);
 
 module.exports = router;

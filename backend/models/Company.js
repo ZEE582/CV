@@ -1,14 +1,16 @@
 /**
  * @file models/Company.js
+ * @description نموذج الشركة الموحد
+ * user_id → مرتبط بحساب User بدور company (يُعيّنه الأدمن)
  */
 const mongoose = require('mongoose');
 
 const stackItemSchema = new mongoose.Schema({ name: String, icon: String }, { _id: false });
 
 const companySchema = new mongoose.Schema({
-  user_id:      { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  name_ar:      { type: String, required: true },
-  name_en:      { type: String },
+  user_id:      { type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null },
+  name_ar:      { type: String, required: true, trim: true },
+  name_en:      { type: String, trim: true },
   logo_url:     { type: String },
   cover_url:    { type: String },
   sector:       { type: String },
@@ -25,7 +27,6 @@ const companySchema = new mongoose.Schema({
   is_verified:  { type: Boolean, default: false },
   is_active:    { type: Boolean, default: true },
   views_count:  { type: Number, default: 0 },
-  // Stacks من ملف JSON
   stacks: {
     backend:               [stackItemSchema],
     frontend:              [stackItemSchema],
@@ -38,5 +39,7 @@ const companySchema = new mongoose.Schema({
 }, { timestamps: true });
 
 companySchema.index({ is_active: 1, is_verified: -1, name_ar: 1 });
+companySchema.index({ user_id: 1 });
+companySchema.index({ sector: 1 });
 
 module.exports = mongoose.model('Company', companySchema);
