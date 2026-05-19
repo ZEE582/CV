@@ -1,7 +1,17 @@
 /**
  * @fileoverview Resend Verification Code Route
  * @description Resends a new email verification code.
- *
+ * @swagger
+ * /api/auth/resend-code:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     summary: Resend verification code
+ *     responses:
+ *       200:
+ *         description: Code resent successfully
+ *       404:
+ *         description: User not found
  * @module routes/auth/resendCode
  */
 import express from "express";

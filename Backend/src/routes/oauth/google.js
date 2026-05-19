@@ -1,7 +1,15 @@
 /**
  * @fileoverview Google OAuth Routes
  * @description Handles Google OAuth authentication flow.
- *
+ *@swagger
+ * /api/oauth/google:
+ *   get:
+ *     tags:
+ *       - OAuth
+ *     summary: Start Google OAuth login
+ *     responses:
+ *       302:
+ *         description: Redirect to Google
  * @module routes/oauth/google
  */
 
@@ -16,6 +24,17 @@ router.get(
     prompt: "select_account",
   })
 );
+/**
+ * @swagger
+ * /api/oauth/google/callback:
+ *   get:
+ *     tags:
+ *       - OAuth
+ *     summary: Google OAuth callback
+ *     responses:
+ *       302:
+ *         description: Redirect after authentication
+ */
 router.get(
   "/google/callback",
 

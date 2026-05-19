@@ -1,7 +1,17 @@
 /**
  * @fileoverview Verify Code Route
  * @description Verifies email OTP code and issues JWT token.
- *
+ * @swagger
+ * /api/auth/verify-code:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     summary: Verify email code
+ *     responses:
+ *       200:
+ *         description: Verification successful
+ *       400:
+ *         description: Invalid code
  * @module routes/auth/verifyCode
  */
 import express from "express";

@@ -2,6 +2,19 @@
  * @fileoverview Signup Route
  * @description Handles local account registration and verification email sending.
  *
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     tags:
+ *       - Auth
+ *     summary: Login user
+ *     responses:
+ *       200:
+ *         description: Verification code sent
+ *       400:
+ *         description: Invalid data
+ *       401:
+ *         description: Invalid email or password
  * @module routes/auth/signup
  */
 import express from "express";
@@ -14,7 +27,7 @@ import {
   normalizeEmail,
 } from "./helpersrout.js";
 const router = express.Router();
-router.post("/signup", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const { password, role } = req.body;
     const email = normalizeEmail(req.body.email);

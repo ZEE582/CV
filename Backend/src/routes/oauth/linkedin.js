@@ -1,8 +1,17 @@
 /**
  * @fileoverview LinkedIn OAuth Routes
  * @description Handles LinkedIn OAuth redirects and callback route.
- *
+ * @swagger
+ * /api/oauth/linkedin:
+ *   get:
+ *     tags:
+ *       - OAuth
+ *     summary: Start LinkedIn OAuth login
+ *     responses:
+ *       302:
+ *         description: Redirect to LinkedIn
  * @module routes/oauth/linkedin
+ * 
  */
 import express from "express";
 import { issueAndSendCode } from "./helpers.js";
@@ -16,6 +25,17 @@ const router = express.Router();
 router.get("/linkedin", (_req, res) => {
   res.redirect(buildLinkedInAuthUrl());
 });
+/**
+ * @swagger
+ * /api/oauth/linkedin/callback:
+ *   get:
+ *     tags:
+ *       - OAuth
+ *     summary: LinkedIn OAuth callback
+ *     responses:
+ *       302:
+ *         description: Redirect after authentication
+ */
 router.get("/linkedin/callback", async (req, res) => {
   try {
     const { code } = req.query;

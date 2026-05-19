@@ -1,7 +1,15 @@
 /**
  * @fileoverview GitHub OAuth Routes
  * @description Handles GitHub OAuth authentication flow.
- *
+ * @swagger
+ * /api/oauth/github:
+ *   get:
+ *     tags:
+ *       - OAuth
+ *     summary: Start GitHub OAuth login
+ *     responses:
+ *       302:
+ *         description: Redirect to GitHub
  * @module routes/oauth/github
  */
 import express from "express";
@@ -14,6 +22,17 @@ router.get(
     scope: ["user:email"],
   })
 );
+/**
+ * @swagger
+ * /api/oauth/github/callback:
+ *   get:
+ *     tags:
+ *       - OAuth
+ *     summary: GitHub OAuth callback
+ *     responses:
+ *       302:
+ *         description: Redirect after authentication
+ */
 router.get(
   "/github/callback",
   passport.authenticate("github", {

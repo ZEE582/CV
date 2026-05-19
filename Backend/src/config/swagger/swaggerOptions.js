@@ -35,6 +35,6 @@ const swaggerOptions = {
     },
     tags: swaggerTags,
 },
-  apis: ["./src/routes/*.js"],
+  apis: ["./src/routes/**/*.js"],
 };
 export default swaggerOptions;

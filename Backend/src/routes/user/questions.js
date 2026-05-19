@@ -1,7 +1,19 @@
 /**
  * @fileoverview Questions Routes
  * @description Handles onboarding questionnaire submission.
- *
+ * @swagger
+ * /api/user/questions:
+ *   post:
+ *     tags:
+ *       - User
+ *     summary: Submit onboarding questions
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Questions submitted
+ *       400:
+ *         description: Missing fields
  * @module routes/user/questions
  */
 import express from "express";

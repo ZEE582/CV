@@ -1,7 +1,19 @@
 /**
  * @fileoverview Profile Routes
  * @description Handles profile fetching and updating.
- *
+ * @swagger
+ * /api/user/profile:
+ *   get:
+ *     tags:
+ *       - User
+ *     summary: Get user profile
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: User profile fetched
+ *       401:
+ *         description: Unauthorized
  * @module routes/user/profile
  */
 import express from "express";
@@ -33,6 +45,21 @@ router.get("/profile",requireAuth,async (req, res) => {
     }
   }
 );
+/**
+ * @swagger
+ * /api/user/profile:
+ *   put:
+ *     tags:
+ *       - User
+ *     summary: Update user profile
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Profile updated
+ *       401:
+ *         description: Unauthorized
+ */
 router.put("/profile",requireAuth,async (req, res) => {
     try {
       const { id } = req.user;
