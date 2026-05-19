@@ -54,11 +54,22 @@ router.get("/profile",requireAuth,async (req, res) => {
  *     summary: Update user profile
  *     security:
  *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               avatar:
+ *                 type: string
+ *               onboardingData:
+ *                 type: object
  *     responses:
  *       200:
  *         description: Profile updated
- *       401:
- *         description: Unauthorized
  */
 router.put("/profile",requireAuth,async (req, res) => {
     try {

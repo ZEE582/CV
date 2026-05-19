@@ -1,12 +1,24 @@
 /**
  * @fileoverview Resend Verification Code Route
  * @description Resends a new email verification code.
- * @swagger
+ *  @swagger
  * /api/auth/resend-code:
  *   post:
  *     tags:
  *       - Auth
  *     summary: Resend verification code
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: test@gmail.com
  *     responses:
  *       200:
  *         description: Code resent successfully

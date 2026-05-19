@@ -7,6 +7,22 @@
  *     tags:
  *       - Auth
  *     summary: Verify email code
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - code
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: test@gmail.com
+ *               code:
+ *                 type: string
+ *                 example: 12345
  *     responses:
  *       200:
  *         description: Verification successful

@@ -3,19 +3,31 @@
  * @description Handles local account registration and verification email sending.
  *
  * @module routes/auth/signup
- * @swagger
+ *  @swagger
  * /api/auth/signup:
  *   post:
  *     tags:
  *       - Auth
  *     summary: Create new account
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: test@gmail.com
+ *               password:
+ *                 type: string
+ *                 example: 12345678
  *     responses:
  *       201:
- *         description: Account created successfully
- *       400:
- *         description: Invalid email
- *       409:
- *         description: Email already exists
+ *         description: Account created
  
  */
 import express from "express";

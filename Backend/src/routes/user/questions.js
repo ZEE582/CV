@@ -9,11 +9,38 @@
  *     summary: Submit onboarding questions
  *     security:
  *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               fullName:
+ *                 type: string
+ *               age:
+ *                 type: number
+ *               city:
+ *                 type: string
+ *               university:
+ *                 type: string
+ *               major:
+ *                 type: string
+ *               programmingLanguages:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *               jobTitle:
+ *                 type: string
+ *               experienceYears:
+ *                 type: number
+ *               lookingForJob:
+ *                 type: boolean
+ *               jobInterest:
+ *                 type: string
  *     responses:
  *       200:
  *         description: Questions submitted
- *       400:
- *         description: Missing fields
  * @module routes/user/questions
  */
 import express from "express";

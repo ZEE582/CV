@@ -2,19 +2,33 @@
  * @fileoverview Signup Route
  * @description Handles local account registration and verification email sending.
  *
- * @swagger
+ *  @swagger
  * /api/auth/login:
  *   post:
  *     tags:
  *       - Auth
  *     summary: Login user
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: test@gmail.com
+ *               password:
+ *                 type: string
+ *                 example: 12345678
  *     responses:
  *       200:
  *         description: Verification code sent
- *       400:
- *         description: Invalid data
  *       401:
- *         description: Invalid email or password
+ *         description: Invalid credentials
  * @module routes/auth/signup
  */
 import express from "express";
