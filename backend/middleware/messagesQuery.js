@@ -1,0 +1,3 @@
+const Joi = require('joi');
+const schema = Joi.object({ search: Joi.string().trim().max(120).allow('').default(''), is_read: Joi.string().valid('true', 'false').optional(), sort: Joi.string().valid('newest', 'oldest').default('newest'), page: Joi.number().integer().min(1).max(1000000).default(1), limit: Joi.number().integer().min(1).max(100).default(20) });
+module.exports = (req, res, next) => { const { value, error } = schema.validate(req.query, { stripUnknown: true }); if (error) return res.status(400).json({ success: false, code: 'INVALID_MESSAGES_QUERY', message: 'معايير تصفية الرسائل غير صالحة.' }); req.messagesQuery = value; next(); };

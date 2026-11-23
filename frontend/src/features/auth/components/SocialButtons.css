@@ -1,0 +1,10 @@
+.social-auth { margin-top: 22px; }
+.social-auth button { font-family: inherit; }
+.social-google { display: flex; justify-content: center; align-items: center; gap: 12px; width: 100%; min-height: 50px; padding: 12px 18px; border: 1px solid #dce2ed; border-radius: 8px; background: #fff; color: #29394f; font-size: 14px; font-weight: 700; cursor: pointer; }
+.social-google:hover:not(:disabled) { background: #f8f9fc; border-color: #9aa8bf; }
+.social-google:disabled { cursor: not-allowed; color: #8a94a5; background: #fafbfc; }
+.social-status { margin: 9px 0 0; color: #798397; font-size: 12px; line-height: 1.8; }
+.social-status button { border: 0; padding: 2px 5px; background: transparent; color: #6251c8; text-decoration: underline; cursor: pointer; }
+.social-secondary { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.social-secondary button { display: flex; align-items: center; justify-content: center; flex: 1; gap: 8px; min-height: 44px; border: 1px solid #dce2ed; border-radius: 8px; background: #fff; cursor: pointer; color: #465167; }
+.social-auth button:focus-visible { outline: 3px solid #9e96e5; outline-offset: 3px; }

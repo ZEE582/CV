@@ -1,0 +1,39 @@
+.verify-layout { width: min(480px, calc(100% - 40px)); margin: 0 auto; padding: 24px 0 28px; }
+.verify-panel { min-width: 0; }
+.verify-steps { justify-content: center; margin-bottom: 20px; }
+.verify-heading { text-align: center; }
+.verify-mail-icon { display: grid; place-items: center; width: 46px; height: 46px; margin: 0 auto 14px; border: 1px solid #e0ddf5; border-radius: 14px; background: #f4f2fc; color: var(--login-accent); }
+.verify-mail-icon svg { width: 24px; height: 24px; stroke-width: 1.5; }
+.verify-heading h1, .verify-start h1 { margin: 0 0 11px; color: var(--login-ink); font-size: 30px; line-height: 1.45; font-weight: 800; letter-spacing: -.5px; }
+.verify-heading > p { margin: 0; color: var(--login-muted); font-size: 14px; line-height: 1.8; }
+.verify-email { display: block; max-width: 100%; margin: 0; padding: 8px 12px; border-radius: 8px; background: #f6f7fb; color: #435679; font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; }
+.verify-form { display: flex; flex-direction: column; gap: 17px; }
+.verify-code-field label { display: block; margin-bottom: 9px; color: #30415d; font-size: 14px; font-weight: 600; }
+.verify-code-input { appearance: none; display: block; width: 100%; height: 60px; padding: 0 10px; text-align: center; text-indent: .5em; letter-spacing: .5em; border: 1px solid var(--login-border); border-radius: 10px; background: #fff; color: var(--login-ink); font: 700 29px 'Tajawal', sans-serif; font-variant-numeric: tabular-nums; outline: none; }
+.verify-code-input::placeholder { letter-spacing: normal; text-indent: 0; color: #9ca8ba; font-weight: 400; font-size: 22px; }
+.verify-code-input:focus { border-color: var(--login-accent); box-shadow: 0 0 0 3px #6256d91c; }
+.verify-code-input:disabled { background: #f7f8fc; opacity: .7; }
+.verify-code-field[data-invalid='true'] .verify-code-input { border-color: #ce5260; }
+.verify-field-hint, .verify-field-error { margin: 7px 0 0; font-size: 12px; line-height: 1.8; }
+.verify-field-hint { color: var(--login-muted); }
+.verify-field-error { color: #b93549; }
+.verify-success { padding: 12px 14px; border: 1px solid #c9e5d7; border-radius: 9px; color: #28684d; background: #f1faf5; font-size: 14px; line-height: 1.8; }
+.verify-resend { margin-top: 16px; text-align: center; }
+.verify-resend p { color: var(--login-muted); margin: 0 0 5px; font-size: 13px; line-height: 1.7; }
+.verify-resend button { border: 0; border-radius: 6px; padding: 8px 12px; min-height: 40px; background: transparent; color: var(--login-accent); font: 600 14px 'Tajawal', sans-serif; cursor: pointer; }
+.verify-resend button:hover:not(:disabled) { background: #f4f2fc; }
+.verify-resend button:disabled { color: var(--login-muted); cursor: default; }
+.verify-countdown { display: block; color: var(--login-muted); font-size: 12px; }
+.verify-expiry-note { margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid #edf0f6; color: var(--login-muted); font-size: 12px; line-height: 1.8; text-align: center; }
+.verify-back { display: flex; align-items: center; justify-content: center; gap: 7px; width: fit-content; margin: 17px auto 0; color: var(--login-accent); font-size: 13px; font-weight: 600; line-height: 1.8; text-decoration: none; }
+.verify-back:hover { text-decoration: underline; text-underline-offset: 4px; }
+.verify-back svg { width: 16px; height: 16px; }
+.verify-start { margin: 75px auto; text-align: center; }
+.verify-start p { color: var(--login-muted); font-size: 15px; line-height: 1.9; margin: 0 0 24px; }
+.verify-start .login-submit { text-decoration: none; }
+@media (max-width: 760px) { .verify-layout { max-width: 430px; padding-top: 25px; } .verify-heading h1, .verify-start h1 { font-size: 27px; } .verify-steps { font-size: 12px; gap: 9px; margin-bottom: 24px; } .verify-start { margin-top: 50px; } }
+@media (max-width: 360px) { .verify-code-input { font-size: 27px; letter-spacing: .4em; } .verify-heading h1 { font-size: 24px; } }
+.verify-email-row { display: flex; align-items: center; gap: 12px; margin: 7px 0 20px; }
+.verify-email-row .verify-email { min-width: 0; flex: 1; }
+.verify-email-row > a { flex: 0 0 auto; color: var(--login-accent); font-size: 12px; font-weight: 600; padding: 10px 0; text-decoration: none; }
+.verify-email-row > a:hover { text-decoration: underline; text-underline-offset: 4px; }

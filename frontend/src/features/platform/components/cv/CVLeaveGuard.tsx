@@ -1,0 +1,6 @@
+import {useBlocker} from 'react-router-dom';
+import {Button,Dialog,DialogActions,DialogContent,DialogTitle} from '@mui/material';
+export default function CVLeaveGuard({dirty,saving}:{dirty:boolean;saving:boolean}){
+ const blocker=useBlocker(({currentLocation,nextLocation})=>(dirty||saving)&&currentLocation.pathname!==nextLocation.pathname);
+ return <Dialog open={blocker.state==='blocked'} onClose={()=>{if(blocker.state==='blocked')blocker.reset();}} fullWidth maxWidth="sm" PaperProps={{dir:'rtl',sx:{m:2,width:'calc(100% - 32px)',fontFamily:"'Tajawal',sans-serif",'& .MuiTypography-root,& .MuiButton-root':{fontFamily:'inherit'}}}} aria-labelledby="cv-leave-title"><DialogTitle id="cv-leave-title">مغادرة السيرة الذاتية؟</DialogTitle><DialogContent>{dirty&&<p>لديك تغييرات غير محفوظة ستُفقد عند المغادرة. ابقَ في المحرر واحفظها في حسابك، أو صدّر نسخة من المعاينة قبل المتابعة.</p>}{saving&&<p>يوجد حفظ قيد الانتظار. قد يكتمل على الخادم حتى إذا غادرت؛ تحقق من النسخة المحفوظة عند العودة.</p>}</DialogContent><DialogActions><Button color="inherit" onClick={()=>{if(blocker.state==='blocked')blocker.reset();}}>البقاء في المحرر</Button><Button color="warning" onClick={()=>{if(blocker.state==='blocked')blocker.proceed();}}>المغادرة</Button></DialogActions></Dialog>;
+}

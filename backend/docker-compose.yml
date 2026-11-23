@@ -1,0 +1,38 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:?Set MONGO_USER in backend/.env}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS:?Set MONGO_PASS in backend/.env}
+      MONGO_INITDB_DATABASE: ${MONGO_DB:-ttwar}
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  backend:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      MONGO_URI: mongodb://${MONGO_USER}:${MONGO_PASS}@mongo:27017/${MONGO_DB:-ttwar}?authSource=admin
+    ports:
+      - "${PORT:-5000}:5000"
+    depends_on:
+      mongo:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:5000/api/health',{signal:AbortSignal.timeout(2000)}).then(async r=>{await r.arrayBuffer();process.exitCode=r.status===200?0:1}).catch(()=>{process.exitCode=1})"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 20s
+volumes:
+  mongo_data:

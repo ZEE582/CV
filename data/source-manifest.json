@@ -1,0 +1,31 @@
+{
+  "commit": "566fdf547f5e691c5c27250d4100f2202500816f",
+  "branch": "NadaNour",
+  "repository": "ZEE582/cv1",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/ZEE582/cv1/566fdf547f5e691c5c27250d4100f2202500816f/data/problems_youseef.json",
+      "bytes": 843642,
+      "name": "problems_youseef.json",
+      "git_blob_sha": "58002b625f857b7a4564e98ee20bde5014089ddd",
+      "sha256": "51c6d705a1ff2e0cc4fb7ae5141e2d84da3efc2be68155343d4fa697533244d2"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ZEE582/cv1/566fdf547f5e691c5c27250d4100f2202500816f/data/tech_questions.json",
+      "bytes": 57393,
+      "name": "tech_questions.json",
+      "git_blob_sha": "fe7ec09ff2c5c96c6408340e68e7d653adbce8bc",
+      "sha256": "1d312b1043f9652e86b65ca247dcdfce49e609ddd40733b7becec26c2c51a2c9"
+    }
+  ],
+  "verified_on": "2026-11-05",
+  "normalization": {
+    "raw_coding": 2676,
+    "raw_quizzes": 137,
+    "identical_duplicates_skipped": 1,
+    "unique_coding": 2675,
+    "unique_quizzes": 137,
+    "unique_total": 2812,
+    "duplicate_id": "LC-37"
+  }
+}

@@ -1,0 +1,38 @@
+name: ttwar-executor-local
+services:
+  piston:
+    # Verified official GHCR digest, 2026-11-05. This is a separate, opt-in stack.
+    image: ghcr.io/engineer-man/piston@sha256:2f66b7456189c4d713aa986d98eccd0b6ee16d26c7ec5f21b30e942756fd127a
+    profiles: [execution]
+    # Required by upstream Piston's isolate/cgroup setup. Review before starting.
+    # A privileged container has broad access inside the Linux Docker host/VM.
+    privileged: true
+    restart: "no"
+    ports:
+      - "127.0.0.1:2000:2000"
+    volumes:
+      - piston_packages:/piston/packages
+    tmpfs:
+      - /tmp:exec,size=536870912,mode=1777
+    cpus: 2
+    mem_limit: 2g
+    pids_limit: 512
+    environment:
+      PISTON_DISABLE_NETWORKING: "true"
+      PISTON_MAX_CONCURRENT_JOBS: "2"
+      PISTON_MAX_PROCESS_COUNT: "64"
+      PISTON_OUTPUT_MAX_SIZE: "20000"
+      PISTON_MAX_FILE_SIZE: "10000000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:2000/api/v2/runtimes',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
+        max-file: "2"
+volumes:
+  piston_packages:

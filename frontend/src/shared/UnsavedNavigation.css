@@ -1,0 +1,9 @@
+.unsaved-navigation-backdrop { position: fixed; inset: 0; z-index: 1400; background: #18243b80; display: grid; place-items: center; padding: 20px; }
+.unsaved-navigation-dialog { width: min(460px, 100%); border-radius: 14px; padding: 26px; background: #fff; color: #203454; box-shadow: 0 20px 70px #18243b40; font-family: 'Tajawal', sans-serif; }
+.unsaved-navigation-dialog h2 { font-size: 23px; font-weight: 800; margin: 0 0 12px; }
+.unsaved-navigation-dialog p { line-height: 1.8; margin: 0 0 22px; }
+.unsaved-navigation-dialog > div { display: flex; flex-wrap: wrap; gap: 10px; }
+.unsaved-navigation-dialog button { padding: 10px 14px; border: 1px solid #d5d8e5; border-radius: 8px; background: #fff; color: #6251c8; cursor: pointer; font: 700 14px 'Tajawal', sans-serif; }
+.unsaved-navigation-dialog button:first-child { background: #6251c8; color: #fff; border-color: #6251c8; }
+.unsaved-navigation-dialog button:focus-visible { outline: 3px solid #9384e1; outline-offset: 3px; }
+.unsaved-navigation-dialog button:disabled { opacity: .5; cursor: wait; }

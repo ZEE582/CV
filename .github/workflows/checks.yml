@@ -1,0 +1,27 @@
+name: Checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/cache@v4
+        with:
+          path: .cache/mongodb
+          key: mongodb-7.0.24-${{ runner.os }}
+      - run: npm install --global npm@11.21.2 --ignore-scripts
+      - run: npm ci --ignore-scripts
+      - run: npm run audit:deps
+      - run: npm run check

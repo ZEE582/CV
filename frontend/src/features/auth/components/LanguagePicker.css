@@ -1,0 +1,19 @@
+.language-picker { --language-ink: #203454; --language-muted: #65738a; --language-accent: #6256d9; --language-border: #dce2ed; min-width: 0; }
+.language-picker-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+.language-picker-grid label { display: flex; align-items: center; gap: 10px; min-height: 46px; margin: 0; border: 1px solid var(--language-border); border-radius: 7px; padding: 10px; cursor: pointer; font-size: 15px; font-weight: 400; color: var(--language-ink); overflow-wrap: anywhere; }
+.language-picker-grid label:has(input:checked) { background: #f5f3ff; border-color: var(--language-accent); }
+.language-picker-grid label:has(input:disabled) { cursor: default; }
+.language-picker-grid input { width: 18px; height: 18px; accent-color: var(--language-accent); flex-shrink: 0; }
+.language-picker-add { margin-top: 22px; }
+.language-picker-add > label { display: block; font-size: 15px; font-weight: 600; color: var(--language-ink); margin-bottom: 8px; }
+.language-picker-entry { display: flex; gap: 10px; }
+.language-picker-entry input { min-width: 0; flex: 1; width: 100%; height: 48px; border: 1px solid var(--language-border); border-radius: 8px; background: #fff; padding: 0 13px; font: inherit; font-size: 16px; color: var(--language-ink); outline: none; }
+.language-picker-entry input:focus { border-color: var(--language-accent); box-shadow: 0 0 0 3px #6256d91c; }
+.language-picker-entry input[aria-invalid='true'] { border-color: #b93549; }
+.language-picker-entry button { padding: 8px 15px; border: 1px solid var(--language-accent); border-radius: 8px; background: #f5f3ff; color: var(--language-accent); font: inherit; font-size: 14px; font-weight: 600; white-space: nowrap; cursor: pointer; }
+.language-picker-entry button:disabled { opacity: .6; cursor: default; }
+.language-picker button:focus-visible, .language-picker input[type='checkbox']:focus-visible { outline: 2px solid var(--language-accent); outline-offset: 3px; }
+.language-picker-hint, .language-picker-error, .language-picker-notice { font-size: 13px; line-height: 1.8; margin: 8px 0 0; color: var(--language-muted); }
+.language-picker-error { color: #b93549; }
+.language-picker-notice { min-height: 23px; }
+@media(max-width:540px) { .language-picker-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .language-picker-entry { gap: 8px; } .language-picker-entry button { padding-inline: 11px; } }

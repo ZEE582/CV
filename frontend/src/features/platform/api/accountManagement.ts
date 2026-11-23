@@ -1,0 +1,36 @@
+import { API_BASE_URL } from '../../../shared/api';
+export type AccountRole = 'seeker' | 'company' | 'admin' | 'unknown';
+export interface AccountRecord { _id: string; name: string; email: string; phone: string; role: AccountRole; is_active: boolean; is_verified: boolean; provider: string; createdAt: string | null; updatedAt: string | null; revision: number; companies: { _id: string; name_ar: string; is_active: boolean }[]; capabilities: { can_change_status: boolean; allowed_roles: AccountRole[]; reason: string | null } }
+export interface AccountsResponse { success: true; scope: 'all' | 'staff'; total: number; page: number; pages: number; limit: number; counts: { all: number; active: number; paused: number; roles: Record<AccountRole, number> }; users: AccountRecord[] }
+export class AccountManagementError extends Error { constructor(message: string, public status = 0) { super(message); } }
+const roles = ['seeker', 'company', 'admin', 'unknown'];
+const tokenNow = () => { try { return localStorage.getItem('token'); } catch { return null; } };
+export function createAccountManagementClient(accountId: string, role: string) {
+  const token = tokenNow();
+  async function request(path: string, options: RequestInit = {}) {
+    if (!accountId || role !== 'admin' || !token || tokenNow() !== token) throw new AccountManagementError('تغيّرت الجلسة أو لا تملك صلاحية الإدارة. حدّث الصفحة.', 401);
+    let response: Response;
+    try { response = await fetch(API_BASE_URL + path, { ...options, credentials: 'include', cache: 'no-store', headers: { Authorization: 'Bearer ' + token, ...(options.body ? { 'Content-Type': 'application/json' } : {}) } }); }
+    catch (failure) { if (options.signal?.aborted) throw failure; throw new AccountManagementError(options.method === 'PATCH' ? 'تعذر تأكيد التغيير. أعد تحميل الحسابات قبل تكرار الحفظ.' : 'تعذر الاتصال بخدمة الحسابات. أعد المحاولة.'); }
+    const data: unknown = await response.json().catch(() => null);
+    if (tokenNow() !== token) throw new AccountManagementError('تغيّرت الجلسة أثناء الطلب. حدّث الصفحة للتحقق من الحسابات.', 401);
+    if (!response.ok) throw new AccountManagementError(response.status === 409 ? 'تغيّر الحساب أو ارتباطه أو جلسته. أعد تحميل أحدث بياناته قبل الحفظ.' : response.status === 401 ? 'انتهت الجلسة. سجل الدخول مجددًا.' : response.status === 403 ? 'إدارة الحسابات متاحة للمدير فقط.' : response.status === 404 ? 'الحساب لم يعد متاحًا.' : response.status === 400 ? 'التغيير غير متاح لهذا الحساب أو لم تتغير بياناته. راجع الحالة والصلاحية.' : response.status === 429 ? 'طلبات كثيرة. انتظر قليلًا ثم أعد المحاولة.' : 'تعذر تأكيد العملية. أعد تحميل الحسابات.', response.status);
+    if (!data || typeof data !== 'object' || !('success' in data) || data.success !== true) throw new AccountManagementError('تعذر قراءة استجابة الحسابات. أعد تحميل القائمة.');
+    return data;
+  }
+  return {
+    async list(scope: 'all' | 'staff', query: URLSearchParams, signal?: AbortSignal): Promise<AccountsResponse> {
+      const params = new URLSearchParams(query); params.set('scope', scope);
+      const data = await request('/admin/users?' + params, { signal }); const value = data as unknown as AccountsResponse; const count = (n: unknown) => Number.isSafeInteger(n) && Number(n) >= 0; const date = (s: unknown) => s === null || (typeof s === 'string' && Number.isFinite(Date.parse(s)));
+      if (value.scope !== scope || !count(value.total) || !count(value.page) || value.page < 1 || !count(value.pages) || value.pages < value.page || !count(value.limit) || value.limit < 1 || value.limit > 100 || !value.counts || ['all', 'active', 'paused'].some(key => !count((value.counts as unknown as Record<string, unknown>)[key])) || !value.counts.roles || roles.some(role => !count(value.counts.roles[role as AccountRole])) || value.counts.active + value.counts.paused !== value.counts.all || Object.values(value.counts.roles).reduce((sum, n) => sum + n, 0) !== value.counts.all || value.total > value.counts.all || !Array.isArray(value.users) || value.users.length > Math.min(value.limit, value.total)) throw new AccountManagementError('تعذر التحقق من قائمة الحسابات وأعدادها. أعد التحميل.');
+      if (value.users.some(user => !user || typeof user._id !== 'string' || !user._id || ['name', 'email', 'phone', 'provider'].some(key => typeof (user as unknown as Record<string, unknown>)[key] !== 'string') || !roles.includes(user.role) || typeof user.is_active !== 'boolean' || typeof user.is_verified !== 'boolean' || !count(user.revision) || !date(user.createdAt) || !date(user.updatedAt) || !Array.isArray(user.companies) || user.companies.some(company => !company || typeof company._id !== 'string' || !company._id || typeof company.name_ar !== 'string' || typeof company.is_active !== 'boolean') || !user.capabilities || typeof user.capabilities.can_change_status !== 'boolean' || !Array.isArray(user.capabilities.allowed_roles) || !user.capabilities.allowed_roles.length || user.capabilities.allowed_roles.some(role => !roles.includes(role)) || !user.capabilities.allowed_roles.includes(user.role) || (user.capabilities.reason !== null && typeof user.capabilities.reason !== 'string') || ((user._id === accountId || ['admin', 'unknown'].includes(user.role)) && (user.capabilities.can_change_status || user.capabilities.allowed_roles.some(role => role !== user.role))) || (scope === 'staff' && user.role !== 'admin') || (params.get('state') === 'active' && !user.is_active) || (params.get('state') === 'paused' && user.is_active) || (params.get('role') && params.get('role') !== 'all' && params.get('role') !== user.role) || (params.get('verification') === 'verified' && !user.is_verified) || (params.get('verification') === 'unverified' && user.is_verified)) || new Set(value.users.map(user => user._id)).size !== value.users.length) throw new AccountManagementError('لا تتطابق بيانات الحسابات أو صلاحياتها مع العرض المطلوب. أعد التحميل.');
+      return value;
+    },
+    async save(user: AccountRecord, desired: { role: AccountRole; is_active: boolean }, signal?: AbortSignal) {
+      if (user._id === accountId || ['admin', 'unknown'].includes(user.role) || !user.capabilities.allowed_roles.includes(desired.role) || (!user.capabilities.can_change_status && desired.is_active !== user.is_active) || (desired.role === 'admin' && (!user.is_verified || !desired.is_active))) throw new AccountManagementError('هذا التغيير غير متاح للحساب المحدد.');
+      if (desired.role === user.role && desired.is_active === user.is_active) throw new AccountManagementError('لم تتغير الحالة أو الصلاحية.');
+      const data = await request('/admin/users/' + encodeURIComponent(user._id) + '/access', { method: 'PATCH', signal, body: JSON.stringify({ role: desired.role, is_active: desired.is_active, expected_revision: user.revision }) });
+      if (!('user_id' in data) || data.user_id !== user._id || !('revision' in data) || data.revision !== user.revision + 1 || !('role' in data) || data.role !== desired.role || !('is_active' in data) || data.is_active !== desired.is_active || !('sessions_revoked' in data) || data.sessions_revoked !== true) throw new AccountManagementError('تعذر تأكيد تغيير الحساب وإنهاء جلساته السابقة. أعد تحميل القائمة قبل تكرار الحفظ.');
+    },
+  };
+}

@@ -1,0 +1,1511 @@
+{
+  "source": "filtered_tech_and_programming_questions",
+  "total": 137,
+  "categories": ["JavaScript", "Computer Science", "Docker", "Python", "Frontend Projects"],
+  "questions": [
+    {
+      "id": 1,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nfunction sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = 'Lydia';\n  let age = 21;\n}\nsayHi();",
+      "options": ["A: Lydia and undefined", "B: Lydia and ReferenceError", "C: ReferenceError and 21", "D: undefined and ReferenceError"],
+      "correct_answer": "D",
+      "topic": "hoisting"
+    },
+    {
+      "id": 2,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nfor (var i = 0; i < 3; i++) { setTimeout(() => console.log(i), 1); }\nfor (let i = 0; i < 3; i++) { setTimeout(() => console.log(i), 1); }",
+      "options": ["A: 0 1 2 and 0 1 2", "B: 0 1 2 and 3 3 3", "C: 3 3 3 and 0 1 2"],
+      "correct_answer": "C",
+      "topic": "var_vs_let, closures, event_loop"
+    },
+    {
+      "id": 3,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconst shape = { radius: 10, diameter() { return this.radius * 2; }, perimeter: () => 2 * Math.PI * this.radius };\nshape.diameter();\nshape.perimeter();",
+      "options": ["A: 20 and 62.83...", "B: 20 and NaN", "C: 20 and 63", "D: NaN and 63"],
+      "correct_answer": "B",
+      "topic": "arrow_functions, this"
+    },
+    {
+      "id": 4,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\n+true;\n!\"Lydia\";",
+      "options": ["A: 1 and false", "B: false and NaN", "C: false and false"],
+      "correct_answer": "A",
+      "topic": "type_coercion"
+    },
+    {
+      "id": 5,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "أي الإجابات هو إجابة صحيحة؟\nconst bird = { size: 'small' };\nconst mouse = { name: 'Mickey', small: true };",
+      "options": ["A: mouse.bird.size غير صحيحة", "B: mouse[bird.size] غير صحيحة", "C: mouse[bird['size']] غير صحيحة", "D: كل الإجابات صحيحة"],
+      "correct_answer": "A",
+      "topic": "property_access"
+    },
+    {
+      "id": 6,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nlet c = { greeting: 'Hey!' };\nlet d;\nd = c;\nc.greeting = 'Hello';\nconsole.log(d.greeting);",
+      "options": ["A: Hello", "B: Hey", "C: undefined", "D: ReferenceError", "E: TypeError"],
+      "correct_answer": "A",
+      "topic": "reference_types"
+    },
+    {
+      "id": 7,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nlet a = 3;\nlet b = new Number(3);\nlet c = 3;\nconsole.log(a == b);\nconsole.log(a === b);\nconsole.log(b === c);",
+      "options": ["A: true false true", "B: false false true", "C: true false false", "D: false true true"],
+      "correct_answer": "C",
+      "topic": "equality, wrapper_objects"
+    },
+    {
+      "id": 8,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "ماهو الناتج؟\nclass Chameleon {\n  static colorChange(newColor) { this.newColor = newColor; return this.newColor; }\n  constructor({ newColor = 'green' } = {}) { this.newColor = newColor; }\n}\nconst freddie = new Chameleon({ newColor: 'purple' });\nconsole.log(freddie.colorChange('orange'));",
+      "options": ["A: orange", "B: purple", "C: green", "D: TypeError"],
+      "correct_answer": "D",
+      "topic": "static_methods, this"
+    },
+    {
+      "id": 9,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nlet greeting;\ngreetign = {};\nconsole.log(greetign);",
+      "options": ["A: {}", "B: ReferenceError: greetign is not defined", "C: undefined"],
+      "correct_answer": "A",
+      "topic": "implicit_globals"
+    },
+    {
+      "id": 10,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "behavior",
+      "difficulty": "easy",
+      "question": "ما الذي يحدث؟\nfunction bark() { console.log('Woof!'); }\nbark.animal = 'dog';",
+      "options": ["A: Nothing, this is totally fine!", "B: SyntaxError", "C: undefined", "D: ReferenceError"],
+      "correct_answer": "A",
+      "topic": "functions_as_objects"
+    },
+    {
+      "id": 11,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nfunction Person(firstName, lastName) { this.firstName = firstName; this.lastName = lastName; }\nconst member = new Person('Lydia', 'Hallie');\nPerson.getFullName = function() { return `${this.firstName} ${this.lastName}`; };\nconsole.log(member.getFullName());",
+      "options": ["A: TypeError", "B: SyntaxError", "C: Lydia Hallie", "D: undefined undefined"],
+      "correct_answer": "A",
+      "topic": "prototype, constructor_functions"
+    },
+    {
+      "id": 12,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconst lydia = new Person('Lydia', 'Hallie');\nconst sarah = Person('Sarah', 'Smith');\nconsole.log(lydia);\nconsole.log(sarah);",
+      "options": ["A: Person {...} and undefined", "B: Person {...} and Person {...}", "C: Person {...} and {}", "D: Person {...} and ReferenceError"],
+      "correct_answer": "A",
+      "topic": "new_keyword, this"
+    },
+    {
+      "id": 13,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "ماهي الثلاث مراحل التي تمر بها الـ event propagation؟",
+      "options": ["A: Target > Capturing > Bubbling", "B: Bubbling > Target > Capturing", "C: Target > Bubbling > Capturing", "D: Capturing > Target > Bubbling"],
+      "correct_answer": "D",
+      "topic": "event_propagation"
+    },
+    {
+      "id": 14,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "جميع الـ objects لديها prototypes؟",
+      "options": ["A: true", "B: false"],
+      "correct_answer": "B",
+      "topic": "prototype_chain",
+      "note": "Object.prototype itself has no prototype (null)"
+    },
+    {
+      "id": 15,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nfunction sum(a, b) { return a + b; }\nsum(1, '2');",
+      "options": ["A: NaN", "B: TypeError", "C: '12'", "D: 3"],
+      "correct_answer": "C",
+      "topic": "type_coercion"
+    },
+    {
+      "id": 16,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nlet number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
+      "options": ["A: 1 1 2", "B: 1 2 2", "C: 0 2 2", "D: 0 1 2"],
+      "correct_answer": "C",
+      "topic": "increment_operators"
+    },
+    {
+      "id": 17,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "ماهو الناتج؟\nfunction getPersonInfo(one, two, three) { console.log(one); console.log(two); console.log(three); }\nconst person = 'Lydia';\nconst age = 21;\ngetPersonInfo`${person} is ${age} years old`;",
+      "options": ["A: 'Lydia' 21 ['', ' is ', ' years old']", "B: ['', ' is ', ' years old'] 'Lydia' 21", "C: 'Lydia' ['', ' is ', ' years old'] 21"],
+      "correct_answer": "B",
+      "topic": "tagged_template_literals"
+    },
+    {
+      "id": 18,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\ncheckAge({ age: 18 }) — يقارن بـ { age: 18 } بـ === و ==",
+      "options": ["A: You are an adult!", "B: You are still an adult.", "C: Hmm.. You don't have an age I guess"],
+      "correct_answer": "C",
+      "topic": "object_comparison, reference_equality"
+    },
+    {
+      "id": 19,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nfunction getAge(...args) { console.log(typeof args); }\ngetAge(21);",
+      "options": ["A: 'number'", "B: 'array'", "C: 'object'", "D: 'NaN'"],
+      "correct_answer": "C",
+      "topic": "rest_parameters, typeof"
+    },
+    {
+      "id": 20,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nfunction getAge() { 'use strict'; age = 21; console.log(age); }\ngetAge();",
+      "options": ["A: 21", "B: undefined", "C: ReferenceError", "D: TypeError"],
+      "correct_answer": "C",
+      "topic": "strict_mode"
+    },
+    {
+      "id": 21,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "ماهي القيمة التي تحملها sum؟\nconst sum = eval('10*10+5');",
+      "options": ["A: 105", "B: '105'", "C: TypeError", "D: '10*10+5'"],
+      "correct_answer": "A",
+      "topic": "eval"
+    },
+    {
+      "id": 22,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "إلى كم من المدة ستكون 'cool_secret' قابلة للوصول؟\nsessionStorage.setItem('cool_secret', 123);",
+      "options": ["A: الأبد", "B: عندما يقفل المستخدم الـ tab", "C: عندما يقفل نافذة المتصفح", "D: عندما يقفل الكمبيوتر"],
+      "correct_answer": "C",
+      "topic": "web_storage, sessionStorage"
+    },
+    {
+      "id": 23,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nvar num = 8;\nvar num = 10;\nconsole.log(num);",
+      "options": ["A: 8", "B: 10", "C: SyntaxError", "D: ReferenceError"],
+      "correct_answer": "B",
+      "topic": "var_redeclaration"
+    },
+    {
+      "id": 24,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconst obj = { 1: 'a', 2: 'b', 3: 'c' };\nconst set = new Set([1, 2, 3, 4, 5]);\nobj.hasOwnProperty('1');\nobj.hasOwnProperty(1);\nset.has('1');\nset.has(1);",
+      "options": ["A: false true false true", "B: false true true true", "C: true true false true", "D: true true true true"],
+      "correct_answer": "C",
+      "topic": "hasOwnProperty, Set, type_coercion"
+    },
+    {
+      "id": 25,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nconst obj = { a: 'one', b: 'two', a: 'three' };\nconsole.log(obj);",
+      "options": ["A: { a: 'one', b: 'two' }", "B: { b: 'two', a: 'three' }", "C: { a: 'three', b: 'two' }", "D: SyntaxError"],
+      "correct_answer": "C",
+      "topic": "object_duplicate_keys"
+    },
+    {
+      "id": 26,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "في سياق التنفيذ global في JS، تقوم بإنشاء شيئين: الـ global object والكلمة المفتاحية 'this'.",
+      "options": ["A: true", "B: false", "C: تعتمد على"],
+      "correct_answer": "A",
+      "topic": "execution_context"
+    },
+    {
+      "id": 27,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nfor (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
+      "options": ["A: 1 2", "B: 1 2 3", "C: 1 2 4", "D: 1 3 4"],
+      "correct_answer": "C",
+      "topic": "continue_statement"
+    },
+    {
+      "id": 28,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nString.prototype.giveLydiaPizza = () => { return 'Just give Lydia pizza already!'; };\nconst name = 'Lydia';\nconsole.log(name.giveLydiaPizza())",
+      "options": ["A: 'Just give Lydia pizza already!'", "B: TypeError", "C: SyntaxError", "D: undefined"],
+      "correct_answer": "A",
+      "topic": "prototype_extension"
+    },
+    {
+      "id": 29,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconst a = {};\nconst b = { key: 'b' };\nconst c = { key: 'c' };\na[b] = 123;\na[c] = 456;\nconsole.log(a[b]);",
+      "options": ["A: 123", "B: 456", "C: undefined", "D: ReferenceError"],
+      "correct_answer": "B",
+      "topic": "object_keys, toString"
+    },
+    {
+      "id": 30,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconst foo = () => console.log('First');\nconst bar = () => setTimeout(() => console.log('Second'));\nconst baz = () => console.log('Third');\nbar(); foo(); baz();",
+      "options": ["A: First Second Third", "B: First Third Second", "C: Second First Third", "D: Second Third First"],
+      "correct_answer": "B",
+      "topic": "event_loop, setTimeout"
+    },
+    {
+      "id": 31,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "ماهو الـ event.target عند الضغط على الزر؟\n<div onclick><div onclick><button onclick>Click!</button></div></div>",
+      "options": ["A: الخارجي div", "B: الداخلي div", "C: button", "D: array"],
+      "correct_answer": "C",
+      "topic": "event_target, event_propagation"
+    },
+    {
+      "id": 32,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "عند الضغط على الفقرة (P)، ماهو الناتج؟\n<div onclick='console.log(\"div\")'><p onclick='console.log(\"p\")'>Click here!</p></div>",
+      "options": ["A: p div", "B: div p", "C: p", "D: div"],
+      "correct_answer": "A",
+      "topic": "event_bubbling"
+    },
+    {
+      "id": 33,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
+      "options": ["A: undefined is 21 Lydia is 21", "B: function function", "C: Lydia is 21 Lydia is 21", "D: Lydia is 21 function"],
+      "correct_answer": "D",
+      "topic": "call_bind_apply"
+    },
+    {
+      "id": 34,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nfunction sayHi() { return (() => 0)(); }\nconsole.log(typeof sayHi());",
+      "options": ["A: 'object'", "B: 'number'", "C: 'function'", "D: 'undefined'"],
+      "correct_answer": "B",
+      "topic": "IIFE, typeof"
+    },
+    {
+      "id": 35,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "أي هذه القيم هي قيم خطئية (falsy)؟\n0; new Number(0); ('');\n(' '); new Boolean(false); undefined;",
+      "options": ["A: 0, '', undefined", "B: 0, new Number(0), '', new Boolean(false), undefined", "C: 0, '', new Boolean(false), undefined", "D: جميعها"],
+      "correct_answer": "A",
+      "topic": "falsy_values"
+    },
+    {
+      "id": 36,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconsole.log(typeof typeof 1);",
+      "options": ["A: 'number'", "B: 'string'", "C: 'object'", "D: 'undefined'"],
+      "correct_answer": "B",
+      "topic": "typeof"
+    },
+    {
+      "id": 37,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nconst numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
+      "options": ["A: [1, 2, 3, 7 x null, 11]", "B: [1, 2, 3, 11]", "C: [1, 2, 3, 7 x empty, 11]", "D: SyntaxError"],
+      "correct_answer": "C",
+      "topic": "sparse_arrays"
+    },
+    {
+      "id": 38,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "ماهو الناتج؟\n(() => { let x, y; try { throw new Error(); } catch (x) { (x = 1), (y = 2); console.log(x); } console.log(x); console.log(y); })();",
+      "options": ["A: 1 undefined 2", "B: undefined undefined undefined", "C: 1 1 2", "D: 1 undefined undefined"],
+      "correct_answer": "A",
+      "topic": "try_catch_scope"
+    },
+    {
+      "id": 39,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "كل شيء في الجافاسكريبت هو عبارة عن ...",
+      "options": ["A: primitive أو object", "B: function أو object", "C: فقط objects", "D: number or object"],
+      "correct_answer": "A",
+      "topic": "js_fundamentals"
+    },
+    {
+      "id": 40,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\n[[0, 1], [2, 3]].reduce((acc, cur) => { return acc.concat(cur); }, [1, 2]);",
+      "options": ["A: [0, 1, 2, 3, 1, 2]", "B: [6, 1, 2]", "C: [1, 2, 0, 1, 2, 3]", "D: [1, 2, 6]"],
+      "correct_answer": "C",
+      "topic": "reduce, concat"
+    },
+    {
+      "id": 41,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\n!!null;\n!!'';\n!!1;",
+      "options": ["A: false true false", "B: false false true", "C: false true true", "D: true true false"],
+      "correct_answer": "B",
+      "topic": "double_negation, truthy_falsy"
+    },
+    {
+      "id": 42,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "ماهو الذي تقوم الدالة setInterval بإرجاعه في المتصفح؟",
+      "options": ["A: رقم فريد id", "B: قيمة محددة للـ milliseconds", "C: الدالة التي تم تمريرها", "D: undefined"],
+      "correct_answer": "A",
+      "topic": "timers"
+    },
+    {
+      "id": 43,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "مالذي يتم إرجاعه؟\n[...\"Lydia\"];",
+      "options": ["A: ['L', 'y', 'd', 'i', 'a']", "B: ['Lydia']", "C: [[], 'Lydia']", "D: [['L', 'y', 'd', 'i', 'a']]"],
+      "correct_answer": "A",
+      "topic": "spread_operator, iterables"
+    },
+    {
+      "id": 44,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nfunction* generator(i) { yield i; yield i * 2; }\nconst gen = generator(10);\nconsole.log(gen.next().value);\nconsole.log(gen.next().value);",
+      "options": ["A: [0, 10], [10, 20]", "B: 20, 20", "C: 10, 20", "D: 0, 10 and 10, 20"],
+      "correct_answer": "C",
+      "topic": "generators"
+    },
+    {
+      "id": 45,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "مالذي يتم إرجاعه؟\nPromise.race([firstPromise (500ms 'one'), secondPromise (100ms 'two')]).then(res => console.log(res));",
+      "options": ["A: 'one'", "B: 'two'", "C: 'two' 'one'", "D: 'one' 'two'"],
+      "correct_answer": "B",
+      "topic": "Promise.race"
+    },
+    {
+      "id": 46,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nlet person = { name: 'Lydia' };\nconst members = [person];\nperson = null;\nconsole.log(members);",
+      "options": ["A: null", "B: [null]", "C: [{}]", "D: [{ name: 'Lydia' }]"],
+      "correct_answer": "D",
+      "topic": "reference_types, null_assignment"
+    },
+    {
+      "id": 47,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nfor (const item in person) { console.log(item); }",
+      "options": ["A: { name: 'Lydia' }, { age: 21 }", "B: 'name', 'age'", "C: 'Lydia', 21", "D: ['name', 'Lydia'], ['age', 21]"],
+      "correct_answer": "B",
+      "topic": "for_in"
+    },
+    {
+      "id": 48,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nconsole.log(3 + 4 + '5');",
+      "options": ["A: '345'", "B: '75'", "C: 12", "D: '12'"],
+      "correct_answer": "B",
+      "topic": "type_coercion, string_concatenation"
+    },
+    {
+      "id": 49,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "ماهي قيمة num؟\nconst num = parseInt('7*6', 10);",
+      "options": ["A: 42", "B: '42'", "C: 7", "D: NaN"],
+      "correct_answer": "C",
+      "topic": "parseInt"
+    },
+    {
+      "id": 50,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\n[1, 2, 3].map(num => { if (typeof num === 'number') return; return num * 2; });",
+      "options": ["A: []", "B: [null, null, null]", "C: [undefined, undefined, undefined]", "D: [ 3 x empty ]"],
+      "correct_answer": "C",
+      "topic": "map, return_undefined"
+    },
+    {
+      "id": 51,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\ngetInfo(person, birthYear) — تغيير member.name و year\nconsole.log(person, birthYear);",
+      "options": ["A: { name: 'Lydia' }, '1997'", "B: { name: 'Sarah' }, '1998'", "C: { name: 'Lydia' }, '1998'", "D: { name: 'Sarah' }, '1997'"],
+      "correct_answer": "A",
+      "topic": "pass_by_reference_vs_value"
+    },
+    {
+      "id": 52,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nfunction greeting() { throw 'Hello world!'; }\nsayHi() يلتقط الـ error",
+      "options": ["A: 'It worked! Hello world!'", "B: 'Oh no an error: undefined'", "C: SyntaxError", "D: 'Oh no an error: Hello world!'"],
+      "correct_answer": "D",
+      "topic": "throw, try_catch"
+    },
+    {
+      "id": 53,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nfunction Car() { this.make = 'Lamborghini'; return { make: 'Maserati' }; }\nconst myCar = new Car();\nconsole.log(myCar.make);",
+      "options": ["A: 'Lamborghini'", "B: 'Maserati'", "C: ReferenceError", "D: TypeError"],
+      "correct_answer": "B",
+      "topic": "constructor_return"
+    },
+    {
+      "id": 54,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "hard",
+      "question": "ماهو الناتج؟\n(() => { let x = (y = 10); })();\nconsole.log(typeof x);\nconsole.log(typeof y);",
+      "options": ["A: 'undefined', 'number'", "B: 'number', 'number'", "C: 'object', 'number'", "D: 'number', 'undefined'"],
+      "correct_answer": "A",
+      "topic": "scope, implicit_globals"
+    },
+    {
+      "id": 55,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\ndelete Dog.prototype.bark بعد pet.bark()",
+      "options": ["A: 'Woof I am Mara', TypeError", "B: 'Woof I am Mara', 'Woof I am Mara'", "C: 'Woof I am Mara', undefined", "D: TypeError, TypeError"],
+      "correct_answer": "A",
+      "topic": "prototype, delete"
+    },
+    {
+      "id": 56,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nconst set = new Set([1, 1, 2, 3, 4]);\nconsole.log(set);",
+      "options": ["A: [1, 1, 2, 3, 4]", "B: [1, 2, 3, 4]", "C: {1, 1, 2, 3, 4}", "D: {1, 2, 3, 4}"],
+      "correct_answer": "D",
+      "topic": "Set"
+    },
+    {
+      "id": 57,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nexport default counter; // counter = 10\nimport myCounter from './counter';\nmyCounter += 1;\nconsole.log(myCounter);",
+      "options": ["A: 10", "B: 11", "C: Error", "D: NaN"],
+      "correct_answer": "C",
+      "topic": "ES_modules, live_bindings"
+    },
+    {
+      "id": 58,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconst name = 'Lydia';\nage = 21;\nconsole.log(delete name);\nconsole.log(delete age);",
+      "options": ["A: false, true", "B: 'Lydia', 21", "C: true, true", "D: undefined, undefined"],
+      "correct_answer": "A",
+      "topic": "delete_operator"
+    },
+    {
+      "id": 59,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nconst numbers = [1, 2, 3, 4, 5];\nconst [y] = numbers;\nconsole.log(y);",
+      "options": ["A: [[1, 2, 3, 4, 5]]", "B: [1, 2, 3, 4, 5]", "C: 1", "D: [1]"],
+      "correct_answer": "C",
+      "topic": "array_destructuring"
+    },
+    {
+      "id": 60,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "easy",
+      "question": "ماهو الناتج؟\nconst admin = { admin: true, ...user };\nconsole.log(admin);",
+      "options": ["A: { admin: true, user: {...} }", "B: { admin: true, name: 'Lydia', age: 21 }", "C: { admin: true, user: [...] }", "D: { admin: true }"],
+      "correct_answer": "B",
+      "topic": "spread_operator"
+    },
+    {
+      "id": 61,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nObject.defineProperty(person, 'age', { value: 21 });\nconsole.log(person);\nconsole.log(Object.keys(person));",
+      "options": ["A: { name: 'Lydia', age: 21 }, ['name', 'age']", "B: { name: 'Lydia', age: 21 }, ['name']", "C: { name: 'Lydia'}, ['name', 'age']", "D: { name: 'Lydia'}, ['age']"],
+      "correct_answer": "B",
+      "topic": "Object.defineProperty, enumerable"
+    },
+    {
+      "id": 62,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconst data = JSON.stringify(settings, ['level', 'health']);\nconsole.log(data);",
+      "options": ["A: '{\"level\":19, \"health\":90}'", "B: '{\"username\": \"lydiahallie\"}'", "C: '[\"level\", \"health\"]'", "D: '{\"username\": ...}'"],
+      "correct_answer": "A",
+      "topic": "JSON.stringify, replacer"
+    },
+    {
+      "id": 63,
+      "source": "js_quiz",
+      "category": "JavaScript",
+      "type": "output",
+      "difficulty": "medium",
+      "question": "ماهو الناتج؟\nconst num1 = increaseNumber(); // num++ على num=10\nconst num2 = increasePassedNumber(num1); // number++ على num1\nconsole.log(num1);\nconsole.log(num2);",
+      "options": ["A: 10, 10", "B: 10, 11", "C: 11, 11", "D: 11, 12"],
+      "correct_answer": "A",
+      "topic": "post_increment, pass_by_value"
+    },
+    {
+      "id": 64,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "On Twitter, what was the original character limit for a Tweet?",
+      "options": ["140", "120", "160", "100"],
+      "correct_answer": "140"
+    },
+    {
+      "id": 65,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "In most programming languages, the operator ++ is equivalent to the statement += 1.",
+      "options": ["True", "False"],
+      "correct_answer": "True"
+    },
+    {
+      "id": 66,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Which of the following is the oldest computer by release date?",
+      "options": ["TRS-80", "Commodore 64", "ZX Spectrum", "Apple 3"],
+      "correct_answer": "TRS-80"
+    },
+    {
+      "id": 67,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "The open source program Redis is a relational database server.",
+      "options": ["True", "False"],
+      "correct_answer": "False"
+    },
+    {
+      "id": 68,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "The programming language Python is based off a modified version of JavaScript.",
+      "options": ["True", "False"],
+      "correct_answer": "False"
+    },
+    {
+      "id": 69,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which computer hardware device provides an interface for all other connected devices to communicate?",
+      "options": ["Motherboard", "CPU", "Hard Disk Drive", "RAM"],
+      "correct_answer": "Motherboard"
+    },
+    {
+      "id": 70,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "The first computer bug was formed by faulty wires.",
+      "options": ["True", "False"],
+      "correct_answer": "False"
+    },
+    {
+      "id": 71,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "The name of technology company HP stands for what?",
+      "options": ["Hewlett-Packard", "Howard Packmann", "Husker-Pollosk", "Hellman-Pohl"],
+      "correct_answer": "Hewlett-Packard"
+    },
+    {
+      "id": 72,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "In programming, the ternary operator is mostly defined with what symbol(s)?",
+      "options": ["?:", "??", "if then", "?"],
+      "correct_answer": "?:"
+    },
+    {
+      "id": 73,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What is the name given to layer 4 of the OSI model?",
+      "options": ["Transport", "Session", "Data link", "Network"],
+      "correct_answer": "Transport"
+    },
+    {
+      "id": 74,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What major programming language does Unreal Engine 4 use?",
+      "options": ["C++", "Assembly", "C#", "ECMAScript"],
+      "correct_answer": "C++"
+    },
+    {
+      "id": 75,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is the commonly used keyboard shortcut for the Copy function on Windows OS?",
+      "options": ["Ctrl + C", "Ctrl + X", "Alt + C", "Alt + X"],
+      "correct_answer": "Ctrl + C"
+    },
+    {
+      "id": 76,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "The name of the programming language AWK is abbreviated from the names of the developers – Aho, Weinberger, and Kernighan.",
+      "options": ["True", "False"],
+      "correct_answer": "True"
+    },
+    {
+      "id": 77,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "Pointers were not used in the original C programming language; they were added later on in C++.",
+      "options": ["True", "False"],
+      "correct_answer": "False"
+    },
+    {
+      "id": 78,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "hard",
+      "question": "The IBM PC used an Intel 8008 microprocessor clocked at 4.77 MHz and 8 kilobytes of memory.",
+      "options": ["True", "False"],
+      "correct_answer": "False"
+    },
+    {
+      "id": 79,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Originally used in PCM adapters, what frequency is the standard for sampling audio in the CD Digital Audio format?",
+      "options": ["44.1 kHz", "32.0 kHz", "1.5 MHz", "20.5 kHz"],
+      "correct_answer": "44.1 kHz"
+    },
+    {
+      "id": 80,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What was the name of the default background wallpaper for Windows XP?",
+      "options": ["Bliss", "Azul", "Red moon desert", "Tulips"],
+      "correct_answer": "Bliss"
+    },
+    {
+      "id": 81,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is largely considered the precursor to the USB format?",
+      "options": ["PS/2", "SVGA", "PCIe", "FireWire"],
+      "correct_answer": "PS/2"
+    },
+    {
+      "id": 82,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is the name of the default theme installed with Windows XP?",
+      "options": ["Luna", "Neptune", "Whistler", "Bliss"],
+      "correct_answer": "Luna"
+    },
+    {
+      "id": 83,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "HTML stands for Hypertext Markup Language.",
+      "options": ["True", "False"],
+      "correct_answer": "True"
+    },
+    {
+      "id": 84,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Which of the following computer components can be built using only NAND gates?",
+      "options": ["ALU", "CPU", "RAM", "Register"],
+      "correct_answer": "ALU"
+    },
+    {
+      "id": 85,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which computer language would you associate Django framework with?",
+      "options": ["Python", "C#", "C++", "Java"],
+      "correct_answer": "Python"
+    },
+    {
+      "id": 86,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What is the codename of the eighth generation Intel Core micro-architecture launched in October 2017?",
+      "options": ["Coffee Lake", "Sandy Bridge", "Skylake", "Broadwell"],
+      "correct_answer": "Coffee Lake"
+    },
+    {
+      "id": 87,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Which RAID array type is associated with data mirroring?",
+      "options": ["RAID 1", "RAID 0", "RAID 10", "RAID 5"],
+      "correct_answer": "RAID 1"
+    },
+    {
+      "id": 88,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What does the term MIME stand for, in regards to computing?",
+      "options": ["Multipurpose Internet Mail Extensions", "Mail Internet Mail Exchange", "Multipurpose Interleave Mail Exchange", "Mail Interleave Method Exchange"],
+      "correct_answer": "Multipurpose Internet Mail Extensions"
+    },
+    {
+      "id": 89,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
+      "options": ["1000", "512", "1024", "500"],
+      "correct_answer": "1000"
+    },
+    {
+      "id": 90,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "How many bits are commonly in a single byte?",
+      "options": ["Eight bits", "Six bits", "Twelve bits", "Fifteen bits"],
+      "correct_answer": "Eight bits"
+    },
+    {
+      "id": 91,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "How many kilobytes in one gigabyte (in decimal)?",
+      "options": ["1000000", "1024", "1000", "1048576"],
+      "correct_answer": "1000000"
+    },
+    {
+      "id": 92,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "AMD created the first consumer 64-bit processor.",
+      "options": ["True", "False"],
+      "correct_answer": "True"
+    },
+    {
+      "id": 93,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "Which programming language shares its name with an island in Indonesia?",
+      "options": ["Java", "Python", "C", "Jakarta"],
+      "correct_answer": "Java"
+    },
+    {
+      "id": 94,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "On which computer hardware device is the BIOS chip located?",
+      "options": ["Motherboard", "Hard Disk Drive", "CPU", "GPU"],
+      "correct_answer": "Motherboard"
+    },
+    {
+      "id": 95,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
+      "options": ["Injection", "Broken Authentication", "Cross-Site Scripting", "Insecure Direct Object References"],
+      "correct_answer": "Injection"
+    },
+    {
+      "id": 96,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "The first IBM PC was released in 1981.",
+      "options": ["True", "False"],
+      "correct_answer": "True"
+    },
+    {
+      "id": 97,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Which of the following is NOT a computer science algorithm?",
+      "options": ["Float Sort", "Bubble Sort", "Merge Sort", "Quick Sort"],
+      "correct_answer": "Float Sort"
+    },
+    {
+      "id": 98,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "Linux was first created as an alternative to Windows XP.",
+      "options": ["True", "False"],
+      "correct_answer": "False"
+    },
+    {
+      "id": 99,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is the main CPU in the Sega Mega Drive / Sega Genesis?",
+      "options": ["Motorola 68000", "Zilog Z80", "Yamaha YM2612", "Intel 8088"],
+      "correct_answer": "Motorola 68000"
+    },
+    {
+      "id": 100,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "HTML is what type of language?",
+      "options": ["Markup Language", "Macro Language", "Programming Language", "Scripting Language"],
+      "correct_answer": "Markup Language"
+    },
+    {
+      "id": 101,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What does the computer software acronym JVM stand for?",
+      "options": ["Java Virtual Machine", "Java Vendor Machine", "Java Visual Machine", "Just Virtual Machine"],
+      "correct_answer": "Java Virtual Machine"
+    },
+    {
+      "id": 102,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Which of these is the name for the failed key escrow device introduced by the NSA in 1993?",
+      "options": ["Clipper Chip", "Enigma Machine", "Skipjack", "Nautilus"],
+      "correct_answer": "Clipper Chip"
+    },
+    {
+      "id": 103,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is the name of Layer 7 of the OSI model?",
+      "options": ["Application", "Session", "Network", "Present"],
+      "correct_answer": "Application"
+    },
+    {
+      "id": 104,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "In computing, what does LAN stand for?",
+      "options": ["Local Area Network", "Long Antenna Node", "Light Access Node", "Land Address Navigation"],
+      "correct_answer": "Local Area Network"
+    },
+    {
+      "id": 105,
+      "source": "trivia_doc2",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "How many values can a single byte represent?",
+      "options": ["256", "8", "1", "1024"],
+      "correct_answer": "256"
+    },
+    {
+      "id": 106,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is the difference between CMD and ENTRYPOINT in a Dockerfile?",
+      "options": [
+        "CMD provides defaults that can be overridden; ENTRYPOINT configures the container's main executable",
+        "They are exactly the same",
+        "CMD runs at build time; ENTRYPOINT runs at container start",
+        "ENTRYPOINT is deprecated in favor of CMD"
+      ],
+      "correct_answer": "CMD provides defaults that can be overridden; ENTRYPOINT configures the container's main executable"
+    },
+    {
+      "id": 107,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is a Docker volume and why is it used?",
+      "options": [
+        "A mechanism for persisting data outside the container's writable layer, managed by Docker",
+        "A way to increase the container's memory",
+        "A network configuration file",
+        "A container's CPU allocation setting"
+      ],
+      "correct_answer": "A mechanism for persisting data outside the container's writable layer, managed by Docker"
+    },
+    {
+      "id": 108,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is the difference between COPY and ADD in a Dockerfile?",
+      "options": [
+        "COPY only copies local files; ADD also supports tar extraction and remote URLs",
+        "ADD is faster than COPY",
+        "COPY works with directories; ADD only works with files",
+        "There is no difference"
+      ],
+      "correct_answer": "COPY only copies local files; ADD also supports tar extraction and remote URLs"
+    },
+    {
+      "id": 109,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is a Docker image layer?",
+      "options": [
+        "A read-only filesystem created by each Dockerfile instruction, cached and shared between images",
+        "A running container instance",
+        "A Docker network configuration",
+        "A security permission level"
+      ],
+      "correct_answer": "A read-only filesystem created by each Dockerfile instruction, cached and shared between images"
+    },
+    {
+      "id": 110,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "true_false",
+      "difficulty": "easy",
+      "question": "Containers share the host OS kernel.",
+      "options": ["True", "False"],
+      "correct_answer": "True"
+    },
+    {
+      "id": 111,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is Docker Compose used for?",
+      "options": [
+        "Defining and running multi-container applications with a YAML configuration",
+        "Building Docker images from source code",
+        "Managing Docker Hub repositories",
+        "Monitoring container resource usage"
+      ],
+      "correct_answer": "Defining and running multi-container applications with a YAML configuration"
+    },
+    {
+      "id": 112,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is the purpose of a .dockerignore file?",
+      "options": [
+        "Excludes files from the build context to improve performance and security",
+        "Lists containers that should not be started",
+        "Specifies images that should not be pulled",
+        "Defines environment variables to ignore"
+      ],
+      "correct_answer": "Excludes files from the build context to improve performance and security"
+    },
+    {
+      "id": 113,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is the difference between docker stop and docker kill?",
+      "options": [
+        "stop sends SIGTERM for graceful shutdown; kill sends SIGKILL immediately",
+        "stop pauses the container; kill removes it",
+        "They are identical commands",
+        "stop works on running containers; kill works on stopped containers"
+      ],
+      "correct_answer": "stop sends SIGTERM for graceful shutdown; kill sends SIGKILL immediately"
+    },
+    {
+      "id": 114,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What is a multi-stage build in Docker?",
+      "options": [
+        "Using multiple FROM statements to create smaller final images by copying only needed artifacts between stages",
+        "Building multiple Docker images simultaneously",
+        "Running multiple commands in a single RUN instruction",
+        "Deploying to multiple environments at once"
+      ],
+      "correct_answer": "Using multiple FROM statements to create smaller final images by copying only needed artifacts between stages"
+    },
+    {
+      "id": 115,
+      "source": "docker_quiz",
+      "category": "Docker / DevOps",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What networking mode gives a container full access to the host's network stack?",
+      "options": ["host", "bridge", "overlay", "none"],
+      "correct_answer": "host"
+    },
+    {
+      "id": 116,
+      "source": "python_quiz",
+      "category": "Python",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is the key difference between a list and a tuple in Python?",
+      "options": [
+        "Lists are mutable; tuples are immutable",
+        "Lists can hold strings; tuples can only hold numbers",
+        "Tuples are faster for all operations",
+        "Lists use {} syntax; tuples use [] syntax"
+      ],
+      "correct_answer": "Lists are mutable; tuples are immutable"
+    },
+    {
+      "id": 117,
+      "source": "python_quiz",
+      "category": "Python",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is the time complexity of accessing a dictionary value by key?",
+      "options": ["O(1) average case", "O(n)", "O(log n)", "O(n^2)"],
+      "correct_answer": "O(1) average case"
+    },
+    {
+      "id": 118,
+      "source": "python_quiz",
+      "category": "Python",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What does the set data type guarantee about its elements?",
+      "options": [
+        "All elements are unique (no duplicates)",
+        "Elements are always sorted",
+        "Elements maintain insertion order",
+        "Elements are always strings"
+      ],
+      "correct_answer": "All elements are unique (no duplicates)"
+    },
+    {
+      "id": 119,
+      "source": "python_quiz",
+      "category": "Python",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is a list comprehension in Python?",
+      "options": [
+        "A concise syntax for creating lists: [expression for item in iterable]",
+        "A way to sort lists alphabetically",
+        "A method that compresses list data",
+        "A tool for comparing two lists"
+      ],
+      "correct_answer": "A concise syntax for creating lists: [expression for item in iterable]"
+    },
+    {
+      "id": 120,
+      "source": "python_quiz",
+      "category": "Python",
+      "type": "true_false",
+      "difficulty": "medium",
+      "question": "Python dictionaries maintain insertion order (Python 3.7+).",
+      "options": ["True", "False"],
+      "correct_answer": "True"
+    },
+    {
+      "id": 121,
+      "source": "python_quiz",
+      "category": "Python",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What is the difference between .append() and .extend() for lists?",
+      "options": [
+        "append() adds one element; extend() adds each element from an iterable",
+        "append() adds to the end; extend() adds to the beginning",
+        "extend() is faster than append()",
+        "They do the same thing"
+      ],
+      "correct_answer": "append() adds one element; extend() adds each element from an iterable"
+    },
+    {
+      "id": 122,
+      "source": "python_quiz",
+      "category": "Python",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What does collections.defaultdict do?",
+      "options": [
+        "Provides a default value for missing keys instead of raising KeyError",
+        "Sorts dictionary keys by default",
+        "Limits dictionary size to a default maximum",
+        "Creates a read-only dictionary with defaults"
+      ],
+      "correct_answer": "Provides a default value for missing keys instead of raising KeyError"
+    },
+    {
+      "id": 123,
+      "source": "python_quiz",
+      "category": "Python",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What is the difference between a shallow copy and a deep copy of a list?",
+      "options": [
+        "Shallow copy shares nested references; deep copy recursively duplicates all nested objects",
+        "Shallow copy is faster; deep copy produces the same result",
+        "Deep copy only works with dictionaries",
+        "Shallow copy creates a string representation; deep copy creates a binary one"
+      ],
+      "correct_answer": "Shallow copy shares nested references; deep copy recursively duplicates all nested objects"
+    },
+    {
+      "id": 124,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Australia, Japan, and Southeast Asia are in which ITU Region?",
+      "options": ["Region 3", "Region 1", "Region 2", "Region 4"],
+      "correct_answer": "Region 3"
+    },
+    {
+      "id": 125,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "In programming, what do you call functions with the same name but different implementations?",
+      "options": ["Overloading", "Overriding", "Abstracting", "Inheriting"],
+      "correct_answer": "Overloading"
+    },
+    {
+      "id": 126,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is the code name for the mobile operating system Android 7.0?",
+      "options": ["Nougat", "Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
+      "correct_answer": "Nougat"
+    },
+    {
+      "id": 127,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "In the server hosting industry, IaaS stands for...",
+      "options": ["Infrastructure as a Service", "Internet as a Service", "Internet and a Server", "Infrastructure as a Server"],
+      "correct_answer": "Infrastructure as a Service"
+    },
+    {
+      "id": 128,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "In computing terms, what does CLI stand for?",
+      "options": ["Command Line Interface", "Common Language Input", "Control Line Interface", "Common Language Interface"],
+      "correct_answer": "Command Line Interface"
+    },
+    {
+      "id": 129,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What is the maximum value of a 32-bit signed binary integer?",
+      "options": ["2,147,483,647", "255", "2048", "9,223,372,036,854,775,807"],
+      "correct_answer": "2,147,483,647"
+    },
+    {
+      "id": 130,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "Unix Time is defined as the number of seconds that have elapsed since when?",
+      "options": ["Midnight, January 1, 1970", "Midnight, July 4, 1976", "Midnight on the creator's birthday", "Midnight, July 4, 1980"],
+      "correct_answer": "Midnight, January 1, 1970"
+    },
+    {
+      "id": 131,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "The acronym RIP stands for which of these?",
+      "options": ["Routing Information Protocol", "Runtime Instance Processes", "Regular Interval Processes", "Routine Inspection Protocol"],
+      "correct_answer": "Routing Information Protocol"
+    },
+    {
+      "id": 132,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "The programming language Swift was created to replace what other programming language?",
+      "options": ["Objective-C", "C#", "Ruby", "C++"],
+      "correct_answer": "Objective-C"
+    },
+    {
+      "id": 133,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "Which of these was the name of a bug found in April 2014 in the OpenSSL cryptography library?",
+      "options": ["Heartbleed", "Shellshock", "Corrupted Blood", "Shellscript"],
+      "correct_answer": "Heartbleed"
+    },
+    {
+      "id": 134,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "medium",
+      "question": "What did the name of the Tor Anonymity Network originally stand for?",
+      "options": ["The Onion Router", "The Only Router", "The Orange Router", "The Ominous Router"],
+      "correct_answer": "The Onion Router"
+    },
+    {
+      "id": 135,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "In web design, what does CSS stand for?",
+      "options": ["Cascading Style Sheet", "Counter Strike: Source", "Corrective Style Sheet", "Computer Style Sheet"],
+      "correct_answer": "Cascading Style Sheet"
+    },
+    {
+      "id": 136,
+      "source": "trivia_doc4",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "hard",
+      "question": "What internet protocol was documented in RFC 1459?",
+      "options": ["IRC", "HTTP", "HTTPS", "FTP"],
+      "correct_answer": "IRC"
+    },
+    {
+      "id": 137,
+      "source": "message_json",
+      "category": "Computer Science",
+      "type": "mcq",
+      "difficulty": "easy",
+      "question": "What is the domain name for the country Tuvalu?",
+      "options": [".tv", ".tu", ".tt", ".tl"],
+      "correct_answer": ".tv"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { Alert, Box, Button, TextField, Typography } from '@mui/material';
+import { CalendarError, type CalendarClient, type CalendarEvent } from '../../api/calendarClient';
+import { eventColors, eventErrors, eventPayload, type EventDraft } from '../../utils/calendar';
+export default function EventEditor({ client, original = null, date, onCancel, onSaved }: { client: CalendarClient; original?: CalendarEvent | null; date: string; onCancel: () => void; onSaved: (event: CalendarEvent, replayed: boolean) => void }) {
+  const initial = { title: original?.title || '', date: original?.date || date, color: original?.color || '#2196f3' };
+  const [draft, setDraft] = useState<EventDraft>(initial); const [errors, setErrors] = useState<Partial<Record<keyof EventDraft, string>>>({}); const [failure, setFailure] = useState(''); const [blocked, setBlocked] = useState(false); const [busy, setBusy] = useState(false); const pending = useRef(false); const controller = useRef<AbortController | null>(null); const form = useRef<HTMLFormElement>(null); const [requestId] = useState(() => crypto.randomUUID());
+  const changed = !original || Object.entries(eventPayload(draft)).some(([key, value]) => value !== initial[key as keyof EventDraft]);
+  useEffect(() => () => controller.current?.abort(), []);
+  useEffect(() => { if (!changed || !draft.title) return; const prevent = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ''; }; window.addEventListener('beforeunload', prevent); return () => window.removeEventListener('beforeunload', prevent); }, [changed, draft.title]);
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault(); if (pending.current || blocked || original?.is_archived) return;
+    const values = new FormData(event.currentTarget); const next = { title: String(values.get('title') || ''), date: String(values.get('date') || ''), color: String(values.get('color') || '') }; setDraft(next); const invalid = eventErrors(next); setErrors(invalid); setFailure('');
+    const first = Object.keys(invalid)[0]; if (first) { form.current?.querySelector<HTMLInputElement>('[name="' + first + '"]')?.focus(); return; }
+    if (original && Object.entries(eventPayload(next)).every(([key, value]) => original[key as keyof CalendarEvent] === value)) { setFailure('لم تتغير بيانات النشاط.'); return; }
+    pending.current = true; setBusy(true); const action = new AbortController(); controller.current = action;
+    try { const saved = await client.save(next, original, requestId, action.signal); if (!action.signal.aborted) onSaved(saved.event, saved.replayed); }
+    catch (error) { if (!action.signal.aborted) { setFailure(error instanceof Error ? error.message : 'تعذر تأكيد الحفظ.'); setBlocked(!(error instanceof CalendarError) || error.uncertain || [401, 403, 404, 409].includes(error.status)); } }
+    finally { pending.current = false; if (!action.signal.aborted) setBusy(false); }
+  }
+  return <Box component="form" ref={form} onSubmit={event => void submit(event)} noValidate sx={{ maxWidth: 740, my: 3, p: { xs: 2, md: 3 }, border: '1px solid', borderColor: 'divider', borderRadius: 2 }} aria-label={original ? 'تعديل نشاط' : 'إضافة نشاط'}>
+    <Typography component="h2" variant="h4" fontWeight={700} mb={1}>{original ? 'تعديل النشاط' : 'إضافة نشاط'}</Typography><Typography color="text.secondary" mb={3}>نشاط إداري مشترك ليوم كامل. لا يرسل دعوة أو إشعارًا.</Typography>
+    <TextField autoFocus fullWidth name="title" label="عنوان النشاط" value={draft.title} inputProps={{ maxLength: 200 }} disabled={busy || blocked} error={!!errors.title} helperText={errors.title || 'عنوان واضح، حتى 200 حرف.'} onChange={event => setDraft(previous => ({ ...previous, title: event.target.value }))} />
+    <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'minmax(0,1fr)', sm: 'repeat(2,minmax(0,1fr))' }, gap: 2, my: 3 }}><TextField name="date" type="date" label="تاريخ النشاط" InputLabelProps={{ shrink: true }} inputProps={{ min: '1900-01-01', max: '2199-12-31', dir: 'ltr' }} value={draft.date} onInput={event => { const value = (event.target as HTMLInputElement).value; setDraft(previous => previous.date === value ? previous : { ...previous, date: value }); }} onBlur={event => { const value = event.target.value; setDraft(previous => previous.date === value ? previous : { ...previous, date: value }); }} disabled={busy || blocked} error={!!errors.date} helperText={errors.date || 'يبقى اليوم نفسه لكل المديرين.'} onChange={event => setDraft(previous => ({ ...previous, date: event.target.value }))} /><TextField name="color" select SelectProps={{ native: true }} label="تمييز اللون" value={draft.color} disabled={busy || blocked} error={!!errors.color} helperText={errors.color || 'اللون للتمييز فقط، ولا يحدد نوع النشاط.'} onChange={event => setDraft(previous => ({ ...previous, color: event.target.value }))}>{Object.entries(eventColors).map(([color, label]) => <option key={color} value={color}>{label}</option>)}{!Object.hasOwn(eventColors, draft.color) && <option value={draft.color}>لون محفوظ مخصص</option>}</TextField></Box>
+    {failure && <Alert severity="error" sx={{ my: 2 }}>{failure}{blocked && ' عُد إلى التقويم وراجع أحدث البيانات قبل فتح نموذج جديد.'}</Alert>}
+    <Box display="flex" gap={1} flexWrap="wrap"><Button type="submit" color="secondary" variant="contained" disabled={busy || blocked || !changed}>{busy ? 'جارٍ الحفظ…' : original ? 'حفظ التعديل' : 'إضافة النشاط'}</Button><Button color="inherit" type="button" disabled={busy} onClick={onCancel}>{blocked ? 'العودة للتقويم ومراجعة البيانات' : 'إلغاء والعودة للتقويم'}</Button></Box>
+  </Box>;
+}

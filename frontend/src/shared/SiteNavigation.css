@@ -1,0 +1,48 @@
+:root { --site-navigation-height: 80px; }
+.site-navigation { position: sticky; top: 0; z-index: 200; isolation: isolate; background: #fff; border-bottom: 1px solid #e9eaf1; color: #25324a; font: 500 15px/1.5 'Tajawal', 'Segoe UI', sans-serif; }
+.site-navigation *, .site-navigation *::before, .site-navigation *::after { box-sizing: border-box; }
+.site-navigation a { color: inherit; text-decoration: none; }
+.site-navigation button { font: inherit; cursor: pointer; }
+.site-navigation svg { width: 20px; height: 20px; flex-shrink: 0; }
+.site-navigation a:focus-visible, .site-navigation button:focus-visible { outline: 3px solid #8d7ae0; outline-offset: 4px; }
+.site-navigation-bar { display: flex; align-items: center; gap: 40px; height: var(--site-navigation-height); max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+.site-navigation-brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; font-size: 29px; font-weight: 800; line-height: 1; }
+.site-navigation-brand small { display: block; text-align: center; margin-top: 5px; color: #7b8391; font-size: 10px; font-weight: 500; letter-spacing: 3px; }
+.site-navigation-mark { display: flex; align-items: flex-end; gap: 3px; height: 28px; }
+.site-navigation-mark i { width: 5px; height: 28px; border-radius: 3px; background: #6651cd; }
+.site-navigation-mark i:nth-child(2) { height: 20px; background: #9280df; }
+.site-navigation-mark i:nth-child(3) { height: 12px; background: #beb2ed; }
+.site-navigation-main { display: flex; align-self: stretch; align-items: stretch; gap: 26px; margin-inline: auto; }
+.site-navigation-main > a { position: relative; display: flex; align-items: center; white-space: nowrap; color: #697284; font-size: 14px; font-weight: 500; }
+.site-navigation-main > a:hover, .site-navigation-main > a.is-active { color: #5d47bc; }
+.site-navigation-main > a.is-active { font-weight: 800; }
+.site-navigation-main > a.is-active::after { content: ''; position: absolute; bottom: 0; inset-inline: 0; height: 3px; border-radius: 3px 3px 0 0; background: #6b53cc; }
+.site-navigation-actions { display: flex; align-items: center; gap: 18px; margin-inline-start: auto; flex-shrink: 0; }
+.site-navigation-signin { padding: 10px 0; font-size: 14px; white-space: nowrap; }
+.site-navigation a.site-navigation-signup { padding: 10px 20px; border-radius: 7px; color: #fff; background: #6550c9; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.site-navigation-signup:hover { background: #5440b2 !important; }
+.site-navigation-account-button { display: flex; align-items: center; gap: 9px; padding: 5px 0; border: 0; background: transparent; color: #465167; }
+.site-navigation-account-button > svg { width: 13px; height: 13px; color: #89909d; }
+.site-navigation-account-button.is-open > svg { transform: rotate(180deg); }
+.site-navigation-avatar { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #f0ecfb; color: #6350be; font-size: 17px; font-weight: 700; }
+.site-navigation-account-label { font-size: 14px; }
+.site-navigation-mobile-button { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid #e6e7ee; border-radius: 7px; background: #fff; color: #465167; }
+.site-navigation-status { font-size: 13px; color: #697284; }
+.site-navigation-account-panel { position: absolute; top: calc(100% + 8px); inset-inline-end: max(24px, calc((100% - 1360px) / 2)); width: 260px; max-height: calc(100dvh - var(--site-navigation-height) - 20px); overflow-y: auto; padding: 10px; border: 1px solid #e5e5ef; border-radius: 10px; background: #fff; box-shadow: 0 14px 36px #25324a1c; }
+.site-navigation-identity { padding: 9px 12px 16px; margin-bottom: 7px; border-bottom: 1px solid #eff0f5; }
+.site-navigation-identity strong { display: block; overflow-wrap: anywhere; font-size: 15px; }
+.site-navigation-identity span { display: block; color: #81899a; font-size: 12px; margin-top: 3px; }
+.site-navigation-account-panel > a { display: flex; align-items: center; gap: 10px; min-height: 43px; padding: 10px 12px; border-radius: 6px; font-size: 14px; }
+.site-navigation-account-panel > a:hover { background: #f6f4fc; color: #5d47bc; }
+.site-navigation-account-panel > a.site-navigation-logout { color: #a24958; border-top: 1px solid #eff0f5; border-radius: 0; margin-top: 6px; padding-top: 14px; }
+.site-navigation-mobile-panel { position: absolute; top: 100%; inset-inline: 0; max-height: calc(100dvh - var(--site-navigation-height)); overflow-y: auto; padding: 14px 24px 22px; border-bottom: 1px solid #e5e5ef; background: #fff; box-shadow: 0 14px 28px #25324a12; }
+.site-navigation-mobile-panel nav { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; }
+.site-navigation-mobile-panel a { display: block; padding: 13px 16px; border-radius: 6px; color: #697284; font-size: 15px; }
+.site-navigation-mobile-panel a:hover, .site-navigation-mobile-panel a.is-active { background: #f4f0fc; color: #5d47bc; }
+.site-navigation-mobile-panel a.is-active { font-weight: 800; }
+.site-shell > .app { height: calc(100dvh - var(--site-navigation-height)); }
+.site-shell > .login-page, .site-shell > .signup-page, .site-shell > .page-index { min-height: calc(100svh - var(--site-navigation-height)); }
+@media (min-width: 1041px) { .site-navigation-mobile-panel { display: none; } }
+@media (max-width: 1180px) { .site-navigation-bar { gap: 24px; padding-inline: 24px; } .site-navigation-main { gap: 18px; } .site-navigation-main > a { font-size: 13px; } }
+@media (max-width: 1040px) { .site-navigation-main { display: none; } .site-navigation-mobile-button { display: flex; } }
+@media (max-width: 540px) { :root { --site-navigation-height: 68px; } .site-navigation-bar { padding-inline: 20px; gap: 12px; } .site-navigation-brand { font-size: 25px; gap: 8px; } .site-navigation-actions { gap: 12px; } .site-navigation-account-label { display: none; } .site-navigation-signin { font-size: 13px; } .site-navigation a.site-navigation-signup { padding: 9px 12px; font-size: 13px; } .site-navigation-account-panel { inset-inline-end: 16px; } .site-navigation-mobile-panel { padding-inline: 16px; } .site-navigation-mobile-panel a { padding-inline: 12px; font-size: 14px; } }

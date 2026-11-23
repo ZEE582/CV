@@ -1,0 +1,10 @@
+{
+  "image": "ghcr.io/engineer-man/piston",
+  "digest": "sha256:2f66b7456189c4d713aa986d98eccd0b6ee16d26c7ec5f21b30e942756fd127a",
+  "verified_on": "2026-11-05",
+  "os": "linux",
+  "architecture": "amd64",
+  "config_digest": "sha256:acfbe5930e559209195528a558c8c0ab45f4ff5ab2311ff7bc4f829a443f03a8",
+  "source": "https://github.com/engineer-man/piston",
+  "registry_manifest": "https://ghcr.io/v2/engineer-man/piston/manifests/sha256:2f66b7456189c4d713aa986d98eccd0b6ee16d26c7ec5f21b30e942756fd127a"
+}

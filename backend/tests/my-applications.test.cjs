@@ -1,0 +1,23 @@
+const{test,before,after}=require('node:test');const assert=require('node:assert/strict');const path=require('node:path');
+process.env.NODE_ENV='test';process.env.JWT_SECRET='a-local-test-secret-that-is-at-least-32-characters-long';process.env.MONGOMS_DOWNLOAD_DIR=path.resolve(__dirname,'../../.cache/mongodb');process.env.MONGOMS_VERSION='7.0.24';
+const mongoose=require('mongoose');const{MongoMemoryServer}=require('mongodb-memory-server');const session=require('express-session');const request=require('supertest');const User=require('../models/User');const Company=require('../models/Company');const Job=require('../models/Job');const Application=require('../models/Application');const{signToken}=require('../config/jwtConfig');
+let db,app,seeker,other,owner,company,job;const auth=user=>'Bearer '+signToken(user);
+before(async()=>{db=await MongoMemoryServer.create();await mongoose.connect(db.getUri());app=require('../app').createApp({sessionStore:new session.MemoryStore()});await Application.init();[seeker,other,owner]=await User.create(['seeker','seeker','company'].map((role,i)=>({email:'my-applications-'+i+'@example.com',role,provider:'google'})));company=await Company.create({name_ar:'شركة اختبار',user_id:owner._id});job=await Job.create({company_id:company._id,title:'وظيفة اختبار',description:'Fixture only'});},{timeout:180000});
+after(async()=>{await mongoose.disconnect();await db?.stop();});
+test('my applications only returns owned requests and permits unavailable job/company references without exposing another seeker',async()=>{
+ const mine=await Application.create({job_id:job._id,company_id:company._id,user_id:seeker._id});await Application.create({job_id:job._id,company_id:company._id,user_id:other._id});
+ const result=await request(app).get('/api/applications/my').set('Authorization',auth(seeker));assert.equal(result.status,200);assert.equal(result.headers['cache-control'],'no-store');assert.equal(result.body.total,1);assert.equal(result.body.applications[0]._id,String(mine._id));assert.equal(result.body.applications[0].user_id,String(seeker._id));
+ assert.equal((await request(app).get('/api/applications/my')).status,401);assert.equal((await request(app).get('/api/applications/my').set('Authorization',auth(owner))).status,403);
+ await Job.deleteOne({_id:job._id});await Company.deleteOne({_id:company._id});const legacy=await request(app).get('/api/applications/my').set('Authorization',auth(seeker));assert.equal(legacy.status,200);assert.equal(legacy.body.applications[0].job_id,null);assert.equal(legacy.body.applications[0].company_id,null);
+});
+test('withdrawal refuses a stale viewed-then-pending revision, invalid versions and another owner, then acknowledges exactly one current deletion',async()=>{
+ const mine=await Application.findOne({user_id:seeker._id});await Application.updateOne({_id:mine._id},{$set:{status:'pending',__v:2}});
+ const url='/api/applications/'+mine._id+'/withdraw';assert.equal((await request(app).delete(url).set('Authorization',auth(other)).send({expected_version:2})).status,404);
+ for(const expected_version of[-1,'2',null])assert.equal((await request(app).delete(url).set('Authorization',auth(seeker)).send({expected_version})).status,400);
+ const stale=await request(app).delete(url).set('Authorization',auth(seeker)).send({expected_version:0});assert.equal(stale.status,409);assert.ok(await Application.exists({_id:mine._id}));
+ const results=await Promise.all([1,2].map(()=>request(app).delete(url).set('Authorization',auth(seeker)).send({expected_version:2})));assert.equal(results.filter(x=>x.status===200).length,1);const success=results.find(x=>x.status===200);assert.equal(success.body.application_id,String(mine._id));assert.equal(success.headers['cache-control'],'no-store');assert.equal(await Application.exists({_id:mine._id}),null);
+});
+test('reviewed requests cannot be withdrawn and legacy empty-body pending withdrawals remain compatible',async()=>{
+ const reviewed=await Application.findOne({user_id:other._id});await Application.updateOne({_id:reviewed._id},{$set:{status:'viewed'}});assert.equal((await request(app).delete('/api/applications/'+reviewed._id+'/withdraw').set('Authorization',auth(other))).status,400);assert.ok(await Application.exists({_id:reviewed._id}));
+ const pending=await Application.create({job_id:new mongoose.Types.ObjectId(),company_id:new mongoose.Types.ObjectId(),user_id:seeker._id});const result=await request(app).delete('/api/applications/'+pending._id+'/withdraw').set('Authorization',auth(seeker));assert.equal(result.status,200);assert.equal(result.body.application_id,String(pending._id));
+});

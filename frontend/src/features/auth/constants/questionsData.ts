@@ -1,0 +1,61 @@
+export const LANGUAGES = [
+  "JavaScript",
+  "TypeScript",
+  "Python",
+  "Java",
+  "C++",
+  "C#",
+  "Go",
+  "Rust",
+  "PHP",
+  "Ruby",
+  "Swift",
+  "Kotlin",
+  "Dart",
+  "R",
+  "Scala",
+  "HTML/CSS",
+  "SQL",
+  "Bash",
+];
+export const JOB_INTERESTS = [
+  "تطوير الواجهة الأمامية (Frontend)",
+  "تطوير الخلفية (Backend)",
+  "تطوير تطبيقات الموبايل",
+  "الذكاء الاصطناعي وتعلم الآلة",
+  "أمن المعلومات (Cybersecurity)",
+  "DevOps والبنية التحتية",
+  "علم البيانات (Data Science)",
+  "تطوير الألعاب",
+  "تطوير الويب الكامل (Full Stack)",
+];
+export const JOB_TITLES = [
+  "طالب جامعي",
+  "مطور مبتدئ (Junior)",
+  "مطور متوسط (Mid-level)",
+  "مطور متقدم (Senior)",
+  "فريلانسر",
+  "أبحث عن عمل",
+];
+export const EXPERIENCE_YEARS = [
+  "أقل من سنة",
+  "1-2 سنة",
+  "3-5 سنوات",
+  "أكثر من 5 سنوات",
+];
+
+export const CITIES = [
+  "رام الله",
+  "نابلس",
+  "الخليل",
+  "جنين",
+  "طولكرم",
+  "قلقيلية",
+  "أريحا",
+  "بيت لحم",
+  "سلفيت",
+  "طوباس",
+  "غزة",
+  "القدس",
+  "أخرى",
+];

@@ -1,0 +1,15 @@
+const axios=require('axios');
+const configuration=require('./executorConfiguration');
+const languages={javascript:'main.js',python:'main.py',java:'Main.java',c:'main.c','c++':'main.cpp'};
+function fail(message,code='RUN_BAD_RESPONSE',status=502){return Object.assign(new Error(message),{code,status});}
+function stage(value){if(!value||typeof value!=='object'||!(value.code===null||Number.isInteger(value.code))||!(value.signal==null||typeof value.signal==='string')||!(value.status==null||['RE','SG','TO','OL','EL','XX'].includes(value.status))||['stdout','stderr','output'].some(key=>value[key]!==undefined&&typeof value[key]!=='string')||(!['stdout','stderr','output'].some(key=>typeof value[key]==='string')))throw fail('لم تصل نتيجة تنفيذ صالحة.');
+ const stdout=value.stdout||'',stderr=value.stderr||'',output=value.output??(stdout+stderr);return {exit_code:value.code,signal:value.signal||null,status:value.status||null,stdout:stdout.slice(0,20000),stderr:stderr.slice(0,20000),output:output.slice(0,20000),truncated:[stdout,stderr,output].some(text=>text.length>20000)};}
+function classify(value,phase){if(value.status==='XX')throw fail('تعذر إكمال التنفيذ لدى الخدمة.','RUN_SERVICE_ERROR');if(value.status==='TO')return 'timeout';if(['OL','EL'].includes(value.status))return 'output_limit';if(value.exit_code===0&&!value.signal&&!value.status)return 'completed';if(value.exit_code===null&&!value.signal&&!value.status)throw fail('لم تصل حالة انتهاء التنفيذ.');return phase==='compile'?'compile_error':'runtime_error';}
+async function runCode(language,code,stdin='',signal){const url=configuration();if(!url)throw fail('خدمة التنفيذ غير متاحة حاليًا.','RUN_UNAVAILABLE',503);if(!Object.hasOwn(languages,language))throw fail('لغة غير صالحة.','RUN_INVALID_INPUT',400);
+ let response;try{response=await axios.post(url.href,{language,version:'*',files:[{name:languages[language],content:code}],stdin,compile_timeout:10000,run_timeout:3000,compile_cpu_time:10000,run_cpu_time:3000,compile_memory_limit:256*1024*1024,run_memory_limit:128*1024*1024},{timeout:18000,maxContentLength:256*1024,maxBodyLength:512*1024,maxRedirects:0,signal,headers:process.env.CODE_EXECUTOR_TOKEN?{Authorization:'Bearer '+process.env.CODE_EXECUTOR_TOKEN}:{}});}catch(error){if(signal?.aborted)throw error;if(['ECONNABORTED','ETIMEDOUT'].includes(error.code))throw fail('انتهت مهلة الاتصال بخدمة التنفيذ.','RUN_SERVICE_TIMEOUT',504);throw fail('تعذر الاتصال بخدمة التنفيذ أو رفضت الطلب.','RUN_SERVICE_ERROR');}
+ const data=response.data;if(!data||typeof data!=='object')throw fail('لم تصل نتيجة تنفيذ صالحة.');
+ if(data.compile){const compile=stage(data.compile);const state=classify(compile,'compile');if(state!=='completed')return {...compile,state,phase:'compile'};}
+ const result=stage(data.run);return {...result,state:classify(result,'run'),phase:'run'};
+}
+runCode.status=()=>{const url=configuration();return {success:true,available:!!url,host:url?.host||null,languages:Object.keys(languages),max_code_chars:50000,max_stdin_chars:8000};};
+module.exports=runCode;
