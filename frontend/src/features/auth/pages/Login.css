@@ -1,5 +1,5 @@
 .login-page {
-  --login-ink: #203454; --login-muted: #65738a; --login-accent: #6256d9; --login-border: #dce2ed;
+  --login-ink: var(--ttw-ink); --login-muted: var(--ttw-muted); --login-accent: var(--ttw-brand); --login-border: var(--ttw-border);
   min-height: 100svh; background: #fff; color: var(--login-ink); font-family: 'Tajawal', 'Segoe UI', sans-serif;
 }
 .login-page * { box-sizing: border-box; }
@@ -54,9 +54,9 @@
 .login-social { margin-top: 18px; }
 .login-social:empty { display: none; }
 .login-page a:focus-visible, .login-page button:focus-visible { outline: 3px solid #9e96e5; outline-offset: 4px; }
-.login-intro { min-width: 0; min-height: 554px; padding: 38px 38px 30px; border: 1px solid #e3e9f4; border-radius: 24px; background: #eef2fb; }
-.login-intro h2 { font-size: 39px; line-height: 1.4; font-weight: 800; color: #293e64; letter-spacing: -.8px; margin: 0 0 13px; }
-.login-intro > p { font-size: 14px; line-height: 1.9; color: #586b8a; margin: 0; max-width: 290px; }
+.login-intro { min-width: 0; min-height: 554px; padding: 38px 38px 30px; border: 1px solid var(--ttw-border); border-radius: 24px; background: linear-gradient(145deg, #f3f1ff, #f8f7ff 68%, #fff4fa); }
+.login-intro h2 { font-size: 39px; line-height: 1.4; font-weight: 800; color: var(--ttw-ink); letter-spacing: -.8px; margin: 0 0 13px; }
+.login-intro > p { font-size: 14px; line-height: 1.9; color: var(--ttw-muted); margin: 0; max-width: 290px; }
 .login-file-scene { max-width: 275px; margin: 25px auto 28px; }
 .login-file-tab { display: flex; align-items: center; gap: 7px; width: fit-content; margin-right: 14px; padding: 7px 13px 5px; border: 1px solid #dce3f2; border-bottom: 0; border-radius: 8px 8px 0 0; background: #e5eaf7; color: #627597; font-size: 11px; }
 .login-file-tab svg { width: 15px; height: 15px; }

@@ -1,8 +1,8 @@
 .signup-page {
-  --signup-ink: #203454;
-  --signup-muted: #65738a;
-  --signup-accent: #6256d9;
-  --signup-border: #dce2ed;
+  --signup-ink: var(--ttw-ink);
+  --signup-muted: var(--ttw-muted);
+  --signup-accent: var(--ttw-brand);
+  --signup-border: var(--ttw-border);
   min-height: 100svh;
   background: #fff;
   color: var(--signup-ink);
@@ -70,9 +70,9 @@
 .signup-social { margin-top: 22px; }
 .signup-social:empty { display: none; }
 .signup-spinner { width: 17px; height: 17px; border: 2px solid #ffffff60; border-top-color: #fff; border-radius: 50%; animation: signup-spin .7s linear infinite; }
-.signup-intro { align-self: stretch; min-height: 610px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 32px 38px; border: 1px solid #e5e9f4; border-radius: 24px; background: #eef2fb; }
+.signup-intro { align-self: stretch; min-height: 610px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 32px 38px; border: 1px solid var(--ttw-border); border-radius: 24px; background: linear-gradient(145deg, #f3f1ff, #f8f7ff 68%, #fff4fa); }
 .signup-intro-kicker { margin: 0 0 13px; color: #6b6b9d; font-size: 13px; font-weight: 500; }
-.signup-intro h2 { margin: 0 0 15px; color: #273c63; font-size: clamp(30px, 3.2vw, 39px); font-weight: 800; line-height: 1.45; letter-spacing: -.8px; }
+.signup-intro h2 { margin: 0 0 15px; color: var(--ttw-ink); font-size: clamp(30px, 3.2vw, 39px); font-weight: 800; line-height: 1.45; letter-spacing: -.8px; }
 .signup-profile-visual { position: relative; width: 100%; max-width: 290px; margin: 30px auto 28px; padding-bottom: 12px; }
 .signup-profile-paper { position: relative; z-index: 1; min-height: 230px; border: 1px solid #dfe5f1; border-radius: 12px; padding: 24px 22px; background: #fff; box-shadow: 8px 10px 0 #e1e7f6; transform: rotate(-3deg); }
 .signup-paper-heading { display: flex; align-items: center; gap: 10px; }

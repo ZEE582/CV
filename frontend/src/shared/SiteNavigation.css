@@ -46,3 +46,14 @@
 @media (max-width: 1180px) { .site-navigation-bar { gap: 24px; padding-inline: 24px; } .site-navigation-main { gap: 18px; } .site-navigation-main > a { font-size: 13px; } }
 @media (max-width: 1040px) { .site-navigation-main { display: none; } .site-navigation-mobile-button { display: flex; } }
 @media (max-width: 540px) { :root { --site-navigation-height: 68px; } .site-navigation-bar { padding-inline: 20px; gap: 12px; } .site-navigation-brand { font-size: 25px; gap: 8px; } .site-navigation-actions { gap: 12px; } .site-navigation-account-label { display: none; } .site-navigation-signin { font-size: 13px; } .site-navigation a.site-navigation-signup { padding: 9px 12px; font-size: 13px; } .site-navigation-account-panel { inset-inline-end: 16px; } .site-navigation-mobile-panel { padding-inline: 16px; } .site-navigation-mobile-panel a { padding-inline: 12px; font-size: 14px; } }
+
+/* Shared identity: the home page uses violet for navigation and actions. */
+.site-navigation { border-bottom-color: var(--ttw-border); color: var(--ttw-ink); }
+.site-navigation a:focus-visible, .site-navigation button:focus-visible { outline-color: var(--ttw-focus); }
+.site-navigation-main > a:hover, .site-navigation-main > a.is-active,
+.site-navigation-account-panel > a:hover,
+.site-navigation-mobile-panel a:hover, .site-navigation-mobile-panel a.is-active { color: var(--ttw-brand); }
+.site-navigation-signup, .site-navigation a.site-navigation-signup { background: var(--ttw-brand); }
+.site-navigation-signup:hover, .site-navigation a.site-navigation-signup:hover { background: #4e43ae; }
+.site-navigation-mobile-panel a:hover, .site-navigation-mobile-panel a.is-active,
+.site-navigation-account-panel > a:hover { background: var(--ttw-brand-soft); }

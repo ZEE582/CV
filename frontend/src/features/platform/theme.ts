@@ -37,15 +37,15 @@ export const tokens = (mode: ColorMode): TokenColors => ({
           100: "#d0d1d5",
         },
         greenAccent: {
-          900: "#0f2922",
-          800: "#1e5245",
-          700: "#2e7c67",
-          600: "#3da58a",
-          500: "#4cceac",
-          400: "#70d8bd",
-          300: "#94e2cd",
-          200: "#b7ebde",
-          100: "#dbf5ee",
+          900: "#f0eeff",
+          800: "#d0ccfb",
+          700: "#aaa4f5",
+          600: "#9188f0",
+          500: "#766be8",
+          400: "#9188f0",
+          300: "#aaa4f5",
+          200: "#d0ccfb",
+          100: "#f0eeff",
         },
         redAccent: {
           900: "#2c100f",
@@ -94,15 +94,15 @@ export const tokens = (mode: ColorMode): TokenColors => ({
           900: "#d0d1d5",
         },
         greenAccent: {
-          100: "#0f2922",
-          200: "#1e5245",
-          300: "#2e7c67",
-          400: "#3da58a",
-          500: "#4cceac",
-          600: "#70d8bd",
-          700: "#94e2cd",
-          800: "#b7ebde",
-          900: "#dbf5ee",
+          100: "#342780",
+          200: "#4e43ae",
+          300: "#5f52d9",
+          400: "#6256d9",
+          500: "#5f52d9",
+          600: "#8980ee",
+          700: "#aaa4f5",
+          800: "#d0ccfb",
+          900: "#f0eeff",
         },
         redAccent: {
           100: "#2c100f",
@@ -134,32 +134,30 @@ export const themeSettings = (mode: ColorMode) => {
   return {
     palette: {
       mode: mode,
-      ...(mode === "dark"
-        ? {
-            primary: { main: colors.primary[500] },
-            secondary: { main: colors.greenAccent[500] },
-            neutral: {
-              dark: colors.grey[700],
-              main: colors.grey[500],
-              light: colors.grey[100],
-            },
-background: {
-  default: mode === "dark" ? colors.primary[500] : "#fcfcfc",
-},          }
-        : {
-            primary: { main: colors.primary[500] },
-            secondary: { main: colors.greenAccent[500] },
-            neutral: {
-              dark: colors.grey[700],
-              main: colors.grey[500],
-              light: colors.grey[100],
-            },
-            background: { default: "#fcfcfc" },
-          }),
+      primary: {
+        main: mode === "dark" ? "#a79eff" : "#5f52d9",
+        light: mode === "dark" ? "#c9c3ff" : "#8d83ed",
+        dark: mode === "dark" ? "#766be8" : "#4e43ae",
+        contrastText: "#ffffff",
+      },
+      secondary: { main: mode === "dark" ? "#f0a6d9" : "#b951a9", light: "#f2b7df", dark: "#963b8a", contrastText: "#ffffff" },
+      success: { main: mode === "dark" ? "#69c99d" : "#267b58" },
+      error: { main: mode === "dark" ? "#f08e9b" : "#b93549" },
+      text: { primary: mode === "dark" ? "#f5f3ff" : "#1a1a2e", secondary: mode === "dark" ? "#c1bdd3" : "#66748c" },
+      divider: mode === "dark" ? "#3c3852" : "#e7e4f5",
+      neutral: {
+        dark: colors.grey[700],
+        main: colors.grey[500],
+        light: colors.grey[100],
+      },
+      background: {
+        default: mode === "dark" ? "#1b1928" : "#fbfaff",
+        paper: mode === "dark" ? "#242133" : "#ffffff",
+      },
     },
     typography: {
-      fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-      fontSize: 12,
+      fontFamily: ["Tajawal", "Segoe UI", "sans-serif"].join(","),
+      fontSize: 14,
       h1: { fontSize: 40 },
       h2: { fontSize: 32 },
       h3: { fontSize: 24 },
@@ -179,7 +177,7 @@ export const ColorModeContext = createContext<ColorModeContextType>({
 });
 
 export const useMode = (): [Theme, ColorModeContextType] => {
-  const [mode, setMode] = useState<ColorMode>("dark");
+  const [mode, setMode] = useState<ColorMode>("light");
 
   const colorMode = useMemo(
     () => ({

@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+  --ttw-brand: #5f52d9;
+  --ttw-brand-strong: #4f46e5;
+  --ttw-brand-soft: #f2f0ff;
+  --ttw-pink: #d276c5;
+  --ttw-ink: #1a1a2e;
+  --ttw-muted: #66748c;
+  --ttw-border: #e7e4f5;
+  --ttw-surface: #ffffff;
+  --ttw-surface-soft: #fbfaff;
+  --ttw-focus: #8d83ed;
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -20,18 +34,18 @@
     font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
     -webkit-font-smoothing: antialiased;
     direction: rtl;
-    color: #1a1a2e;
+    color: var(--ttw-ink);
   }
 
   /* ── خلفية الشبكة المتدرجة المخصصة ── */
   #root {
     min-height: 100vh;
-    background: #ffffff;
+    background: var(--ttw-surface);
     background-image:
-      radial-gradient(ellipse 60% 50% at 6% 15%, rgba(183, 176, 255, 0.28) 0%, transparent 65%),
-      radial-gradient(ellipse 52% 60% at 95% 85%, rgba(255, 176, 210, 0.22) 0%, transparent 65%),
-      linear-gradient(rgba(107, 95, 230, 0.065) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(107, 95, 230, 0.065) 1px, transparent 1px);
+      radial-gradient(ellipse 60% 50% at 6% 15%, rgba(183, 176, 255, 0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 52% 60% at 95% 85%, rgba(255, 176, 210, 0.16) 0%, transparent 65%),
+      linear-gradient(rgba(107, 95, 230, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(107, 95, 230, 0.055) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 44px 44px, 44px 44px;
   }
 
@@ -42,7 +56,7 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #d0d0e8;
+    background: #c9c3e9;
     border-radius: 99px;
   }
 }
